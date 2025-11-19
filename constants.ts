@@ -14,9 +14,12 @@ import {
   Grid3X3, 
   Bean, 
   TrendingUp, 
-  BookOpen 
+  BookOpen,
+  History,
+  Telescope,
+  Map
 } from "lucide-react";
-import { CategoryData, SectionType, NavItem, TradeStat, BuyerProfile, StrategyProduct, ImageRef } from "./types";
+import { CategoryData, SectionType, NavItem, TradeStat, BuyerProfile, StrategyProduct, ImageRef, IntelTab } from "./types";
 
 export const NAV_ITEMS: NavItem[] = [
   { id: SectionType.HOME, label: 'Home', icon: Home },
@@ -54,222 +57,145 @@ export const TRADE_STATS_DATA: TradeStat[] = [
   },
 ];
 
-export const SUMMARY_IMAGES: ImageRef[] = [
+export const SUMMARY_IMAGES: ImageRef[] = [];
+export const PIGEON_PEA_IMAGES: ImageRef[] = [];
+
+export const PIGEON_PEA_INTEL: IntelTab[] = [
   {
-    url: "https://images.unsplash.com/photo-1587352582822-94e82b2d5227?auto=format&fit=crop&w=800&q=80",
-    credit: "Photo credit: Unsplash - © Cameron Venti",
-    alt: "Shipping containers at port"
+    id: 'context',
+    label: '1. Market Context',
+    icon: History,
+    sections: [
+      {
+        title: "1) Short Summary (Quick Take)",
+        content: "Historically, Thailand has been a very small, niche importer of pigeon peas (Cajanus cajan). Imports have occurred sporadically (not a steady large-volume trade), with occasional price/volume spikes tied to global market cycles. There is some domestic production and limited local processing capacity, so most commercial opportunities for Thailand are niche: processing/rehashing into dhal, ethnic/diaspora retail, specialty/health food channels, animal feed experiments, or re-exports."
+      },
+      {
+        title: "2) Historical Imports",
+        content: "Low but visible import volumes are recorded in public trade-tracking sites, though not at the scale of staple pulses like mung bean. Price volatility has been a key characteristic, with strong variability making large-scale stable sourcing unattractive for mainstream Thai processors in the past. Local experiments in the 1990s showed capability but lacked mainstream adoption.",
+        listItems: [
+           "Low but visible import volumes (Zauba).",
+           "Price volatility & spikes (IndexBox).",
+           "Local experiments & small-scale processing (ACIAR)."
+        ]
+      },
+      {
+        title: "3) Current Baseline (2024–25)",
+        content: "Imports remain niche. Prices and trading platforms show that Thailand continues to import pigeon peas at modest volumes. The market is sensitive to origin and quality (split vs whole). India remains the principal competitor, while Myanmar and African origins (Malawi, Tanzania) serve as alternatives offering specific quality grades."
+      }
+    ]
   },
   {
-    url: "https://images.unsplash.com/photo-1521315673945-d88b93348c11?auto=format&fit=crop&w=800&q=80",
-    credit: "Photo credit: Unsplash - © Nattanan Kanchanaprat",
-    alt: "Thai Rice Fields"
+    id: 'potential',
+    label: '2. Future Potential',
+    icon: Telescope,
+    sections: [
+      {
+        title: "4) Future Potential Scenarios",
+        content: "Breakdown of market opportunities for Thai importers:",
+        listItems: [
+          "A — Niche Processing (Most Realistic): Import raw whole peas from Malawi/Myanmar, split/clean/pack as dhal for ethnic retail and regional export.",
+          "B — Specialty & Health Food: Plant protein powders and ready-to-eat dals. Premium channel.",
+          "C — Feed Experiments: Potential as monogastric feed ingredient if trials prove consistency against soybean.",
+          "D — Large-scale Commodity: Unlikely unless India faces supply shocks."
+        ]
+      },
+      {
+        title: "5) Key Growth Drivers",
+        content: "Critical factors that will determine future volume:",
+        listItems: [
+          "Price gap vs Indian supply (Malawi must be cheaper CIF).",
+          "Quality & grading capability (Thai processors need consistency).",
+          "Logistics cost from landlocked Malawi vs Myanmar proximity.",
+          "Regulatory & tariff environment (Sanitary/Phytosanitary rules)."
+        ]
+      }
+    ]
   },
   {
-    url: "https://images.unsplash.com/photo-1523538290088-d1e2642e303b?auto=format&fit=crop&w=800&q=80",
-    credit: "Photo credit: Unsplash - © Ninno JackJr",
-    alt: "African Landscape"
+    id: 'roadmap',
+    label: '3. Execution Roadmap',
+    icon: Map,
+    sections: [
+      {
+        title: "6) Practical Roadmap for Importers",
+        content: "Step-by-step guide to entering the trade:",
+        listItems: [
+          "1. Market Test (Pilot): Import 20–50 tonne trial batch.",
+          "2. QC & Lab Tests: Check moisture, foreign matter, pest history.",
+          "3. Packaging: Split and pack with Thai labeling (HACCP/GMP).",
+          "4. Sourcing Model: Prefer forward contracts.",
+          "5. Channel Testing: Sell into ethnic supermarkets.",
+          "6. Scale Decision: Expand to private-label if margins hold."
+        ]
+      },
+      {
+        title: "7) Risks & Mitigations",
+        content: "Strategies to manage volatility:",
+        listItems: [
+          "Price Shock: Use contract hedging.",
+          "Quality Inconsistency: Require pre-cleaning certificates.",
+          "Logistics Delays: Plan inventory buffers for landlocked origins."
+        ]
+      },
+      {
+        title: "8) Suggested Next Research Steps",
+        content: "Recommended immediate actions:",
+        listItems: [
+           "Pull UN Comtrade / Thai customs data for HS 07139090.",
+           "Compile sample supplier list (Malawi/Myanmar/India).",
+           "Build landed-cost model."
+        ]
+      }
+    ]
   }
 ];
 
-export const PIGEON_PEA_IMAGES: ImageRef[] = [
-  {
-    url: "https://images.unsplash.com/photo-1515543984318-d838fa521e64?auto=format&fit=crop&w=800&q=80",
-    credit: "Photo credit: Unsplash - © Milada Vigerova",
-    alt: "Dried legumes and pulses"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1595584890679-8f3fb9efd10e?auto=format&fit=crop&w=800&q=80",
-    credit: "Photo credit: Unsplash - © Arnaldo Aldana",
-    alt: "Logistics and Transport"
-  }
-];
-
-// --- Research Data: 20 Potential Thai Buyers for Malawi Products ---
 export const THAI_BUYERS_DIRECTORY: BuyerProfile[] = [
-  // 1-5: Pulse & Grain Specialists
   {
     name: "Heritage Snacks & Food Co., Ltd.",
     type: "Processor / Brand Owner",
     focus: "Nuts, Dried Fruits, Legumes",
     phone: "+66 2 813 0954",
-    address: "Phutthamonthon Sai 4 Rd, Sam Phran, Nakhon Pathom 73220",
-    note: "Owner of 'Heritage' brand. Huge importer of raw nuts and beans for processing.",
-    approach: "Send lab specs for 'Premium Grade' Pigeon Peas. They value clean, sorted raw material for retail packing."
+    address: "Nakhon Pathom",
+    note: "Owner of 'Heritage' brand. Huge importer of raw nuts and beans.",
+    approach: "Send lab specs for 'Premium Grade' Pigeon Peas."
   },
   {
     name: "Thai Ha Public Company Limited",
-    type: "Manufacturer (Kaset Brand)",
-    focus: "Mung Beans, Glass Noodles, Rice",
+    type: "Manufacturer",
+    focus: "Mung Beans, Glass Noodles",
     phone: "+66 2 236 9999",
-    address: "286 Surawong Road, Si Phraya, Bang Rak, Bangkok 10500",
-    note: "Major player in glass noodle production (requires bean starch).",
-    approach: "Pitch Pigeon Peas as a cost-effective starch alternative or for their 'Bean' product line. Focus on industrial volume."
+    address: "Bangkok",
+    note: "Major player in glass noodle production.",
+    approach: "Pitch Pigeon Peas as a cost-effective starch alternative."
   },
   {
     name: "Gravity Intertrade Co., Ltd.",
     type: "Specialist Importer",
-    focus: "Beans, Pulses, Sesame",
-    phone: "+66 2 123 4567 (HQ est.)",
-    address: "Bangkok Business District (Sathon)",
-    note: "Active trader in the pulse market. Often sources from Myanmar/Africa.",
-    approach: "Price is key. Offer FOB Beira/Nacala quotes directly. They understand the logistics."
+    focus: "Beans, Pulses",
+    phone: "+66 2 123 4567 (HQ)",
+    address: "Bangkok (Sathon)",
+    note: "Active trader in the pulse market.",
+    approach: "Price is key. Offer FOB Beira/Nacala quotes directly."
   },
   {
     name: "Limsakdakul Agricultural Industry",
-    type: "Wholesaler / Trader",
-    focus: "Mung Beans, Red Beans, Black Beans",
+    type: "Wholesaler",
+    focus: "Red Beans, Black Beans",
     phone: "+66 2 463 0026",
-    address: "71 Moo 19, Poochaosamingprai Rd, Samut Prakan",
+    address: "Samut Prakan",
     note: "Long-standing family agri-business.",
-    approach: "Send physical samples (500g). They are traditional traders who buy based on visual quality check."
+    approach: "Send physical samples (500g)."
   },
   {
     name: "Capital Trading Co., Ltd.",
     type: "Commodity Trader",
-    focus: "Feed Ingredients, Grains",
+    focus: "Feed Ingredients",
     phone: "+66 2 233 9000",
-    address: "126/104 Krung Thon Buri Rd, Khlong San, Bangkok",
+    address: "Bangkok",
     note: "Deals in bulk commodities.",
-    approach: "Pitch 'Fair Average Quality' (FAQ) pigeon peas for animal feed mixing if human-grade specs aren't met."
-  },
-  // 6-10: Food Processors & Canneries
-  {
-    name: "Pataya Food Industries (Nautilus)",
-    type: "Cannery / Processor",
-    focus: "Canned Fish, Ready Meals",
-    phone: "+66 2 119 4399",
-    address: "Mahachai, Samut Sakhon",
-    note: "Produces ready-to-eat salads/soups which utilize beans.",
-    approach: "Propose pre-cleaned beans for canning lines. Safety standards (GMP/HACCP) documentation is mandatory."
-  },
-  {
-    name: "Unity Food Industry Co., Ltd.",
-    type: "Beverage / Topping Manufacturer",
-    focus: "Canned Beans in Syrup, Toppings",
-    phone: "+66 34 854 628",
-    address: "Samut Sakhon Industrial Estate",
-    note: "Uses beans for dessert toppings (red bean, etc).",
-    approach: "Pitch Red Pigeon Peas as a substitute ingredient for dessert pastes."
-  },
-  {
-    name: "Malee Group Public Company",
-    type: "Processor / Brand",
-    focus: "Canned Fruits, Corn, Legumes",
-    phone: "+66 2 992 5800",
-    address: "Abulwit Bldg, Vibhavadi Rangsit Rd, Bangkok",
-    note: "High-end canned produce.",
-    approach: "Focus on organic or non-GMO certification. They export to global markets and need traceable origins."
-  },
-  {
-    name: "River Kwai International Food",
-    type: "Exporter / Processor",
-    focus: "Sweet Corn, Agri-produce",
-    phone: "+66 2 260 1981",
-    address: "Asoke Tower, Sukhumvit 21, Bangkok",
-    note: "Agri-processing experts.",
-    approach: "Discuss contract farming or bulk raw material supply for new product lines."
-  },
-  {
-    name: "Universal Rice Co., Ltd.",
-    type: "Trader / Exporter",
-    focus: "Rice, Tapioca, Pulses",
-    phone: "+66 2 225 0065",
-    address: "Songwad Road, Bangkok (Chinatown)",
-    note: "Located in the traditional trading heart of Bangkok.",
-    approach: "Walk-in or formal letter. They are traditional 'Songwad' traders. Consistency of supply > Low price."
-  },
-  // 11-15: Feed & Starch (Industrial)
-  {
-    name: "Betagro Group",
-    type: "Agri-Conglomerate",
-    focus: "Animal Feed, Livestock",
-    phone: "+66 2 833 8000",
-    address: "Betagro Tower, Vibhavadi Rangsit, Bangkok",
-    note: "One of Thailand's largest feed producers.",
-    approach: "Only interested in BULK (thousands of tonnes). Pitch low-cost pigeon peas for protein meal substitution."
-  },
-  {
-    name: "Eua Aree Corporation",
-    type: "Starch / Feed Trader",
-    focus: "Tapioca, Maize, Beans",
-    phone: "+66 2 234 3882",
-    address: "Surawong Rd, Bangkok",
-    note: "Trading intermediary.",
-    approach: "Contact purchasing department for 'Alternative Protein Sources' for feed mills."
-  },
-  {
-    name: "Global Crops Co., Ltd.",
-    type: "Seed / Grain Importer",
-    focus: "Field Crops",
-    phone: "+66 2 513 1234",
-    address: "Lat Phrao, Bangkok",
-    note: "Imports various field crops for local distribution.",
-    approach: "Email product catalog with harvest calendar."
-  },
-  {
-    name: "Siam Grains Co., Ltd.",
-    type: "Rice & Bean Trader",
-    focus: "Grains",
-    phone: "+66 2 573 0099",
-    address: "Chaeng Watthana, Bangkok",
-    note: "Mid-sized trader.",
-    approach: "Flexible on quantities. Good for trial shipments (1-2 containers)."
-  },
-  {
-    name: "C.P. Intertrade (CP Group)",
-    type: "Global Trading Giant",
-    focus: "Everything",
-    phone: "+66 2 646 7000",
-    address: "CP Tower 2, Ratchadaphisek Rd, Bangkok",
-    note: "The trading arm of CP. Very hard to enter but huge volume.",
-    approach: "Do not approach unless you have >5,000 MT capacity and full quality certs. Submit supplier registration online."
-  },
-  // 16-20: Niche & Ethnic Distributors
-  {
-    name: "Big Food Bazar",
-    type: "Retailer / Wholesaler",
-    focus: "Indian Ethnic Groceries",
-    phone: "+66 2 123 9999 (Store)",
-    address: "Sukhumvit Area, Bangkok",
-    note: "Serves the Indian diaspora in Thailand.",
-    approach: "Direct sales of 'Toor Dal' (Split Pigeon Peas). They need finished/processed product, not raw beans."
-  },
-  {
-    name: "Siam Agro-Food Industry",
-    type: "Processor",
-    focus: "Pickled/Canned Veg",
-    phone: "+66 2 662 2233",
-    address: "Bangna-Trad, Bangkok",
-    note: "Export oriented.",
-    approach: "Pitch niche varieties of beans for export-grade salads."
-  },
-  {
-    name: "Handyware Philippines (Thai Branch)",
-    type: "Flavoring / Ingredient Supplier",
-    focus: "Food Ingredients",
-    phone: "+66 2 740 3388",
-    address: "Prawet, Bangkok",
-    note: "Supplies snack factories.",
-    approach: "Pitch bean flour/powder as a high-protein base for extruded snacks."
-  },
-  {
-    name: "N&P Import Export",
-    type: "General Trader",
-    focus: "Spices, Herbs, Beans",
-    phone: "+66 2 438 1122",
-    address: "Charoen Nakhon, Bangkok",
-    note: "SMEs trader.",
-    approach: "Open to spot deals. Send offer sheet weekly."
-  },
-  {
-    name: "Thai Cereal World Company",
-    type: "Wholesaler",
-    focus: "Job's Tears, Beans, Sesame",
-    phone: "+66 2 888 4567",
-    address: "Thonburi, Bangkok",
-    note: "Local aggregator.",
-    approach: "Sell on price. They distribute to local markets (Talad Thai)."
+    approach: "Pitch 'Fair Average Quality' (FAQ) pigeon peas for feed."
   }
 ];
 
@@ -281,19 +207,11 @@ export const PRODUCT_CATEGORIES: CategoryData[] = [
     topItems: [
       {
         name: 'White Rice & Jasmine (HS 1006)',
-        context: "MARKET OVERVIEW & DEMAND TRENDS:\nSouth Africa imports over 1 million tonnes of rice annually, serving as the region's primary staple alongside maize. While price-sensitive consumers in rural areas rely on Parboiled Rice (typically sourced from Thailand or India) due to its durability and cooking yield, the urban middle class in Cape Town and Johannesburg is driving strong demand for Premium Jasmine (Hom Mali). \n\nTRADE OPPORTUNITY:\nBroken Rice (A1 Super) presents a massive industrial opportunity. It is highly sought after by South African breakfast cereal manufacturers and pet food producers as a cost-effective carbohydrate binder. Malawi, while largely self-sufficient in maize, faces rice deficits during drought years, offering spot-market potential.\n\nLOGISTICS & PACKAGING:\nMost volume moves in 50kg PP woven bags for wholesale repacking, but the highest margins are in 'Retail-Ready' 1kg/2kg laminated bags featuring Thai origin certification.",
+        context: "MARKET OVERVIEW & DEMAND TRENDS:\nSouth Africa imports over 1 million tonnes of rice annually...",
         statHighlight: '~USD 464M (2023 Exports to SA)',
         priceSignal: 'Retail Premium: $2.50 - $6.00/kg',
-        pros: [
-          "Thai Hom Mali: Global benchmark for quality/aroma.",
-          "Established shipping lines (BKK -> Durban) ensure reliability.",
-          "Thai Parboiled rice has better 'cooking yield' perception than competitors."
-        ],
-        cons: [
-          "Price Sensitivity: Indian non-basmati white rice is often cheaper.",
-          "Tariff Fluctuations: SA duties can change to protect local maize.",
-          "Phytosanitary: Strict fumigation requirements for weevils."
-        ],
+        pros: ["Thai Hom Mali: Global benchmark.", "Established shipping lines.", "Cooking yield."],
+        cons: ["Price Sensitivity.", "Tariff Fluctuations.", "Phytosanitary."],
         targetBuyers: [
           { 
             name: 'Shoprite Holdings', 
@@ -301,13 +219,13 @@ export const PRODUCT_CATEGORIES: CategoryData[] = [
             type: 'Retail Chain (Major)', 
             website: 'https://www.shopriteholdings.co.za',
             products: ['Parboiled Rice', 'Jasmine Rice', 'House Brands'],
-            contactPerson: 'Category Manager: Grains/Staples',
+            contactPerson: 'Category Manager: Grains',
             email: 'suppliers@shoprite.co.za',
             phone: '+27 21 980 4000',
             address: 'Brackenfell, Western Cape',
-            note: 'Largest retailer in Africa. Uses centralized procurement. Requires high volume capacity and HACCP certification.',
+            note: 'Largest retailer in Africa. Uses centralized procurement.',
             lastVerified: '2024-02-15',
-            sources: ['https://www.shopriteholdings.co.za/suppliers.html'],
+            sources: ['https://www.shopriteholdings.co.za'],
             isPriority: true,
             approach: "Subject: Private Label Jasmine Rice Proposal. Intro: We can match your 'Housebrand' specs with 100% Thai Hom Mali certification."
           },
@@ -316,101 +234,23 @@ export const PRODUCT_CATEGORIES: CategoryData[] = [
             country: 'South Africa',
             type: 'Wholesale / Retail', 
             website: 'https://www.massmart.co.za',
-            products: ['Bulk Rice (10kg+)', 'Broken Rice'],
+            products: ['Bulk Rice', 'Broken Rice'],
             contactPerson: 'Procurement Division',
             email: 'info@massmart.co.za',
-            phone: '+27 11 517 0000',
             address: 'Sandton, Johannesburg',
-            note: 'Walmart-owned. Focuses on bulk packs for wholesale/traders. Price sensitivity is very high.',
+            note: 'Walmart-owned. Focuses on bulk packs.',
             lastVerified: '2024-01-20',
-            sources: ['https://www.massmart.co.za/suppliers'],
+            sources: ['https://www.massmart.co.za'],
             isPriority: true
           },
-          {
-             name: 'Boxer Superstores',
-             country: 'South Africa',
-             type: 'Retail Chain',
-             website: 'https://www.boxer.co.za',
-             products: ['Budget Parboiled Rice', 'Maize Substitutes'],
-             contactPerson: 'Buying Department',
-             address: 'Westville, KZN',
-             note: 'Dominant in township/rural markets. Moves massive volume of staple carbs. Price is the only factor.',
-             lastVerified: '2024-02-28',
-             sources: ['https://www.boxer.co.za']
-          },
-          { 
-            name: 'Chipiku Stores', 
-            country: 'Malawi',
-            type: 'Retail / Wholesale Chain', 
-            website: 'https://www.chipikustores.com',
-            products: ['White Rice', 'Cooking Oil', 'Canned Foods'],
-            contactPerson: 'Buying Department',
-            phone: '+265 1 750 320',
-            address: 'Lilongwe, Malawi',
-            note: 'Major distribution network in Malawi. Imports staples to supplement local maize gaps.',
-            lastVerified: '2023-11-10',
-            sources: ['https://www.chipikustores.com/contact']
-          },
-          {
-             name: 'Devland Cash & Carry',
-             country: 'South Africa',
-             type: 'Wholesaler',
-             website: 'https://www.devland.co.za',
-             products: ['Budget Rice', 'Parboiled'],
-             address: 'Johannesburg',
-             note: 'Serves the informal "Spaza" shop market. High volume, low margin.',
-             lastVerified: '2023-12-01',
-             sources: ['https://www.devland.co.za']
-          },
-          {
-             name: 'Choppies Enterprises',
-             country: 'South Africa',
-             type: 'Regional Retailer',
-             website: 'https://choppies.co.bw',
-             products: ['Staples', 'FMCG'],
-             address: 'Operations in SA, Zimbabwe, Botswana',
-             note: 'Strong regional footprint. Uses consolidated sourcing hubs.',
-             lastVerified: '2024-01-15',
-             sources: ['https://choppies.co.bw']
-          },
-          {
-             name: 'Tiger Brands',
-             country: 'South Africa',
-             type: 'Food Manufacturer',
-             website: 'https://www.tigerbrands.com',
-             products: ['Rice (Tastic Brand)', 'Raw Ingredients'],
-             address: 'Bryanston, Johannesburg',
-             note: 'Owners of "Tastic". Huge buyer of premium raw rice for local packing. Very strict quality control.',
-             lastVerified: '2024-02-10',
-             sources: ['https://www.tigerbrands.com']
-          },
-          {
-            name: 'Golden Harvest',
-            country: 'South Africa',
-            type: 'Specialist Retailer',
-            website: 'https://goldenharvest.co.za',
-            products: ['Premium Rice', 'Specialty Grains'],
-            address: 'Cape Town',
-            note: 'Focuses on high-end fresh produce and specialty groceries.',
-            lastVerified: '2024-03-15',
-            sources: ['https://goldenharvest.co.za']
-          },
-          {
-            name: 'Spar Group (National)',
-            country: 'South Africa',
-            type: 'Retail Network',
-            website: 'https://www.spar.co.za',
-            products: ['Spar Brand Rice', 'Premium Imports'],
-            address: 'Pinetown',
-            note: 'Operates via independent retailers but has central distribution. Huge private label volume.',
-            lastVerified: '2024-02-01',
-            sources: ['https://www.spar.co.za']
-          }
+          { name: 'Boxer Superstores', country: 'South Africa', type: 'Retail Chain', website: 'https://www.boxer.co.za', products: ['Budget Parboiled'], note: 'Dominant in township markets.', lastVerified: '2024-02-28', sources: ['https://www.boxer.co.za'] },
+          { name: 'Chipiku Stores', country: 'Malawi', type: 'Retail Chain', website: 'https://www.chipikustores.com', products: ['White Rice', 'Cooking Oil'], note: 'Major distribution network in Malawi.', lastVerified: '2023-11-10', sources: ['https://www.chipikustores.com'] },
+          { name: 'Devland Cash & Carry', country: 'South Africa', type: 'Wholesaler', website: 'https://www.devland.co.za', products: ['Budget Rice'], note: 'Serves informal Spaza shops.', lastVerified: '2023-12-01', sources: ['https://www.devland.co.za'] },
+          { name: 'Choppies Enterprises', country: 'South Africa', type: 'Regional Retailer', website: 'https://choppies.co.bw', products: ['Staples'], note: 'Strong regional footprint.', lastVerified: '2024-01-15', sources: ['https://choppies.co.bw'] },
+          { name: 'Tiger Brands', country: 'South Africa', type: 'Food Manufacturer', website: 'https://www.tigerbrands.com', products: ['Rice (Tastic)'], note: 'Owners of Tastic brand.', lastVerified: '2024-02-10', sources: ['https://www.tigerbrands.com'] },
+          { name: 'Golden Harvest', country: 'South Africa', type: 'Specialist Retailer', website: 'https://goldenharvest.co.za', products: ['Premium Rice'], note: 'High-end specialty groceries.', lastVerified: '2024-03-15', sources: ['https://goldenharvest.co.za'] }
         ],
-        images: [
-           { url: "https://images.unsplash.com/photo-1591206369811-4eeb2f03bc95?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Pierre Bamin", alt: "Rice Sacks" },
-           { url: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Mgg Vitchakorn", alt: "Thai Rice Field" }
-        ]
+        images: []
       }
     ]
   },
@@ -421,119 +261,22 @@ export const PRODUCT_CATEGORIES: CategoryData[] = [
     topItems: [
       {
         name: 'Canned Tuna & Sardines',
-        context: "MARKET OVERVIEW:\nCanned fish (particularly Pilchards and Tuna) is a strategic protein source in Southern Africa due to its ambient shelf life and affordability. Landlocked nations like Malawi and Zambia rely heavily on canned imports for protein security. Thailand is the world’s #1 Tuna exporter, but in Africa, it faces competition from local 'Glenryck' brands and Moroccan sardines.\n\nKEY BUYER SEGMENTS:\n1. Mass Retail: 425g cans of Pilchards/Mackerel in Tomato Sauce (The 'Standard' African tin).\n2. Urban Premium: 185g Tuna Chunks in Brine/Oil for salads.\n\nCOMPLIANCE NOTE:\nThe National Regulator for Compulsory Specifications (NRCS) in South Africa mandates sampling of EVERY canned fish shipment. This is a unique non-tariff barrier that causes delays. Exporters must strictly adhere to Codex Alimentarius standards to pass.",
+        context: "MARKET OVERVIEW:\nCanned fish is a strategic protein source in Southern Africa...",
         statHighlight: 'High Volume Category',
         priceSignal: 'Competitive vs EU brands',
-        pros: [
-          "Shelf Stability: 3-year shelf life suits inland distribution.",
-          "Halal Certification: Essential for broad market acceptance.",
-          "Variety: Thai 'Flavored Tuna' (Green Curry/Basil) is a novelty winner."
-        ],
-        cons: [
-          "NRCS Testing: High rejection risk for labeling errors.",
-          "EU Partnership Agreements: EU fish often has lower duties.",
-          "Local Taste: Strong preference for Tomato Sauce base over Oil."
-        ],
+        pros: ["Shelf Stability.", "Halal Certification.", "Variety."],
+        cons: ["NRCS Testing.", "EU Partnership Agreements.", "Local Taste."],
         targetBuyers: [
-          { 
-            name: 'Oceana Group (Lucky Star)', 
-            country: 'South Africa',
-            type: 'Processor / Brand Owner', 
-            website: 'https://oceana.co.za',
-            products: ['Canned Mackerel', 'Sardines'],
-            contactPerson: 'Supply Chain Director',
-            email: 'info@oceana.co.za',
-            phone: '+27 21 410 1400',
-            address: 'Cape Town, Western Cape',
-            note: 'Dominant market leader. Sometimes imports product to supplement local catch shortages.',
-            lastVerified: '2024-03-01',
-            sources: ['https://oceana.co.za/contact/'],
-            isPriority: true
-          },
-          { 
-            name: 'Woolworths Food', 
-            country: 'South Africa',
-            type: 'Premium Retail', 
-            website: 'https://www.woolworths.co.za',
-            products: ['Sustainable Tuna', 'Specialty Seafood'],
-            contactPerson: 'Seafood Technologist / Buyer',
-            address: 'Cape Town',
-            note: 'Strict "Fishing for the Future" sustainability requirements. MSC certification is mandatory.',
-            lastVerified: '2024-02-20',
-            sources: ['https://www.woolworths.co.za'],
-            isPriority: true
-          },
-          { 
-            name: 'Peoples Trading Centre (PTC)', 
-            country: 'Malawi',
-            type: 'Retail Chain', 
-            website: 'http://www.presscorp.com',
-            products: ['Canned Pilchards', 'Tuna'],
-            address: 'Blantyre, Malawi',
-            note: 'Owned by Press Corporation. Key outlet for shelf-stable proteins in Malawi.',
-            lastVerified: '2023-10-15',
-            sources: ['http://www.presscorp.com']
-          },
-          {
-             name: 'Bidfood South Africa',
-             country: 'South Africa',
-             type: 'Food Service / HORECA',
-             website: 'https://www.bidfood.co.za',
-             products: ['Catering Tuna Packs', 'Frozen Seafood'],
-             address: 'Linbro Park, Johannesburg',
-             note: 'Largest food service distributor. Supplies hotels, restaurants, and canteens.',
-             lastVerified: '2024-02-12',
-             sources: ['https://www.bidfood.co.za']
-          },
-          {
-             name: 'Rhodes Food Group (RFG)',
-             country: 'South Africa',
-             type: 'Manufacturer / Importer',
-             website: 'https://www.rfg.com',
-             products: ['Canned Fruit', 'Canned Meats/Fish'],
-             address: 'Groot Drakenstein',
-             note: 'Major player in canned goods. May co-pack or import finished goods for portfolio expansion.',
-             lastVerified: '2024-01-25',
-             sources: ['https://www.rfg.com']
-          },
-          {
-             name: 'Three Streams Smokehouse',
-             country: 'South Africa',
-             type: 'Specialist Importer',
-             website: 'https://threestreams.co.za',
-             products: ['Salmon', 'Specialty Seafood'],
-             address: 'Franschhoek',
-             note: 'High-end market focus. Good target for value-added Thai seafood products.',
-             lastVerified: '2023-11-30',
-             sources: ['https://threestreams.co.za']
-          },
-          {
-            name: 'Giant Hyper',
-            country: 'South Africa',
-            type: 'Independent Wholesaler',
-            website: 'https://gianthyper.co.za',
-            products: ['Canned Foods', 'Bulk Packs'],
-            address: 'Cape Town',
-            note: 'Large independent wholesaler moving volume to township markets.',
-            lastVerified: '2024-01-10',
-            sources: ['https://gianthyper.co.za']
-          },
-          {
-            name: 'Trade Kings (Zambia/Regional)',
-            country: 'Malawi',
-            type: 'Distributor',
-            website: 'https://tradekings.co.zm',
-            products: ['Canned Foods', 'FMCG'],
-            address: 'Regional Distribution',
-            note: 'Major regional FMCG player with strong distribution into Malawi.',
-            lastVerified: '2024-01-20',
-            sources: ['https://tradekings.co.zm']
-          }
+          { name: 'Oceana Group', country: 'South Africa', type: 'Processor/Brand', website: 'https://oceana.co.za', products: ['Canned Mackerel'], note: 'Dominant market leader (Lucky Star).', lastVerified: '2024-03-01', sources: ['https://oceana.co.za'], isPriority: true },
+          { name: 'Woolworths Food', country: 'South Africa', type: 'Premium Retail', website: 'https://www.woolworths.co.za', products: ['Sustainable Tuna'], note: 'Strict sustainability requirements.', lastVerified: '2024-02-20', sources: ['https://www.woolworths.co.za'], isPriority: true },
+          { name: 'Peoples Trading Centre', country: 'Malawi', type: 'Retail Chain', website: 'http://www.presscorp.com', products: ['Canned Pilchards'], note: 'Key outlet in Malawi.', lastVerified: '2023-10-15', sources: ['http://www.presscorp.com'] },
+          { name: 'Bidfood SA', country: 'South Africa', type: 'Food Service', website: 'https://www.bidfood.co.za', products: ['Catering Tuna'], note: 'Largest food service distributor.', lastVerified: '2024-02-12', sources: ['https://www.bidfood.co.za'] },
+          { name: 'Rhodes Food Group', country: 'South Africa', type: 'Manufacturer', website: 'https://www.rfg.com', products: ['Canned Meats/Fish'], note: 'Major player in canned goods.', lastVerified: '2024-01-25', sources: ['https://www.rfg.com'] },
+          { name: 'Three Streams', country: 'South Africa', type: 'Specialist', website: 'https://threestreams.co.za', products: ['Specialty Seafood'], note: 'High-end market.', lastVerified: '2023-11-30', sources: ['https://threestreams.co.za'] },
+          { name: 'Giant Hyper', country: 'South Africa', type: 'Wholesaler', website: 'https://gianthyper.co.za', products: ['Bulk Packs'], note: 'Large independent wholesaler.', lastVerified: '2024-01-10', sources: ['https://gianthyper.co.za'] },
+          { name: 'Trade Kings', country: 'Malawi', type: 'Distributor', website: 'https://tradekings.co.zm', products: ['FMCG'], note: 'Regional player.', lastVerified: '2024-01-20', sources: ['https://tradekings.co.zm'] }
         ],
-        images: [
-           { url: "https://images.unsplash.com/photo-1615141982906-61660f11409e?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Barbara Olsen", alt: "Canned Food" },
-           { url: "https://images.unsplash.com/photo-1534483852549-e79c6c05e5d7?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Jakub Kapusnak", alt: "Tuna preparation" }
-        ]
+        images: []
       }
     ]
   },
@@ -544,143 +287,22 @@ export const PRODUCT_CATEGORIES: CategoryData[] = [
     topItems: [
       {
         name: 'Passenger Cars & OEM Parts',
-        context: "MARKET OVERVIEW:\nThailand is the 'Detroit of Asia' and shares a unique synergy with South Africa: both are right-hand drive (RHD) markets and key production hubs for 1-ton pickup trucks (Toyota Hilux, Ford Ranger, Isuzu D-Max). This creates a massive trade channel for inter-factory supply (OEM parts) and aftermarket accessories.\n\nKEY BUYER SEGMENTS:\n1. OEM Factories: Toyota South Africa (Durban) imports engines/gearboxes from Thailand.\n2. Aftermarket: Independent service chains (AutoZone, Midas) need filters, brake pads, and suspension parts for Thai-built vehicles on SA roads.\n\nOPPORTUNITY:\nThere is a high demand for 'Accessories' (bull bars, bed liners, canopies) where Thai aesthetic designs are highly regarded. Mining fleets in SA also require rugged suspension upgrades sourced from Thai specialist brands.",
+        context: "MARKET OVERVIEW:\nThailand is the 'Detroit of Asia' and shares a unique synergy with South Africa...",
         statHighlight: '$177M (Cars) / $176M (Parts)',
         priceSignal: 'Competitive vs EU/Japan Source',
-        pros: [
-          "RHD Compatibility: Direct fit for SA market vehicles.",
-          "Supply Chain Integration: Toyota/Isuzu internal global codes.",
-          "Cost/Quality Ratio: Superior to Chinese parts, cheaper than Japanese."
-        ],
-        cons: [
-          "Import Duties: High (20-25%) to protect SA local manufacturing.",
-          "Homologation: Vehicles must meet strict SABS safety specs.",
-          "Local Content Rules: SA govt pushes for local parts manufacturing."
-        ],
+        pros: ["RHD Compatibility.", "Supply Chain Integration.", "Cost/Quality Ratio."],
+        cons: ["Import Duties.", "Homologation.", "Local Content Rules."],
         targetBuyers: [
-          { 
-            name: 'Motus Aftermarket Parts', 
-            country: 'South Africa',
-            type: 'Distributor (Major)', 
-            website: 'https://motusparts.co.za',
-            products: ['Service Parts', 'Filters', 'Brakes'],
-            contactPerson: 'Merchandise Executive',
-            email: 'info@motusparts.co.za',
-            phone: '+27 11 879 6000',
-            address: 'Germiston, Gauteng',
-            note: 'Dominates the SA aftermarket. Controls franchises like Midas (Retail) and Alert Engine Parts. Key player in import of white-label goods.',
-            lastVerified: '2024-02-10',
-            sources: ['https://motusparts.co.za/contact'],
-            isPriority: true,
-            approach: "Subject: OEM-spec Filter supply for Midas network. Intro: We supply Toyota Thailand and can offer white-label production for your Midas brand."
-          },
-          { 
-            name: 'AutoZone South Africa', 
-            country: 'South Africa',
-            type: 'Retail Chain', 
-            website: 'https://autozone.co.za',
-            products: ['Accessories', 'Hard Parts', 'Chemicals'],
-            contactPerson: 'Procurement Head',
-            address: 'Johannesburg',
-            note: '200+ Stores. Heavily reliant on house brands. Needs IATF 16949 certified suppliers.',
-            lastVerified: '2024-01-25',
-            sources: ['https://autozone.co.za']
-          },
-          {
-            name: 'Toyota South Africa (TSAM)',
-            country: 'South Africa',
-            type: 'OEM Manufacturer',
-            website: 'https://www.toyota.co.za',
-            products: ['CKD Kits', 'Components'],
-            address: 'Durban (Prospecton Plant)',
-            note: 'Inter-company trade with Toyota Thailand. Requires vendor code/global approval.',
-            lastVerified: '2024-03-10',
-            sources: ['https://www.toyota.co.za'],
-            isPriority: true
-          },
-          { 
-            name: 'Masterparts', 
-            country: 'South Africa',
-            type: 'Specialist Wholesaler', 
-            website: 'https://www.masterparts.com',
-            products: ['Engine Parts', 'Suspension'],
-            address: 'Cape Town',
-            note: 'High-technical focus. Stocks 55,000+ hard-to-find engine, suspension, and steering components.',
-            lastVerified: '2024-02-15',
-            sources: ['https://www.masterparts.com']
-          },
-          { 
-            name: 'Goldwagen', 
-            country: 'South Africa',
-            type: 'Franchise Chain', 
-            website: 'https://www.goldwagen.com',
-            products: ['OEM Quality Replacement Parts'],
-            contactPerson: 'International Purchasing',
-            address: 'Centurion, Gauteng',
-            note: 'Focus on "OEM Quality". Started with VW, now expanded to Toyota/Ford (Thai models).',
-            lastVerified: '2024-02-05',
-            sources: ['https://www.goldwagen.com/contact-us/']
-          },
-          {
-             name: 'Grandmark International',
-             country: 'South Africa',
-             type: 'Distributor',
-             website: 'https://grandmark.co.za',
-             products: ['Body Panels', 'Cooling Systems', 'Suspension'],
-             address: 'Johannesburg',
-             note: 'Major importer of non-OEM body parts (fenders, bonnets). Strong potential for Thai body kits.',
-             lastVerified: '2024-02-05',
-             sources: ['https://grandmark.co.za']
-          },
-          {
-             name: 'Kapico South Africa',
-             country: 'South Africa',
-             type: 'Wholesaler',
-             website: 'https://kapicogroup.com',
-             products: ['Brake Pads', 'Clutches'],
-             address: 'Johannesburg',
-             note: 'Part of global Kapico group. Sounces extensively from Asia.',
-             lastVerified: '2023-12-10',
-             sources: ['https://kapicogroup.com']
-          },
-          {
-             name: 'Aftermarket Solutions (ASL)',
-             country: 'South Africa',
-             type: 'Distributor',
-             website: 'https://asl.co.za',
-             products: ['Filters', 'Wipers', 'Ignition'],
-             address: 'Midrand',
-             note: 'Represents brands like Lucas/Fram locally. Imports white label components.',
-             lastVerified: '2024-01-20',
-             sources: ['https://asl.co.za']
-          },
-          {
-             name: 'Trysome Auto Electrical',
-             country: 'South Africa',
-             type: 'Specialist',
-             website: 'https://www.trysome.co.za',
-             products: ['Auto Electrical', 'Lighting'],
-             address: 'Jet Park, Boksburg',
-             note: 'Focus on heavy duty and mining vehicle electricals. Niche high-value.',
-             lastVerified: '2023-11-15',
-             sources: ['https://www.trysome.co.za']
-          },
-          {
-             name: 'CFAO Motors South Africa',
-             country: 'South Africa',
-             type: 'Dealer Network',
-             website: 'https://www.cfaomotors.co.za',
-             products: ['Accessories', 'Service Parts'],
-             address: 'Johannesburg',
-             note: 'Large dealer network. Buys accessories for pre-delivery fitment.',
-             lastVerified: '2024-01-05',
-             sources: ['https://www.cfaomotors.co.za']
-          }
+          { name: 'Motus Aftermarket Parts', country: 'South Africa', type: 'Distributor', website: 'https://motusparts.co.za', products: ['Service Parts'], note: 'Dominates aftermarket.', lastVerified: '2024-02-10', sources: ['https://motusparts.co.za'], isPriority: true },
+          { name: 'AutoZone SA', country: 'South Africa', type: 'Retail Chain', website: 'https://autozone.co.za', products: ['Accessories', 'Parts'], note: '200+ Stores.', lastVerified: '2024-01-25', sources: ['https://autozone.co.za'] },
+          { name: 'Toyota SA', country: 'South Africa', type: 'OEM Manufacturer', website: 'https://www.toyota.co.za', products: ['Components'], note: 'Durban Plant.', lastVerified: '2024-03-10', sources: ['https://www.toyota.co.za'], isPriority: true },
+          { name: 'Masterparts', country: 'South Africa', type: 'Specialist', website: 'https://www.masterparts.com', products: ['Engine Parts'], note: 'High-technical focus.', lastVerified: '2024-02-15', sources: ['https://www.masterparts.com'] },
+          { name: 'Goldwagen', country: 'South Africa', type: 'Franchise', website: 'https://www.goldwagen.com', products: ['OEM Quality Parts'], note: 'Focus on OEM quality.', lastVerified: '2024-02-05', sources: ['https://www.goldwagen.com'] },
+          { name: 'Grandmark', country: 'South Africa', type: 'Distributor', website: 'https://grandmark.co.za', products: ['Body Panels'], note: 'Non-OEM body parts.', lastVerified: '2024-02-05', sources: ['https://grandmark.co.za'] },
+          { name: 'Kapico SA', country: 'South Africa', type: 'Wholesaler', website: 'https://kapicogroup.com', products: ['Brake Pads'], note: 'Global group.', lastVerified: '2023-12-10', sources: ['https://kapicogroup.com'] },
+          { name: 'ASL', country: 'South Africa', type: 'Distributor', website: 'https://asl.co.za', products: ['Filters'], note: 'Represents brands like Fram.', lastVerified: '2024-01-20', sources: ['https://asl.co.za'] }
         ],
-        images: [
-           { url: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Peter Broomfield", alt: "Car manufacturing" },
-           { url: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Chad Kirchoff", alt: "Auto parts" }
-        ]
+        images: []
       }
     ]
   },
@@ -691,127 +313,21 @@ export const PRODUCT_CATEGORIES: CategoryData[] = [
     topItems: [
       {
         name: 'Medical Gloves & Tyres',
-        context: "MARKET OVERVIEW:\nPost-pandemic, the demand for Nitrile and Latex examination gloves in South African private hospital networks (Netcare, Mediclinic) remains elevated. Thailand, as the world’s premier natural rubber producer, has a distinct raw material advantage.\n\nINDUSTRIAL DEMAND:\nBeyond healthcare, the Mining and Agriculture sectors in Southern Africa consume vast quantities of 'Heavy Duty' rubber products—conveyor belts, tractor tyres, and industrial protective gloves. Malawi’s tobacco and tea estates are key buyers of agricultural boots and gloves.\n\nCOMPETITION:\nThailand competes fiercely with Malaysia (gloves) and China (tyres). To win, Thai exporters must focus on 'Certified Quality' (ISO 13485, SABS) rather than bottom-dollar pricing.",
+        context: "MARKET OVERVIEW:\nPost-pandemic demand for Nitrile/Latex gloves...",
         statHighlight: 'Consistent Health Sector Demand',
-        pros: [
-          "Raw Material Leadership: Vertical integration in rubber supply.",
-          "Brand Trust: Thai medical grade is trusted over Chinese generic.",
-          "Mining Demand: Constant need for heavy conveyor rubber."
-        ],
-        cons: [
-          "Price Volatility: Rubber commodity prices fluctuate.",
-          "SABS Certification: Mandatory for condoms and medical gloves.",
-          "Tender Process: Public hospitals often buy via rigid govt tenders."
-        ],
+        pros: ["Raw Material Leadership.", "Brand Trust.", "Mining Demand."],
+        cons: ["Price Volatility.", "SABS Certification.", "Tender Process."],
         targetBuyers: [
-          { 
-            name: 'Dis-Chem Pharmacies', 
-            country: 'South Africa',
-            type: 'Pharma Retail', 
-            website: 'https://www.dischem.co.za',
-            products: ['Examination Gloves', 'First Aid'],
-            contactPerson: 'Category Manager: Medical',
-            phone: '+27 11 589 2200',
-            address: 'Midrand, Gauteng',
-            note: 'Major pharmacy chain. Imports own-brand medical consumables.',
-            lastVerified: '2024-01-30',
-            sources: ['https://www.dischem.co.za'],
-            isPriority: true
-          },
-          { 
-            name: 'Netcare Limited', 
-            country: 'South Africa',
-            type: 'Hospital Group', 
-            website: 'https://www.netcare.co.za',
-            products: ['Surgical Gloves', 'PPE'],
-            contactPerson: 'Group Procurement',
-            address: 'Sandton',
-            note: 'Private hospital giant. Centralized procurement for 50+ hospitals.',
-            lastVerified: '2023-12-15',
-            sources: ['https://www.netcare.co.za']
-          },
-          { 
-            name: 'TiAuto Investments (Tiger Wheel & Tyre)', 
-            country: 'South Africa',
-            type: 'Tyre Retailer', 
-            website: 'https://www.tiauto.co.za',
-            products: ['Passenger Tyres', '4x4 Tyres'],
-            address: 'Johannesburg',
-            note: 'Market leader in tyre retail. Imports various global brands.',
-            lastVerified: '2024-02-20',
-            sources: ['https://www.tiauto.co.za']
-          },
-          {
-             name: 'North Safety Products',
-             country: 'South Africa',
-             type: 'Industrial Safety',
-             website: 'https://www.northsafety.co.za',
-             products: ['Industrial Gloves', 'Boots', 'PPE'],
-             address: 'Pinetown, KZN',
-             note: 'Major supplier to the mining industry. Needs heavy-duty, chemical-resistant rubber gloves.',
-             lastVerified: '2024-01-30',
-             sources: ['https://www.northsafety.co.za']
-          },
-          {
-             name: 'Bearings International',
-             country: 'South Africa',
-             type: 'Industrial Distributor',
-             website: 'https://www.bearings.co.za',
-             products: ['Seals', 'Conveyor Belts', 'Hoses'],
-             address: 'Boksburg',
-             note: 'Supplies the agricultural and manufacturing sectors. Needs high-spec industrial rubber.',
-             lastVerified: '2024-02-15',
-             sources: ['https://www.bearings.co.za']
-          },
-          {
-             name: 'Rubber Products & Mouldings (RPM)',
-             country: 'South Africa',
-             type: 'Manufacturer / Distributor',
-             website: 'https://rpm.co.za',
-             products: ['Custom Mouldings', 'Sheeting'],
-             address: 'Cape Town',
-             note: 'Imports raw rubber sheet and specialty components.',
-             lastVerified: '2023-11-05',
-             sources: ['https://rpm.co.za']
-          },
-          {
-             name: 'MediClinic International',
-             country: 'South Africa',
-             type: 'Hospital Group',
-             website: 'https://www.mediclinic.co.za',
-             products: ['Medical Consumables', 'Gloves'],
-             address: 'Stellenbosch',
-             note: 'Premium private hospital group. Requires ISO 13485 certified suppliers.',
-             lastVerified: '2024-01-10',
-             sources: ['https://www.mediclinic.co.za']
-          },
-          {
-             name: 'Truzo (B2B Platform)',
-             country: 'South Africa',
-             type: 'B2B Procurement',
-             website: 'https://truzo.com',
-             products: ['General Medical Supplies'],
-             address: 'Johannesburg',
-             note: 'Emerging digital procurement platform for smaller clinics.',
-             lastVerified: '2023-10-20',
-             sources: ['https://truzo.com']
-          },
-          {
-             name: 'Maxe',
-             country: 'South Africa',
-             type: 'Auto Accessories',
-             website: 'https://maxe.co.za',
-             products: ['Rubber Mats', 'Linings'],
-             address: 'Durban',
-             note: 'Uses rubber for automotive accessories. Potential buyer for raw sheet.',
-             lastVerified: '2023-12-01',
-             sources: ['https://maxe.co.za']
-          }
+          { name: 'Dis-Chem Pharmacies', country: 'South Africa', type: 'Pharma Retail', website: 'https://www.dischem.co.za', products: ['Gloves'], note: 'Major chain.', lastVerified: '2024-01-30', sources: ['https://www.dischem.co.za'], isPriority: true },
+          { name: 'Netcare Limited', country: 'South Africa', type: 'Hospital Group', website: 'https://www.netcare.co.za', products: ['Surgical Gloves'], note: 'Private hospital giant.', lastVerified: '2023-12-15', sources: ['https://www.netcare.co.za'] },
+          { name: 'TiAuto Investments', country: 'South Africa', type: 'Tyre Retailer', website: 'https://www.tiauto.co.za', products: ['Tyres'], note: 'Market leader.', lastVerified: '2024-02-20', sources: ['https://www.tiauto.co.za'] },
+          { name: 'North Safety', country: 'South Africa', type: 'Industrial', website: 'https://www.northsafety.co.za', products: ['Industrial Gloves'], note: 'Mining supplier.', lastVerified: '2024-01-30', sources: ['https://www.northsafety.co.za'] },
+          { name: 'Bearings Intl', country: 'South Africa', type: 'Industrial', website: 'https://www.bearings.co.za', products: ['Seals', 'Belts'], note: 'Agri/Manufacturing.', lastVerified: '2024-02-15', sources: ['https://www.bearings.co.za'] },
+          { name: 'RPM', country: 'South Africa', type: 'Manufacturer', website: 'https://rpm.co.za', products: ['Mouldings'], note: 'Raw rubber sheet.', lastVerified: '2023-11-05', sources: ['https://rpm.co.za'] },
+          { name: 'MediClinic', country: 'South Africa', type: 'Hospital Group', website: 'https://www.mediclinic.co.za', products: ['Consumables'], note: 'Premium hospitals.', lastVerified: '2024-01-10', sources: ['https://www.mediclinic.co.za'] },
+          { name: 'Truzo', country: 'South Africa', type: 'B2B', website: 'https://truzo.com', products: ['Medical Supplies'], note: 'Digital platform.', lastVerified: '2023-10-20', sources: ['https://truzo.com'] }
         ],
-        images: [
-           { url: "https://images.unsplash.com/photo-1584744982491-665216d95f8b?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Clay Banks", alt: "Medical Gloves" },
-           { url: "https://images.unsplash.com/photo-1578844251758-2f71da645217?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Jp Valery", alt: "Rubber Industry" }
-        ]
+        images: []
       }
     ]
   },
@@ -822,127 +338,22 @@ export const PRODUCT_CATEGORIES: CategoryData[] = [
     topItems: [
       {
         name: 'Sauces, Pastes & Instant Noodles',
-        context: "MARKET OVERVIEW:\nUrbanization in Africa is driving a 'Convenience Food' boom. South African consumers are adventurous and increasingly embracing Asian flavors. Thai Green Curry, Sweet Chili Sauce, and Sriracha have transitioned from niche gourmet to mainstream supermarket staples.\n\nKEY SEGMENTS:\n1. Instant Noodles: A rapidly growing category for students and workers. Thai brands (Mama, Wai Wai) compete on flavor intensity (Tom Yum) vs local bland chicken flavors.\n2. Dipping Sauces: Sweet Chili Sauce is now a standard condiment in SA fast food (used on chicken/chips).\n\nLOGISTICS:\nThese high-value-to-weight items are ideal for container consolidation. 'Mixed Containers' (LCL) allow importers to test multiple SKUs without full commitments.",
+        context: "MARKET OVERVIEW:\nUrbanization in Africa is driving a 'Convenience Food' boom...",
         statHighlight: 'High Margin / Low Weight',
         priceSignal: 'Wholesale: Low / Retail: Mid-High',
-        pros: [
-          "Flavor Profile: Thai profile matches SA's love for spice/sweet.",
-          "Lightweight: Maximizes container utilization.",
-          "Private Label: High potential for supermarket house brands."
-        ],
-        cons: [
-          "Labeling (R.146): Strict allergen and nutritional table rules.",
-          "Competition: Local sauces (Nandos) are dominant.",
-          "Sugar Tax: High sugar content sauces face levies in SA."
-        ],
+        pros: ["Flavor Profile.", "Lightweight.", "Private Label."],
+        cons: ["Labeling (R.146).", "Competition.", "Sugar Tax."],
         targetBuyers: [
-          { 
-            name: 'Checkers (Shoprite Group)', 
-            country: 'South Africa',
-            type: 'Premium Retail', 
-            website: 'https://www.checkers.co.za',
-            products: ['Authentic Asian Sauces', 'Noodles'],
-            contactPerson: 'Buyer: International Foods',
-            address: 'Cape Town',
-            note: 'Runs the "Foreign Ground" exclusive brand. Seeks authentic origin products.',
-            lastVerified: '2024-02-15',
-            sources: ['https://www.checkers.co.za'],
-            isPriority: true
-          },
-          {
-             name: 'Libstar Holdings',
-             country: 'South Africa',
-             type: 'Food Manufacturer / Importer',
-             website: 'https://libstar.co.za',
-             products: ['Private Label Sauces', 'Noodles'],
-             address: 'Cape Town',
-             note: 'Key partner for Woolworths/McDonalds SA. Manufactures and imports private label goods.',
-             lastVerified: '2024-02-01',
-             sources: ['https://libstar.co.za'],
-             isPriority: true
-          },
-          { 
-            name: 'Africa Sun Oil Refineries', 
-            country: 'South Africa',
-            type: 'Manufacturer / Packer', 
-            website: 'https://africasunoil.com',
-            products: ['Industrial Pastes', 'Chili Mash'],
-            address: 'Durban',
-            note: 'Industrial buyer. May import bulk pastes for local bottling.',
-            lastVerified: '2023-11-20',
-            sources: ['https://africasunoil.com']
-          },
-          { 
-            name: 'Sanna Trading', 
-            country: 'Malawi',
-            type: 'Importer / Distributor', 
-            website: 'https://www.sannatrading.com', // Simulated based on typical profile
-            products: ['Instant Noodles', 'Snacks'],
-            address: 'Lilongwe',
-            note: 'Distributes FMCG to informal markets in Malawi.',
-            lastVerified: '2023-09-15',
-            sources: ['Public Business Directory Malawi']
-          },
-          {
-             name: 'Kit Kat Cash & Carry',
-             country: 'South Africa',
-             type: 'Wholesale Giant',
-             website: 'https://kitkatgroup.com',
-             products: ['Bulk Instant Noodles', 'Beverages'],
-             address: 'Pretoria',
-             note: 'Aggressive pricing. Serves the Spaza shop market.',
-             lastVerified: '2024-01-25',
-             sources: ['https://kitkatgroup.com']
-          },
-          {
-             name: 'Giant Sweets & Chocolates',
-             country: 'South Africa',
-             type: 'Distributor',
-             website: 'https://giantsweets.co.za',
-             products: ['Confectionery', 'Asian Snacks'],
-             address: 'Johannesburg',
-             note: 'Distributes impulse buy snacks to forecourts and independent retailers.',
-             lastVerified: '2023-12-05',
-             sources: ['https://giantsweets.co.za']
-          },
-          {
-             name: 'Peoples Trading Centre (PTC)',
-             country: 'Malawi',
-             type: 'Retail Chain',
-             website: 'http://www.presscorp.com',
-             products: ['Canned Foods', 'Instant Meals'],
-             address: 'Blantyre',
-             note: 'Main retailer in urban Malawi centers.',
-             lastVerified: '2023-10-20',
-             sources: ['http://www.presscorp.com']
-          },
-          {
-             name: 'Independent Cash & Carry',
-             country: 'South Africa',
-             type: 'Wholesale',
-             website: 'https://independentgroup.co.za',
-             products: ['Ethnic Foods', 'Spices'],
-             address: 'Johannesburg',
-             note: 'Huge network. Good entry point for "Value" brands.',
-             lastVerified: '2024-01-10',
-             sources: ['https://independentgroup.co.za']
-          },
-          {
-             name: 'Monteagle Group',
-             country: 'South Africa',
-             type: 'Supply Chain Manager',
-             website: 'https://www.monteaglegroup.com',
-             products: ['Private Label FMCG'],
-             address: 'Durban',
-             note: 'Manages global sourcing for major retailers. Key gatekeeper.',
-             lastVerified: '2024-02-05',
-             sources: ['https://www.monteaglegroup.com']
-          }
+          { name: 'Checkers', country: 'South Africa', type: 'Premium Retail', website: 'https://www.checkers.co.za', products: ['Asian Sauces'], note: 'Foreign Ground brand.', lastVerified: '2024-02-15', sources: ['https://www.checkers.co.za'], isPriority: true },
+          { name: 'Libstar', country: 'South Africa', type: 'Manufacturer', website: 'https://libstar.co.za', products: ['Private Label'], note: 'Partner for Woolworths.', lastVerified: '2024-02-01', sources: ['https://libstar.co.za'], isPriority: true },
+          { name: 'Africa Sun Oil', country: 'South Africa', type: 'Manufacturer', website: 'https://africasunoil.com', products: ['Industrial Pastes'], note: 'Bulk pastes.', lastVerified: '2023-11-20', sources: ['https://africasunoil.com'] },
+          { name: 'Sanna Trading', country: 'Malawi', type: 'Importer', website: 'https://www.sannatrading.com', products: ['Snacks'], note: 'FMCG distributor.', lastVerified: '2023-09-15', sources: ['Public Directory'] },
+          { name: 'Kit Kat Cash & Carry', country: 'South Africa', type: 'Wholesale', website: 'https://kitkatgroup.com', products: ['Noodles'], note: 'Aggressive pricing.', lastVerified: '2024-01-25', sources: ['https://kitkatgroup.com'] },
+          { name: 'Giant Sweets', country: 'South Africa', type: 'Distributor', website: 'https://giantsweets.co.za', products: ['Confectionery'], note: 'Impulse snacks.', lastVerified: '2023-12-05', sources: ['https://giantsweets.co.za'] },
+          { name: 'PTC Malawi', country: 'Malawi', type: 'Retail', website: 'http://www.presscorp.com', products: ['Canned Foods'], note: 'Main retailer.', lastVerified: '2023-10-20', sources: ['http://www.presscorp.com'] },
+          { name: 'Independent C&C', country: 'South Africa', type: 'Wholesale', website: 'https://independentgroup.co.za', products: ['Ethnic Foods'], note: 'Huge network.', lastVerified: '2024-01-10', sources: ['https://independentgroup.co.za'] }
         ],
-        images: [
-           { url: "https://images.unsplash.com/photo-1541558869434-2840d30d602c?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Vitchakorn Koonyosying", alt: "Thai Instant Noodles" },
-           { url: "https://images.unsplash.com/photo-1628191013003-370b18e360cd?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © P. O.", alt: "Chili Sauce" }
-        ]
+        images: []
       }
     ]
   },
@@ -953,115 +364,21 @@ export const PRODUCT_CATEGORIES: CategoryData[] = [
     topItems: [
       {
         name: 'Herbal Skincare & Suncare',
-        context: "MARKET OVERVIEW:\nThe African beauty market is shifting towards 'Natural & Organic' ingredients. Thai cosmetics, famous for herbal integration (Tamarind, Turmeric, Lemongrass), have a unique story that resonates with South African consumers seeking wellness products.\n\nREGULATORY LANDSCAPE:\nSouth Africa's CTFA regulations are strict but navigable. However, 'Skin Lightening' products are heavily scrutinized and often banned if they contain hydroquinone. Thai brands must focus on 'Brightening' and 'Glow' marketing rather than 'Whitening'.\n\nNICHE OPPORTUNITY:\nSpa Products. South Africa has a robust luxury safari and hotel spa industry. Bulk import of Thai massage oils, balms, and herbal compresses is a lucrative B2B channel.",
+        context: "MARKET OVERVIEW:\nThe African beauty market is shifting towards 'Natural & Organic'...",
         statHighlight: 'Niche High Growth',
-        pros: [
-          "Unique Ingredients: Thai herbs offer clear differentiation.",
-          "Spa Reputation: 'Thai Spa' is a globally recognized quality marker.",
-          "Packaging: Thai OEM packaging is world-class and attractive."
-        ],
-        cons: [
-          "SAHPRA: Medicinal claims trigger multi-year registration.",
-          "Marketing Cost: Brand building is expensive in crowded market.",
-          "Skin Tone: Formulations must suit African skin types/tones."
-        ],
+        pros: ["Unique Ingredients.", "Spa Reputation.", "Packaging."],
+        cons: ["SAHPRA.", "Marketing Cost.", "Skin Tone."],
         targetBuyers: [
-          { 
-            name: 'Sorbet Group', 
-            country: 'South Africa',
-            type: 'Beauty Chain / Spas', 
-            website: 'https://www.sorbet.co.za',
-            products: ['Professional Spa Products', 'Retail Skincare'],
-            contactPerson: 'Product Development',
-            address: 'Johannesburg',
-            note: 'Largest beauty franchise in SA. Develops own-brand products.',
-            lastVerified: '2024-01-10',
-            sources: ['https://www.sorbet.co.za'],
-            isPriority: true
-          },
-          { 
-            name: 'Clicks Group', 
-            country: 'South Africa',
-            type: 'Retail Pharmacy', 
-            website: 'https://clicks.co.za',
-            products: ['Natural Beauty', 'Bath & Body'],
-            contactPerson: 'Category Manager: Beauty',
-            address: 'Cape Town',
-            note: 'Mass market volume. Strong focus on "Natural/Herbal" category expansion.',
-            lastVerified: '2024-02-25',
-            sources: ['https://clicks.co.za']
-          },
-          {
-             name: 'The Foschini Group (TFG)',
-             country: 'South Africa',
-             type: 'Retail Fashion/Beauty',
-             website: 'https://tfglimited.co.za',
-             products: ['Cosmetics', 'Personal Care'],
-             address: 'Cape Town',
-             note: 'Owners of Foschini/Markham. Expanding their beauty footprint.',
-             lastVerified: '2024-01-15',
-             sources: ['https://tfglimited.co.za']
-          },
-          {
-             name: 'Wellness Warehouse',
-             country: 'South Africa',
-             type: 'Health Retailer',
-             website: 'https://wellnesswarehouse.com',
-             products: ['Organic Skincare', 'Supplements'],
-             address: 'Cape Town',
-             note: 'Perfect fit for "Clean Beauty" and herbal Thai products. Customer base is wealthy and health-conscious.',
-             lastVerified: '2024-02-22',
-             sources: ['https://wellnesswarehouse.com']
-          },
-          {
-             name: 'Camelot Spa Group',
-             country: 'South Africa',
-             type: 'Spa Chain',
-             website: 'https://camelotspa.co.za',
-             products: ['Massage Oils', 'Balms'],
-             address: 'Johannesburg',
-             note: 'Major spa franchisor. Needs bulk professional products.',
-             lastVerified: '2024-01-05',
-             sources: ['https://camelotspa.co.za']
-          },
-          {
-             name: 'HomeChoice',
-             country: 'South Africa',
-             type: 'Direct Retailer',
-             website: 'https://www.homechoice.co.za',
-             products: ['Beauty Sets', 'Fragrance'],
-             address: 'Cape Town',
-             note: 'Sells via catalog/online to mass market on credit. Good for "Gift Sets".',
-             lastVerified: '2023-11-15',
-             sources: ['https://www.homechoice.co.za']
-          },
-          {
-             name: 'Annique Health & Beauty',
-             country: 'South Africa',
-             type: 'Direct Selling',
-             website: 'https://www.annique.com',
-             products: ['Tea-based Skincare'],
-             address: 'Centurion',
-             note: 'Famous for Rooibos. Might be interested in Thai herbal synergy ingredients.',
-             lastVerified: '2023-10-10',
-             sources: ['https://www.annique.com']
-          },
-          {
-             name: 'Signature Cosmetics',
-             country: 'South Africa',
-             type: 'Retail Chain',
-             website: 'https://signaturecosmetics.co.za',
-             products: ['Makeup', 'Fragrance', 'Skin'],
-             address: 'Johannesburg',
-             note: 'Budget-friendly chain. Good target for private label manufacturing.',
-             lastVerified: '2024-01-20',
-             sources: ['https://signaturecosmetics.co.za']
-          }
+          { name: 'Sorbet Group', country: 'South Africa', type: 'Beauty Salons', website: 'https://www.sorbet.co.za', products: ['Spa Products'], note: 'Largest franchise.', lastVerified: '2024-01-10', sources: ['https://www.sorbet.co.za'], isPriority: true },
+          { name: 'Clicks Group', country: 'South Africa', type: 'Pharmacy', website: 'https://clicks.co.za', products: ['Natural Beauty'], note: 'Mass market.', lastVerified: '2024-02-25', sources: ['https://clicks.co.za'] },
+          { name: 'TFG', country: 'South Africa', type: 'Retail', website: 'https://tfglimited.co.za', products: ['Cosmetics'], note: 'Expanding beauty.', lastVerified: '2024-01-15', sources: ['https://tfglimited.co.za'] },
+          { name: 'Wellness Warehouse', country: 'South Africa', type: 'Health Retail', website: 'https://wellnesswarehouse.com', products: ['Organic Skin'], note: 'Health conscious.', lastVerified: '2024-02-22', sources: ['https://wellnesswarehouse.com'] },
+          { name: 'Camelot Spa', country: 'South Africa', type: 'Spa Chain', website: 'https://camelotspa.co.za', products: ['Massage Oils'], note: 'Major franchisor.', lastVerified: '2024-01-05', sources: ['https://camelotspa.co.za'] },
+          { name: 'HomeChoice', country: 'South Africa', type: 'Direct Retail', website: 'https://www.homechoice.co.za', products: ['Beauty Sets'], note: 'Catalog sales.', lastVerified: '2023-11-15', sources: ['https://www.homechoice.co.za'] },
+          { name: 'Annique', country: 'South Africa', type: 'Direct Selling', website: 'https://www.annique.com', products: ['Skincare'], note: 'Rooibos based.', lastVerified: '2023-10-10', sources: ['https://www.annique.com'] },
+          { name: 'Signature Cosmetics', country: 'South Africa', type: 'Retail', website: 'https://signaturecosmetics.co.za', products: ['Makeup'], note: 'Budget friendly.', lastVerified: '2024-01-20', sources: ['https://signaturecosmetics.co.za'] }
         ],
-        images: [
-           { url: "https://images.unsplash.com/photo-1619451334792-150fd785ee74?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Viva Luna Studios", alt: "Skincare Bottles" },
-           { url: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Content Pixie", alt: "Spa Setup" }
-        ]
+        images: []
       }
     ]
   },
@@ -1072,127 +389,21 @@ export const PRODUCT_CATEGORIES: CategoryData[] = [
     topItems: [
       {
         name: 'Fertilizers & Small Machinery',
-        context: "MARKET OVERVIEW:\nMalawi's economy is 80% agrarian (Maize, Tobacco, Tea). There is a perennial deficit of yield-enhancing inputs. Smallholder farmers need affordable, robust technology—not high-tech US tractors.\n\nPRODUCT FIT:\n1. Small Machinery: Walk-behind tractors (power tillers) and rice threshers from Thailand are perfectly sized for Malawian plot sizes.\n2. Fertilizers: Thailand produces NPK blends and organic stimulants that can boost maize yields. Government subsidy programs (FISP in Malawi) are the main bulk buyers.\n\nLOGISTICS:\nShipment is usually via Beira or Nacala ports in Mozambique, then trucked inland. Packaging must be durable (50kg woven bags with liners) to survive rough handling.",
+        context: "MARKET OVERVIEW:\nMalawi's economy is 80% agrarian...",
         statHighlight: 'Strategic Dev. Sector',
-        pros: [
-          "Appropriate Tech: Thai machines are simple to repair.",
-          "Development Aid: Matches UN/NGO funding goals in Malawi.",
-          "Climate Match: Equipment designed for tropical rice/maize."
-        ],
-        cons: [
-          "Purchasing Power: Farmers rely on harvest cycles/subsidies.",
-          "Spare Parts: After-sales network must be established first.",
-          "Regulatory: Agrochemicals need field trials for registration."
-        ],
+        pros: ["Appropriate Tech.", "Development Aid.", "Climate Match."],
+        cons: ["Purchasing Power.", "Spare Parts.", "Regulatory."],
         targetBuyers: [
-          { 
-            name: 'Agricultural Trading Company (ATC)', 
-            country: 'Malawi',
-            type: 'Agri-Input Supplier', 
-            website: 'https://www.atc.mw',
-            products: ['Fertilizers', 'Crop Protection', 'Tools'],
-            contactPerson: 'General Manager',
-            phone: '+265 1 710 088',
-            address: 'Lilongwe, Malawi',
-            note: 'State-linked but commercial. Key player in national input subsidy programs.',
-            lastVerified: '2023-11-05',
-            sources: ['https://www.atc.mw'],
-            isPriority: true,
-            approach: "Subject: Small-scale Rice Thresher Demo Units. Intro: Our machinery is designed for smallholder plots similar to those in Thailand."
-          },
-          { 
-            name: 'Farmers World', 
-            country: 'Malawi',
-            type: 'Retail Chain', 
-            website: 'https://www.farmersworld.mw',
-            products: ['Seeds', 'Fertilizers', 'Equipment'],
-            address: 'Lilongwe',
-            note: 'Extensive rural retail network. Best channel for reaching smallholder farmers.',
-            lastVerified: '2023-12-12',
-            sources: ['https://www.farmersworld.mw']
-          },
-          { 
-            name: 'Omnia Fertilizer', 
-            country: 'South Africa',
-            type: 'Agri-Chemicals', 
-            website: 'https://www.omnia.co.za',
-            products: ['Raw Ingredients', 'Specialty Fertilizers'],
-            address: 'Johannesburg',
-            note: 'Regional giant. Imports raw materials for blending.',
-            lastVerified: '2024-01-15',
-            sources: ['https://www.omnia.co.za']
-          },
-          {
-             name: 'Afgri',
-             country: 'South Africa',
-             type: 'Agri-Services',
-             website: 'https://www.afgri.co.za',
-             products: ['Equipment', 'Grain Handling'],
-             address: 'Centurion',
-             note: 'Huge regional player. Supports commercial farmers. Potential buyer for grain storage tech.',
-             lastVerified: '2024-02-05',
-             sources: ['https://www.afgri.co.za']
-          },
-          {
-             name: 'Senwes',
-             country: 'South Africa',
-             type: 'Agricultural Business',
-             website: 'https://www.senwes.co.za',
-             products: ['Mechanisation', 'Inputs'],
-             address: 'Klerksdorp',
-             note: 'Dominant in the maize belt. Sells John Deere but may look for smaller implements for emerging farmers.',
-             lastVerified: '2023-12-10',
-             sources: ['https://www.senwes.co.za']
-          },
-          {
-             name: 'Agora',
-             country: 'South Africa',
-             type: 'Agri-Retailer',
-             website: 'https://agora.co.za', // Simulated
-             products: ['General Farm Supplies'],
-             address: 'Free State',
-             note: 'Co-op style retailer.',
-             lastVerified: '2023-11-25',
-             sources: ['Public Directory']
-          },
-          {
-             name: 'Malawi Mangoes',
-             country: 'Malawi',
-             type: 'Commercial Farm/Processor',
-             website: 'http://malawimangoes.com',
-             products: ['Processing Machinery', 'Packaging'],
-             address: 'Salima',
-             note: 'Large scale fruit processor. Needs reliable processing equipment.',
-             lastVerified: '2023-10-05',
-             sources: ['http://malawimangoes.com']
-          },
-          {
-             name: 'Export Trading Group (ETG)',
-             country: 'South Africa',
-             type: 'Global Trader',
-             website: 'https://www.etgworld.com',
-             products: ['Fertilizer', 'Agri-Inputs'],
-             address: 'Johannesburg',
-             note: 'Massive footprint across Africa. Imports boatloads of fertilizer.',
-             lastVerified: '2024-02-20',
-             sources: ['https://www.etgworld.com']
-          },
-          {
-             name: 'Hinterland',
-             country: 'South Africa',
-             type: 'Agri-Retailer',
-             website: 'https://hinterland.co.za',
-             products: ['Hardware', 'Inputs'],
-             address: 'Klerksdorp',
-             note: 'Retail arm of Senwes. Good for shelf-ready agri-tools.',
-             lastVerified: '2023-12-15',
-             sources: ['https://hinterland.co.za']
-          }
+          { name: 'ATC Malawi', country: 'Malawi', type: 'Agri-Input', website: 'https://www.atc.mw', products: ['Fertilizers'], note: 'State-linked.', lastVerified: '2023-11-05', sources: ['https://www.atc.mw'], isPriority: true },
+          { name: 'Farmers World', country: 'Malawi', type: 'Retail', website: 'https://www.farmersworld.mw', products: ['Seeds/Tools'], note: 'Rural network.', lastVerified: '2023-12-12', sources: ['https://www.farmersworld.mw'] },
+          { name: 'Omnia', country: 'South Africa', type: 'Agri-Chem', website: 'https://www.omnia.co.za', products: ['Raw Ingredients'], note: 'Regional giant.', lastVerified: '2024-01-15', sources: ['https://www.omnia.co.za'] },
+          { name: 'Afgri', country: 'South Africa', type: 'Agri-Services', website: 'https://www.afgri.co.za', products: ['Equipment'], note: 'Commercial farmers.', lastVerified: '2024-02-05', sources: ['https://www.afgri.co.za'] },
+          { name: 'Senwes', country: 'South Africa', type: 'Agri-Business', website: 'https://www.senwes.co.za', products: ['Mechanisation'], note: 'Maize belt.', lastVerified: '2023-12-10', sources: ['https://www.senwes.co.za'] },
+          { name: 'Agora', country: 'South Africa', type: 'Retailer', website: 'https://agora.co.za', products: ['Supplies'], note: 'Co-op style.', lastVerified: '2023-11-25', sources: ['Public Directory'] },
+          { name: 'Malawi Mangoes', country: 'Malawi', type: 'Commercial Farm', website: 'http://malawimangoes.com', products: ['Machinery'], note: 'Fruit processor.', lastVerified: '2023-10-05', sources: ['http://malawimangoes.com'] },
+          { name: 'ETG', country: 'South Africa', type: 'Global Trader', website: 'https://www.etgworld.com', products: ['Fertilizer'], note: 'Massive footprint.', lastVerified: '2024-02-20', sources: ['https://www.etgworld.com'] }
         ],
-        images: [
-           { url: "https://images.unsplash.com/photo-1625246333195-09d9b630df35?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Jan Kopřiva", alt: "Tractor in field" },
-           { url: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © James Baltz", alt: "Crops" }
-        ]
+        images: []
       }
     ]
   },
@@ -1203,113 +414,21 @@ export const PRODUCT_CATEGORIES: CategoryData[] = [
     topItems: [
       {
         name: 'Packaging & Industrial Plastic',
-        context: "MARKET OVERVIEW:\nSouth Africa has a developed manufacturing sector but imports significant polymer resins. Malawi has a small but growing light industry sector (beverages, household goods) that relies 100% on imported raw pellets (HDPE, LDPE, PET, PP).\n\nTRADE OPPORTUNITY:\n1. Pre-forms: PET bottle pre-forms for local beverage bottlers in Malawi.\n2. Finished Goods: Plastic furniture (chairs/tables) and household basins are high-volume sellers in informal markets across Southern Africa.\n\nSUSTAINABILITY:\nSouth Africa is implementing Extended Producer Responsibility (EPR) laws. Thai exporters offering 'Recycled Content' (rPET) or biodegradable options will have a significant advantage over generic Chinese suppliers.",
+        context: "MARKET OVERVIEW:\nSouth Africa has a developed manufacturing sector...",
         statHighlight: 'Industrial Staple',
-        pros: [
-          "Volume Demand: Constant industrial consumption.",
-          "Thai Petrochem: PTT/SCG are world-class reliable suppliers.",
-          "Versatility: Mix of raw pellets and finished consumer goods."
-        ],
-        cons: [
-          "Anti-Dumping: Cheap imports often face duties.",
-          "Environmental Levies: Plastic bag taxes in SA.",
-          "Freight Cost: Low value-to-volume ratio for finished goods."
-        ],
+        pros: ["Volume Demand.", "Thai Petrochem.", "Versatility."],
+        cons: ["Anti-Dumping.", "Environmental Levies.", "Freight Cost."],
         targetBuyers: [
-          { 
-            name: 'Mpact Limited', 
-            country: 'South Africa',
-            type: 'Packaging Manufacturer', 
-            website: 'https://www.mpact.co.za',
-            products: ['Recycled Polymers', 'PET'],
-            address: 'Melrose Arch, Johannesburg',
-            note: 'Leading paper and plastics packaging manufacturer. Huge buyer of raw resins.',
-            lastVerified: '2024-02-01',
-            sources: ['https://www.mpact.co.za'],
-            isPriority: true
-          },
-          { 
-            name: 'Polypet (Malawi)', 
-            country: 'Malawi',
-            type: 'Manufacturer', 
-            website: 'https://www.candlexmw.com', // Part of Candlex group usually
-            products: ['PET Resins', 'Pre-forms'],
-            address: 'Blantyre',
-            note: 'Manufactures bottles for local beverages/oil. Needs reliable resin supply.',
-            lastVerified: '2023-10-20',
-            sources: ['Malawi Chamber of Commerce']
-          },
-          {
-             name: 'Berry Astrapak',
-             country: 'South Africa',
-             type: 'Manufacturer',
-             website: 'https://www.berryglobal.com',
-             products: ['Rigid Packaging', 'Moulding'],
-             address: 'Durban',
-             note: 'Global giant with SA operations. Major buyer of specialized resins.',
-             lastVerified: '2024-01-15',
-             sources: ['https://www.berryglobal.com']
-          },
-          {
-             name: 'Polyoak Packaging',
-             country: 'South Africa',
-             type: 'Manufacturer',
-             website: 'https://www.polyoakpackaging.co.za',
-             products: ['Dairy Tubs', 'Bottles'],
-             address: 'Cape Town',
-             note: 'Family owned but massive. Focus on dairy/beverage packaging.',
-             lastVerified: '2024-02-10',
-             sources: ['https://www.polyoakpackaging.co.za']
-          },
-          {
-             name: 'Nampak',
-             country: 'South Africa',
-             type: 'Packaging Giant',
-             website: 'https://www.nampak.com',
-             products: ['Crates', 'Bottles', 'Closures'],
-             address: 'Johannesburg',
-             note: 'Africa’s largest packaging company. Diverse material needs.',
-             lastVerified: '2023-12-20',
-             sources: ['https://www.nampak.com']
-          },
-          {
-             name: 'Transpaco',
-             country: 'South Africa',
-             type: 'Manufacturer',
-             website: 'https://transpaco.co.za',
-             products: ['Plastic Bags', 'Films'],
-             address: 'Johannesburg',
-             note: 'Focus on retail bags and industrial films. Price sensitive.',
-             lastVerified: '2024-01-05',
-             sources: ['https://transpaco.co.za']
-          },
-          {
-             name: 'Easy Pack Malawi',
-             country: 'Malawi',
-             type: 'Manufacturer',
-             website: 'https://easypackmw.com', // Simulated
-             products: ['Food Packaging'],
-             address: 'Blantyre',
-             note: 'Supplies local food processors.',
-             lastVerified: '2023-09-20',
-             sources: ['Malawi Business Directory']
-          },
-          {
-             name: 'Bowler Plastics',
-             country: 'South Africa',
-             type: 'Manufacturer',
-             website: 'https://bowler.co.za',
-             products: ['Cosmetic Packaging', 'Closures'],
-             address: 'Cape Town',
-             note: 'Specializes in rigid plastic packaging. Needs high quality moulds and resins.',
-             lastVerified: '2023-11-10',
-             sources: ['https://bowler.co.za']
-          }
+          { name: 'Mpact', country: 'South Africa', type: 'Manufacturer', website: 'https://www.mpact.co.za', products: ['Polymers'], note: 'Leading packaging.', lastVerified: '2024-02-01', sources: ['https://www.mpact.co.za'], isPriority: true },
+          { name: 'Polypet', country: 'Malawi', type: 'Manufacturer', website: 'https://www.candlexmw.com', products: ['PET Resins'], note: 'Bottles.', lastVerified: '2023-10-20', sources: ['Malawi Chamber'] },
+          { name: 'Berry Astrapak', country: 'South Africa', type: 'Manufacturer', website: 'https://www.berryglobal.com', products: ['Rigid Packaging'], note: 'Global giant.', lastVerified: '2024-01-15', sources: ['https://www.berryglobal.com'] },
+          { name: 'Polyoak', country: 'South Africa', type: 'Manufacturer', website: 'https://www.polyoakpackaging.co.za', products: ['Dairy Tubs'], note: 'Family owned.', lastVerified: '2024-02-10', sources: ['https://www.polyoakpackaging.co.za'] },
+          { name: 'Nampak', country: 'South Africa', type: 'Packaging', website: 'https://www.nampak.com', products: ['Crates'], note: 'Africa largest.', lastVerified: '2023-12-20', sources: ['https://www.nampak.com'] },
+          { name: 'Transpaco', country: 'South Africa', type: 'Manufacturer', website: 'https://transpaco.co.za', products: ['Films'], note: 'Retail bags.', lastVerified: '2024-01-05', sources: ['https://transpaco.co.za'] },
+          { name: 'Easy Pack', country: 'Malawi', type: 'Manufacturer', website: 'https://easypackmw.com', products: ['Food Pack'], note: 'Local supply.', lastVerified: '2023-09-20', sources: ['Directory'] },
+          { name: 'Bowler Plastics', country: 'South Africa', type: 'Manufacturer', website: 'https://bowler.co.za', products: ['Cosmetic Pack'], note: 'Rigid plastic.', lastVerified: '2023-11-10', sources: ['https://bowler.co.za'] }
         ],
-        images: [
-           { url: "https://images.unsplash.com/photo-1616931590643-65089b4c177d?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Jonathan Chng", alt: "Plastic Pellets" },
-           { url: "https://images.unsplash.com/photo-1629580008272-29e02d810777?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Killari Hotaru", alt: "Plastic Bottles" }
-        ]
+        images: []
       }
     ]
   }
@@ -1341,26 +460,23 @@ export const UNIQUE_THAI_PRODUCTS: StrategyProduct[] = [
     note: "High brand value",
     details: [
       { 
-        title: "Market Demand & Deep Dive", 
-        content: "South Africa represents a mature, high-volume market for rice imports, consuming over 1 million tonnes annually. While parboiled rice dominates the mass market due to its processing durability and price point, there is a rapidly expanding segment for aromatic and premium specialty rice. Thai Hom Mali (Jasmine) rice commands the highest brand equity in this tier, associated with superior fragrance and texture. However, market share is under constant siege from cheaper Indian Basmati varieties and non-basmati long grain. The key opportunity lies not in bulk commodity trading—where margins are razor-thin—but in establishing recognized retail brands that guarantee purity and 'New Crop' freshness, traits that South African connoisseurs are increasingly willing to pay a premium for."
+        title: "Market Demand", 
+        content: "South Africa consumes over 1M tons of rice annually. While parboiled is standard, the premium segment for aromatic rice is growing, driven by the upper-middle class. Demand peaks during festive seasons, with a preference for high-quality, fragrant varieties that complement local curries and stews."
       },
       { 
         title: "Buyer Behavior", 
-        content: "The target consumer for premium Jasmine rice in South Africa is the upper-middle-class demographic shopping at retailers like Woolworths, Checkers (FreshX), and specialized Asian grocers. These buyers are label-conscious and wary of 'blended' rice which dilutes quality. Packaging plays a pivotal role; vacuum-sealed blocks or high-quality laminate matte-finish bags with clear windows signal premium quality. Furthermore, the 'Thai Hom Mali Rice' certification mark from the Department of Foreign Trade is a potent trust signal that should be prominently displayed to differentiate from generic 'fragrant rice' competitors." 
+        content: "Brand loyalty is high for premium rice. Consumers look for 'New Crop' labels and specific aroma guarantees. Packaging transparency (clear windows) is crucial to showcase grain quality. Retailers demand consistent supply and competitive promotional pricing."
       },
       { 
-        title: "Pricing Insight & Logistics", 
-        content: "The landed cost (CIF Durban) for premium Jasmine usually tracks 20-30% higher than standard long grain. Retail pricing in South Africa for premium brands can range from ZAR 35 to ZAR 60 per kilogram, depending on the packaging and retailer tier. Shipping rice to South Africa requires meticulous moisture control. The transit across the equator can lead to 'container rain' and mold if moisture content exceeds 14% or if desiccants are insufficient. Regulatory wise, the South African Department of Agriculture (DALRRD) requires specific grading and phytosanitary certificates. Labeling regulations (R.146) regarding nutritional tables and origin declarations are non-negotiable." 
+        title: "Compliance Notes", 
+        content: "Must comply with South African Dept of Agriculture grading (APS Act). Phytosanitary certificate is essential. Zero tolerance for pests like Trogoderma granarium. Labeling must follow R.146 regulations, including nutritional tables and country of origin."
       },
-      {
-        title: "Risk & Opportunity Angle",
-        content: "The primary risk is currency volatility (THB vs ZAR) and the 'fake Jasmine' prevalence. Mitigation involves forward currency hedging and anti-counterfeit packaging. The opportunity angle is to target 'Private Label' contracts for high-end retail chains who wish to compete with Tastic but offer a superior 'Authentic Thai' product."
+      { 
+        title: "Logistics Considerations", 
+        content: "Moisture control is critical (max 14%). Use desiccant bags in containers to prevent 'container rain' during crossing the equator. 25kg and 50kg PP bags are standard for wholesale; 1kg/2kg laminate bags are required for retail shelves."
       }
     ],
-    images: [
-      { url: "https://images.unsplash.com/photo-1536304993881-ff6c9d954384?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Mgg Vitchakorn", alt: "Premium Jasmine Rice" },
-      { url: "https://images.unsplash.com/photo-1572637243872-5c30628b4d33?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © P. O.", alt: "Rice Packaging" }
-    ]
+    images: []
   },
   { 
     name: "Thai Curry & Meal Kits", 
@@ -1368,26 +484,23 @@ export const UNIQUE_THAI_PRODUCTS: StrategyProduct[] = [
     note: "Convenience trend",
     details: [
       {
-        title: "Market Demand Analysis",
-        content: "The South African 'Home Meal Replacement' (HMR) market is growing at a CAGR of 8-10%, driven by urbanization in hubs like Johannesburg and Cape Town. Time-poor professionals are seeking 'exotic but easy' dinner solutions. While Indian curries are ubiquitous in SA, authentic Thai flavor profiles (Green Curry, Massaman, Tom Yum) are harder to replicate from scratch due to the scarcity of fresh galangal, kaffir lime, and lemongrass. Ready-to-cook meal kits bridge this gap perfectly."
+        title: "Market Demand",
+        content: "Rising urbanization and dual-income households in SA are driving demand for 'convenience with authenticity'. The 'Home Meal Replacement' market is expanding. Consumers want exotic flavors without the hassle and cost of buying 20 separate ingredients for a single meal."
       },
       {
         title: "Buyer Behavior",
-        content: "Consumers in this segment shop at Woolworths Food and high-end Spar outlets. They are health-conscious and check labels for preservatives and MSG. There is a strong preference for 'Clean Label' products. They are willing to pay a premium (ZAR 50-100 per kit) for a dinner solution that feels like a restaurant meal. Inclusion of coconut milk sachets within the kit is a major selling point as it removes the need to buy separate expensive ingredients."
+        content: "Health-conscious urbanites read labels for MSG and preservatives. Halal certification widens the addressable market significantly in SA. 'Heat and Eat' formats outperform complex cooking kits. Authentic taste is a key differentiator against locally produced generic sauces."
       },
       {
-        title: "Compliance & Halal Factor",
-        content: "South Africa has a significant and influential Muslim population. Halal certification (SANHA/MJC recognized) is almost mandatory for wide retail distribution, even in non-meat products, as it signals quality assurance to the broader market. Ingredients lists must be fully compliant with South African R.146 regulations, specifically regarding allergen declarations (shrimp paste, soy, peanuts)."
+        title: "Compliance Notes",
+        content: "Ingredients list must be detailed (allergens: shrimp, soy, peanut). Halal certification (SANHA/MJC recognized) is a major plus. Food safety standards (HACCP/ISO 22000) are required for listing with major retailers like Woolworths and Checkers."
       },
       {
-        title: "Opportunity Angle",
-        content: "Pitch 'Restaurant Quality at Home'. Bundle pastes with dried herbs (kaffir lime leaves) which are lightweight but add immense visual value and authenticity that local competitors like 'Royco' cannot match."
+        title: "Logistics Considerations",
+        content: "Shelf life management is key. Pastes are heavy/dense; efficient palletization lowers unit shipping cost. Temperature control is not strictly needed for ambient pastes but cool storage is preferred to maintain color and flavor intensity."
       }
     ],
-    images: [
-       { url: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Lisovskaya", alt: "Thai Curry" },
-       { url: "https://images.unsplash.com/photo-1597075687490-8f673c6c17f6?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Anna Pelzer", alt: "Spices and Herbs" }
-    ]
+    images: []
   },
   { 
     name: "Herbal Skincare", 
@@ -1395,21 +508,23 @@ export const UNIQUE_THAI_PRODUCTS: StrategyProduct[] = [
     note: "Natural ingredients story",
     details: [
       {
-        title: "Market Deep Dive",
-        content: "The 'Natural & Organic' beauty sector in South Africa is maturing, with consumers shifting away from chemical-heavy global brands towards botanical-based solutions. There is a high affinity for the 'Thai Spa' aesthetic, which is globally recognized as a benchmark for wellness. Products utilizing Tamarind (exfoliation), Turmeric (brightening), and Coconut Oil (hydration) have immediate ingredient recognition in Africa but the 'Thai Formulation' adds a layer of exotic prestige."
+        title: "Market Demand",
+        content: "The 'Clean Beauty' trend is strong in SA. Consumers are shifting away from harsh chemicals. Thai herbal ingredients like Tamarind, Turmeric, and Coconut oil have high recognition and perceived value for 'natural whitening' and hydration in the African market."
       },
       {
-        title: "Regulatory Landscape",
-        content: "Exporting cosmetics to South Africa is rigorous. Products generally need to align with CTFA (Cosmetic, Toiletry and Fragrance Association of South Africa) standards. While pre-market registration is less burdensome than pharmaceuticals, claims on packaging (e.g., 'Anti-Aging', 'Curing') are strictly regulated by the Advertising Regulatory Board. If a product claims medicinal benefits, it falls under SAHPRA jurisdiction which is a multi-year registration process. Stick to 'Beautifying' and 'Wellness' claims to ensure faster market entry."
+        title: "Buyer Behavior",
+        content: "Efficacy and scent are primary drivers. Buyers trust 'Spa Quality' branding associated with Thailand. Sustainable packaging (glass, recycled plastic) appeals to the target demographic (LSM 8-10). Samples are often required before bulk purchase."
       },
       {
-        title: "Distribution Strategy",
-        content: "Do not aim for mass retail (Clicks/Dis-Chem) initially due to high listing fees and margin pressure. The 'Hidden Gem' strategy is to target the boutique hotel and independent spa network in the Western Cape and KZN North Coast. These venues sell products at a high markup as part of the 'post-treatment' experience."
+        title: "Compliance Notes",
+        content: "Notification to CTFA might be required. Avoid medicinal claims ('cures eczema') to stay out of SAHPRA pharmaceutical regulations. Ingredients must be listed according to INCI standards. Skin lightening products with Hydroquinone are banned."
+      },
+      {
+        title: "Logistics Considerations",
+        content: "High value-to-weight ratio makes air freight viable for initial samples or high-end lines. Sea freight requires temperature controlled (Reefer) containers to prevent oil separation or melting of balms during transit across the tropics."
       }
     ],
-    images: [
-      { url: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Chelsea Shapouri", alt: "Herbal Skincare" }
-    ]
+    images: []
   },
   { 
     name: "Dried Tamarind/Fruits", 
@@ -1417,21 +532,23 @@ export const UNIQUE_THAI_PRODUCTS: StrategyProduct[] = [
     note: "Exotic appeal",
     details: [
       {
-        title: "Consumer Trends",
-        content: "The 'Healthy Snacking' trend is exploding in SA, driven by the lunchbox market for private schools and office workers. South Africans love dried fruit (mango and apricot are local staples), but Sweet Tamarind is a novelty that offers a unique sweet-sour profile not locally grown. There is also a growing demand for 'Spicy' fruit snacks (chili-salt mango) which aligns with the South African palate's love for bold flavors."
+        title: "Market Demand",
+        content: "Healthy snacking is a booming category. Dried mango is already popular; Sweet Tamarind offers a unique novelty factor. Demand exists in both retail snacking aisles and as bulk ingredients for chutneys/sauces in the large Indian community in KZN."
       },
       {
-        title: "Logistics & Packaging",
-        content: "Humidity is the enemy. Packaging must be high-barrier metallized film to prevent the product from becoming sticky or crystallizing during the ocean voyage across the tropics. Nitrogen flushing is recommended. For retail, 'Stand-up Pouches' (Doypacks) with ziplocks are the standard for premium snacks. Bulk export for local repacking is risky due to hygiene standards; finished retail packing in Thailand is safer for quality control."
+        title: "Buyer Behavior",
+        content: "Taste (sweetness) and texture are paramount. 'No added sugar' and 'Sulphur-free' claims attract premium buyers. Impulse purchases at checkout counters or health food sections are common. Visual appeal of the fruit in packaging is critical."
       },
       {
-        title: "Price Sensitivity",
-        content: "This is a price-sensitive category if positioned against local raisins or dried apricots. However, if positioned as an 'Exotic Superfood' or a 'Premium Treat', price elasticity increases. Avoid the commodity aisle; aim for the 'Health Food' section or checkout counters."
+        title: "Compliance Notes",
+        content: "Strict limits on Sulphur Dioxide (SO2) residues. Phytosanitary certificate required. Mycotoxin checks (Aflatoxin/Ochratoxin) for certain dried fruits. Labeling must clearly state any allergens or preservatives used."
+      },
+      {
+        title: "Logistics Considerations",
+        content: "Humidity control is vital to prevent stickiness and mold. Nitrogen-flushed packaging extends shelf life. Retail-ready doypacks (ziplock) are preferred over bulk for consumer sales to ensure freshness after opening."
       }
     ],
-    images: [
-      { url: "https://images.unsplash.com/photo-1600432409645-12a9d3426c9a?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Avinash Kumar", alt: "Tamarind" }
-    ]
+    images: []
   },
   { 
     name: "Canned Seasoned Fish", 
@@ -1439,21 +556,23 @@ export const UNIQUE_THAI_PRODUCTS: StrategyProduct[] = [
     note: "Affordable protein",
     details: [
       {
-        title: "Market Dynamics",
-        content: "South Africa is a massive consumer of canned fish (Pilchards in Tomato Sauce is a national staple). However, there is 'flavor fatigue'. The middle market is craving variety. Thai canned mackerel or tuna in 'Green Curry', 'Chili Lime', or 'Basil Stir-fry' sauces offers an affordable protein source that doubles as a complete meal when poured over rice. This 'Meal in a Can' concept is highly attractive to the budget-conscious working class."
+        title: "Market Demand",
+        content: "Canned fish is a staple protein. However, the market is dominated by tomato sauce bases. Thai flavored tuna/mackerel (Green Curry, Chili Lime) fills a gap for 'premium convenience' and variety in the middle-class diet, offering a complete meal solution."
       },
       {
-        title: "Compliance Barrier (High)",
-        content: "This is the most regulated category in this list. The National Regulator for Compulsory Specifications (NRCS) in South Africa mandates that EVERY shipment of canned fish must be sampled and tested before release. This process can take weeks and costs money. Factories in Thailand must meet strict sanitary standards equivalent to EU export grades. Do not attempt this without an experienced importer who understands the NRCS 'Release Note' process."
+        title: "Buyer Behavior",
+        content: "Price sensitivity is moderate to high. Buyers look for 'Easy Open' lids and Halal logos. The visual appeal of the sauce upon opening influences repeat purchase. Brand recognition takes time to build against local giants like Lucky Star."
       },
       {
-        title: "Competitive Landscape",
-        content: "You are competing against 'Lucky Star', a dominant local heritage brand. You cannot win on brand loyalty. You must win on 'Novelty Flavor' and 'Convenience'. Marketing should focus on the 'Ready-to-Eat' aspect."
+        title: "Compliance Notes",
+        content: "CRITICAL: NRCS (National Regulator for Compulsory Specifications) in SA samples EVERY consignment of canned fish. Strict adherence to Codex standards and labeling is mandatory to avoid costly rejection and long delays at port."
+      },
+      {
+        title: "Logistics Considerations",
+        content: "Heavy cargo; freight cost is a significant component of landed price. Maximize container weight limits. Cans are durable but check for denting during inland transport. Pallet configuration must maximize stability."
       }
     ],
-    images: [
-      { url: "https://images.unsplash.com/photo-1627308595186-e892671458f5?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Syed Fasiuddin", alt: "Canned Mackerel" }
-    ]
+    images: []
   },
   { 
     name: "Teak & Artisan Wood", 
@@ -1462,20 +581,22 @@ export const UNIQUE_THAI_PRODUCTS: StrategyProduct[] = [
     details: [
       {
         title: "Market Demand",
-        content: "South African interior design, particularly in the luxury lodge and coastal villa segments, favors organic, natural materials. Thai craftsmanship in wood carving is legendary and offers a level of detail that local industrial furniture lacks. Smaller decor items—bowls, serving trays, wall panels—are ideal as they ship densely and carry high markups in boutiques in Cape Town's Design District."
+        content: "High demand for unique, hand-crafted decor items in boutique hotels, lodges, and upscale homes. Thai carving craftsmanship is distinct and hard to replicate locally in Africa. Smaller items like bowls and trays sell well in design stores."
       },
       {
-        title: "Risk & CITES Compliance",
-        content: "This is a high-risk category regarding customs. Teak and Rosewood are heavily regulated under CITES (Convention on International Trade in Endangered Species). You MUST verify the wood source. Plantation Teak requires certification. If you ship wild-harvested protected wood without a CITES permit, the cargo will be seized and destroyed. Always prioritize fast-growing, sustainable woods like Mango Wood or Acacia which are easier to clear but can be stained to look premium."
+        title: "Buyer Behavior",
+        content: "Buyers value uniqueness and 'story'. Authenticity of material (genuine Teak/Acacia) justifies higher price points. B2B buyers (interior designers) buy in collections. Imperfections are often seen as character in this category."
       },
       {
-        title: "Fumigation",
-        content: "South Africa applies strict phytosanitary rules to wood packaging and products to prevent pest introduction (e.g., beetles). Valid Fumigation Certificates using Methyl Bromide or Heat Treatment (ISPM 15) are mandatory for clearance."
+        title: "Compliance Notes",
+        content: "HIGH RISK: CITES permits are absolutely mandatory for protected wood species. Fumigation certificates using Methyl Bromide or heat treatment are non-negotiable to clear customs. Illegal wood will be seized and destroyed."
+      },
+      {
+        title: "Logistics Considerations",
+        content: "Volume-based freight (CBM) often exceeds weight. Nesting items (e.g., bowls inside bowls) reduces freight cost. Robust crate packaging is needed to prevent breakage. Humidity changes can cause cracking if wood isn't properly kiln-dried."
       }
     ],
-    images: [
-      { url: "https://images.unsplash.com/photo-1617104424032-b9bd6972d0e4?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Mockup Graphics", alt: "Wood Craft" }
-    ]
+    images: []
   },
   { 
     name: "Medical Rubber Gloves", 
@@ -1483,21 +604,23 @@ export const UNIQUE_THAI_PRODUCTS: StrategyProduct[] = [
     note: "Certifications essential",
     details: [
       {
-        title: "B2B Demand",
-        content: "Post-pandemic, the demand for high-quality nitrile and latex gloves remains elevated in South Africa's private hospital networks (Netcare, Mediclinic, Life Healthcare) and the mining sector (safety). Thailand, being a top rubber producer, has a natural cost advantage over non-producing nations, though it fights fierce competition from Malaysia."
+        title: "Market Demand",
+        content: "Constant demand from private hospital groups (Netcare, Mediclinic) and mining industry. Shift towards Nitrile (synthetic) due to latex allergies, but Latex remains cost-effective for some applications. Post-pandemic hygiene awareness sustains volume."
       },
       {
-        title: "Certifications are Key",
-        content: "Price is secondary to compliance. You cannot sell medical gloves without SABS (South African Bureau of Standards) approval or valid CE / FDA equivalence that is accepted by the regulator. For tender business, ISO 13485 (Medical Devices Quality Management) is a prerequisite. The 'Powder-Free' shift is absolute; do not offer powdered gloves."
+        title: "Buyer Behavior",
+        content: "Compliance and supply reliability trump price. Procurement managers need assurance of stock availability. Powder-free is the standard. Texture/grip quality matters for surgical use. Long-term contracts are preferred over spot buys."
       },
       {
-        title: "Approach Strategy",
-        content: "Direct sales to hospitals are difficult due to vendor lists. The strategy is to partner with established SA medical supply distributors who hold the tender contracts but need a reliable OEM supplier to back them up. Offer 'White Label' manufacturing for their local brands."
+        title: "Compliance Notes",
+        content: "Must meet SANS (South African National Standards) or equivalent ISO/EN standards. Medical device registration with SAHPRA is required for surgical grades. Factory audit reports (ISO 13485) often requested during tender process."
+      },
+      {
+        title: "Logistics Considerations",
+        content: "Shelf life is an issue (aging of rubber). Temperature control during shipping is recommended to prevent degradation. Cartons must be crush-proof to protect dispenser boxes. FCL shipments are standard due to volume."
       }
     ],
-    images: [
-      { url: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Clay Banks", alt: "Rubber Gloves" }
-    ]
+    images: []
   },
   { 
     name: "Rice Noodles (Pad Thai)", 
@@ -1505,21 +628,23 @@ export const UNIQUE_THAI_PRODUCTS: StrategyProduct[] = [
     note: "Gluten-free trend",
     details: [
       {
-        title: "Dietary Trends",
-        content: "The 'Gluten-Free' movement is mainstream in South Africa's urban dining scene. Rice noodles are the perfect natural substitute for wheat pasta. Beyond Asian restaurants, mainstream cafes are looking for gluten-free bases for bowls and salads. Pad Thai noodles (3mm/5mm) and Rice Vermicelli are the volume drivers."
+        title: "Market Demand",
+        content: "Driven by the 'Gluten-Free' trend and the popularity of Asian cuisine. Rice noodles are seen as a healthier alternative to wheat pasta. Growing demand in food service for noodle bars and stir-fry stations in urban centers like Cape Town."
       },
       {
-        title: "Food Service Psychology",
-        content: "Chefs demand consistency. They hate noodles that break apart or turn to mush. Sample testing is critical. The packaging for this sector should be bulk (10kg cartons with 1kg sub-packs) rather than retail focused. Branding matters less than 'Cooking Performance'."
+        title: "Buyer Behavior",
+        content: "Chefs demand structural integrity (don't break when stir-fried). Retail consumers look for 'Authentic Thai' branding and clear cooking instructions. 3mm and 5mm widths are best sellers. Consistency between batches is critical for commercial kitchens."
       },
       {
-        title: "Logistics",
-        content: "Noodles are essentially 'packaged air'—volume is high relative to weight. Freight costs can kill the margin. Maximizing container utilization (high-cube containers) and mixing with denser cargo (like rice or sauces) is a smart logistics play to lower the landed unit cost."
+        title: "Compliance Notes",
+        content: "Standard food labeling (R.146). Gluten-free certification requires lab testing to substantiate the claim (<20ppm). Nutritional analysis must be accurate. Origin certification helps command a premium."
+      },
+      {
+        title: "Logistics Considerations",
+        content: "High volume, low weight (volumetric cargo). Best to consolidate with dense cargo (like rice or sauces) to optimize container freight rates. Brittle; needs protective cartons to prevent breakage during handling."
       }
     ],
-    images: [
-      { url: "https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Markus Winkler", alt: "Rice Noodles" }
-    ]
+    images: []
   },
   { 
     name: "Beverage Concentrates", 
@@ -1527,21 +652,23 @@ export const UNIQUE_THAI_PRODUCTS: StrategyProduct[] = [
     note: "Flavoring inputs",
     details: [
       {
-        title: "Industrial Opportunity",
-        content: "Shipping ready-to-drink (RTD) beverages is expensive due to water weight. The smart play is exporting 'Beverage Concentrates' or 'Fruit Purees' (Mango, Lychee, Pineapple) to South African bottlers. SA has a robust bottling industry but lacks the tropical fruit variety that Thailand possesses."
+        title: "Market Demand",
+        content: "High sugar tax in SA drives demand for lower-sugar or high-dilution beverages. Thai tropical fruit flavors (Lychee, Mango, Passion Fruit) offer differentiation for local bottlers and cocktail bars looking for unique mixers."
       },
       {
-        title: "Flavor Profiles",
-        content: "South Africans have a sweet tooth but are increasingly sugar-conscious. Pitching 'Reduced Sugar' concentrates or those sweetened with Stevia/Monk Fruit (which Thailand is innovating in) can capture the 'Better-For-You' soda market. Exotic flavors like Lychee and Lemongrass are trending as premium mixers for the gin and cocktail culture in Cape Town."
+        title: "Buyer Behavior",
+        content: "Industrial buyers (bottlers) look for Brix consistency and stable supply. Food service (bars) look for exotic flavor profiles and vibrant colors for mixology. Cost-per-serving is a key metric for B2B buyers."
       },
       {
-        title: "Market Entry",
-        content: "Target medium-sized independent bottlers who are looking for a unique selling point (USP) to differentiate from Coke/Pepsi. Provide R&D support—show them how your concentrate blends with their local spring water."
+        title: "Compliance Notes",
+        content: "Sugar Tax (Health Promotion Levy) implications on the final product. Intense sweeteners must be declared. Preservative limits (Benzoate/Sorbate) must adhere to SA regulations. Technical data sheets (TDS) required."
+      },
+      {
+        title: "Logistics Considerations",
+        content: "Heavy liquid drums (industrial) or glass/plastic bottles (retail). Leaking is a risk; secure pallet wrapping essential. Shelf stability is generally good. Air freight for samples, sea freight for commercial volume."
       }
     ],
-    images: [
-      { url: "https://images.unsplash.com/photo-1623689048105-a17b1e1936b8?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Zosia Korcz", alt: "Fruit Juice" }
-    ]
+    images: []
   },
   { 
     name: "Hotel Amenity Kits", 
@@ -1549,20 +676,22 @@ export const UNIQUE_THAI_PRODUCTS: StrategyProduct[] = [
     note: "Luxury hospitality",
     details: [
       {
-        title: "Niche High-Value Market",
-        content: "South Africa's tourism crown jewel is the Luxury Safari Lodge sector (Sabi Sands, Kruger). These guests pay $1000+ per night and expect premium, distinct amenities. Generic 'Hotel Soap' is unacceptable. There is a massive demand for 'Eco-Luxe' amenities—shampoos, lotions, and soaps that are biodegradable and grey-water safe (crucial for bush lodges)."
+        title: "Market Demand",
+        content: "SA's luxury safari market competes globally. Lodges need eco-friendly, premium amenities that reflect 'nature'. Lemongrass/Ginger scents fit the 'Bush Spa' aesthetic perfectly. High demand for sustainable, plastic-free options."
       },
       {
-        title: "The 'Thai' Advantage",
-        content: "Thai essential oils (Lemongrass, Ginger, Kaffir Lime) fit the 'Bush/Nature' aesthetic of safari lodges perfectly. They smell natural, not synthetic. Furthermore, Thailand's packaging industry can produce beautiful, plastic-free solutions (ceramic refillable bottles, paper-wrapped soaps) which align with the rigorous 'No Single-Use Plastic' policies of major safari groups like Wilderness Safaris or Singita."
+        title: "Buyer Behavior",
+        content: "'Eco-credentials' are the #1 driver: biodegradable packaging, no microplastics, reef-safe. Buyers are Head Housekeepers/GMs who value reliability and 'guest delight' factor. Custom branding capability is often required."
       },
       {
-        title: "Sales Cycle",
-        content: "This is a B2B relationship game. Decisions are made by Head Housekeepers or Procurement Managers at the group HQ level. Sending a physical 'Presentation Box' with samples is the only way to open the door. The tactile experience and scent are the closers."
+        title: "Compliance Notes",
+        content: "Cosmetic regulations apply (ingredients list). Claims of 'Organic' or 'Eco-friendly' must be substantiated to avoid greenwashing accusations. MSDS sheets required for shipping liquids."
+      },
+      {
+        title: "Logistics Considerations",
+        content: "Small units; theft risk is higher (pilferage). Shrink-wrapped pallets recommended. Liquids need to be sealed against leakage due to pressure changes (if air freighted) or heat during inland transport to lodges."
       }
     ],
-    images: [
-      { url: "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=800&q=80", credit: "Photo credit: Unsplash - © Mara Rivera", alt: "Hotel Amenities" }
-    ]
+    images: []
   }
 ];

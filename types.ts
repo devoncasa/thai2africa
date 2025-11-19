@@ -79,3 +79,26 @@ export interface StrategyProduct {
   details: StrategyDetail[];
   images?: ImageRef[];
 }
+
+// NEW: Interface for the Landed Cost Calculator
+export interface CostingRow {
+  id: number;
+  productName: string;
+  fobPrice: number;    // USD
+  freightCost: number; // USD per unit (averaged)
+  dutyRate: number;    // Percentage (0-100)
+  markup: number;      // Percentage (0-100)
+}
+
+export interface IntelSection {
+  title: string;
+  content: string;
+  listItems?: string[];
+}
+
+export interface IntelTab {
+  id: string;
+  label: string;
+  icon: LucideIcon;
+  sections: IntelSection[];
+}

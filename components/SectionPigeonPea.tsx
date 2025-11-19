@@ -1,8 +1,11 @@
-import React from 'react';
-import { Bean, TrendingUp, Truck, ShoppingBag, ArrowRight, Search, MapPin, Phone, Briefcase, Lightbulb } from 'lucide-react';
-import { THAI_BUYERS_DIRECTORY, PIGEON_PEA_IMAGES } from '../constants';
+import React, { useState } from 'react';
+import { Bean, TrendingUp, Truck, ShoppingBag, ArrowRight, Search, MapPin, Phone, Briefcase, Lightbulb, ChevronRight } from 'lucide-react';
+import { THAI_BUYERS_DIRECTORY, PIGEON_PEA_IMAGES, PIGEON_PEA_INTEL } from '../constants';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const SectionPigeonPea: React.FC = () => {
+  const [activeTabId, setActiveTabId] = useState(PIGEON_PEA_INTEL[0].id);
+
   return (
     <div className="py-16 md:py-24 px-6 bg-deepGreen text-white relative overflow-hidden">
       {/* Pattern Background Overlay */}
@@ -20,9 +23,14 @@ const SectionPigeonPea: React.FC = () => {
             <h2 className="text-4xl md:text-6xl font-serif font-bold mb-4 leading-tight">
               Pigeon Peas <br/><span className="text-white/50">Global Origin Analysis</span>
             </h2>
-            <p className="text-lg text-gray-300 max-w-xl">
+            <p className="text-lg text-gray-300 max-w-xl mb-6">
               Malawi is the primary African origin pool (~50.8k tonnes). Thailand represents a niche but viable import market for processing and ethnic redistribution.
             </p>
+            
+            {/* Intro Paragraph */}
+            <div className="bg-white/10 p-4 rounded-lg border-l-4 border-warmGold text-sm text-gray-200 italic max-w-2xl">
+                "Thailand has historically been a niche importer of pigeon peas. However, volatility in global supply chains is creating new opportunities for 'Origin Sourcing' from Africa. Thai processors can leverage this by importing raw whole peas for value-added processing into dhal for ethnic and regional export markets."
+            </div>
           </div>
           <div className="mt-8 lg:mt-0 bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 min-w-[250px]">
              <div className="text-sm text-gray-300 mb-1">Malawi Export Value (2023)</div>
@@ -90,6 +98,63 @@ const SectionPigeonPea: React.FC = () => {
                </div>
             </div>
           </div>
+        </div>
+
+        {/* NEW: Deep Dive Analysis Tabs */}
+        <div className="mb-20">
+           <h3 className="text-2xl md:text-3xl font-serif font-bold mb-8 text-center">Deep Dive: Thailand Import Analysis</h3>
+           
+           <div className="flex flex-wrap justify-center gap-4 mb-10">
+              {PIGEON_PEA_INTEL.map((tab) => {
+                 const isActive = activeTabId === tab.id;
+                 return (
+                   <button 
+                     key={tab.id}
+                     onClick={() => setActiveTabId(tab.id)}
+                     className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold transition-all duration-300 ${isActive ? 'bg-warmGold text-charcoal shadow-lg scale-105' : 'bg-white/10 text-gray-300 hover:bg-white/20'}`}
+                   >
+                     <tab.icon size={18} />
+                     {tab.label}
+                   </button>
+                 )
+              })}
+           </div>
+
+           <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-sm min-h-[400px]">
+              <AnimatePresence mode="wait">
+                {PIGEON_PEA_INTEL.map((tab) => (
+                   tab.id === activeTabId && (
+                     <motion.div
+                       key={tab.id}
+                       initial={{ opacity: 0, y: 10 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       exit={{ opacity: 0, y: -10 }}
+                       className="grid grid-cols-1 gap-8"
+                     >
+                        {tab.sections.map((section, sIdx) => (
+                           <div key={sIdx} className="border-b border-white/10 last:border-0 pb-8 last:pb-0">
+                              <h4 className="text-xl font-bold text-warmGold mb-4 flex items-center gap-2">
+                                 <div className="w-1.5 h-1.5 bg-warmGold rounded-full"></div>
+                                 {section.title}
+                              </h4>
+                              <p className="text-gray-300 leading-relaxed mb-4 whitespace-pre-line">{section.content}</p>
+                              {section.listItems && (
+                                 <ul className="space-y-3 mt-4 pl-4 border-l-2 border-white/10">
+                                    {section.listItems.map((item, i) => (
+                                       <li key={i} className="text-sm text-gray-400 flex items-start gap-2">
+                                          <ChevronRight size={14} className="mt-1 shrink-0 text-lake" />
+                                          {item}
+                                       </li>
+                                    ))}
+                                 </ul>
+                              )}
+                           </div>
+                        ))}
+                     </motion.div>
+                   )
+                ))}
+              </AnimatePresence>
+           </div>
         </div>
 
         {/* BUYER DIRECTORY START */}
