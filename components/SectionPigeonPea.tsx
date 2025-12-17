@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Bean, TrendingUp, Truck, ShoppingBag, ArrowRight, Search, MapPin, Phone, Briefcase, Lightbulb, ChevronRight } from 'lucide-react';
 import { THAI_BUYERS_DIRECTORY, PIGEON_PEA_IMAGES, PIGEON_PEA_INTEL } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Language } from '../types';
+import { t } from '../localization';
 
-const SectionPigeonPea: React.FC = () => {
+const SectionPigeonPea: React.FC<{ lang: Language }> = ({ lang }) => {
   const [activeTabId, setActiveTabId] = useState(PIGEON_PEA_INTEL[0].id);
 
   return (
@@ -18,18 +20,21 @@ const SectionPigeonPea: React.FC = () => {
           <div>
             <div className="flex items-center gap-3 text-warmGold mb-2">
                <Bean size={20} />
-               <span className="uppercase tracking-widest text-sm font-bold">Special Commodity Report</span>
+               <span className="uppercase tracking-widest text-sm font-bold">{t(lang, 'pigeon', 'tag')}</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold mb-4 leading-tight">
-              Pigeon Peas <br/><span className="text-white/50">Global Origin Analysis</span>
+            <h2 className={`text-4xl md:text-6xl font-bold mb-4 leading-tight ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>
+              {t(lang, 'pigeon', 'title')} <br/><span className="text-white/50">{t(lang, 'pigeon', 'subtitle')}</span>
             </h2>
-            <p className="text-lg text-gray-300 max-w-xl mb-6">
-              Malawi is the primary African origin pool (~50.8k tonnes). Thailand represents a niche but viable import market for processing and ethnic redistribution.
+            <p className="text-lg text-gray-300 max-w-2xl mb-6 font-light leading-relaxed">
+              Thailand’s role in the global pigeon pea trade is evolving from a passive observer to a strategic niche player. 
+              While historically reliant on domestic beans and soy imports, volatility in global protein markets and the rise of 
+              plant-based food innovation are driving Thai processors to explore alternative legumes. Malawi, as a key 
+              counter-cyclical producer to India, offers a unique arbitrage opportunity for Thai buyers willing to navigate the logistics.
             </p>
             
             {/* Intro Paragraph */}
-            <div className="bg-white/10 p-4 rounded-lg border-l-4 border-warmGold text-sm text-gray-200 italic max-w-2xl">
-                "Thailand has historically been a niche importer of pigeon peas. However, volatility in global supply chains is creating new opportunities for 'Origin Sourcing' from Africa. Thai processors can leverage this by importing raw whole peas for value-added processing into dhal for ethnic and regional export markets."
+            <div className={`bg-white/10 p-4 rounded-lg border-warmGold text-sm text-gray-200 italic max-w-2xl ${lang === 'ar' ? 'border-r-4' : 'border-l-4'}`}>
+                "{t(lang, 'pigeon', 'intro_quote')}"
             </div>
           </div>
           <div className="mt-8 lg:mt-0 bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 min-w-[250px]">
@@ -40,9 +45,9 @@ const SectionPigeonPea: React.FC = () => {
         </div>
 
         {/* Images Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {PIGEON_PEA_IMAGES.map((img, idx) => (
-             <div key={idx} className="relative h-48 md:h-64 rounded-xl overflow-hidden shadow-lg group">
+             <div key={idx} className="relative h-48 rounded-xl overflow-hidden shadow-lg group">
                 <img 
                   src={img.url} 
                   alt={img.alt} 
@@ -59,9 +64,9 @@ const SectionPigeonPea: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {/* Card 1: Supply & Logic */}
           <div className="col-span-1 lg:col-span-2 bg-white text-charcoal p-8 rounded-2xl shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-lake/10 rounded-bl-full z-0"></div>
+            <div className={`absolute top-0 w-24 h-24 bg-lake/10 rounded-full z-0 ${lang === 'ar' ? 'left-0 rounded-br-full' : 'right-0 rounded-bl-full'}`}></div>
             <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 relative z-10">
-              <Truck className="text-lake" /> Supply Chain Dynamics
+              <Truck className="text-lake" /> {t(lang, 'pigeon', 'supply_title')}
             </h3>
             <div className="space-y-4 text-gray-600 relative z-10">
                <p>
@@ -83,7 +88,7 @@ const SectionPigeonPea: React.FC = () => {
           {/* Card 2: Price Signals */}
           <div className="bg-[#1A1A1A] text-white p-8 rounded-2xl shadow-xl border border-gray-700">
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-warmGold">
-              <TrendingUp size={20} /> Price Structure
+              <TrendingUp size={20} /> {t(lang, 'pigeon', 'price_title')}
             </h3>
             <div className="space-y-6">
                <div>
@@ -102,7 +107,7 @@ const SectionPigeonPea: React.FC = () => {
 
         {/* NEW: Deep Dive Analysis Tabs */}
         <div className="mb-20">
-           <h3 className="text-2xl md:text-3xl font-serif font-bold mb-8 text-center">Deep Dive: Thailand Import Analysis</h3>
+           <h3 className={`text-2xl md:text-3xl font-bold mb-8 text-center ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>{t(lang, 'pigeon', 'deep_dive')}</h3>
            
            <div className="flex flex-wrap justify-center gap-4 mb-10">
               {PIGEON_PEA_INTEL.map((tab) => {
@@ -139,10 +144,10 @@ const SectionPigeonPea: React.FC = () => {
                               </h4>
                               <p className="text-gray-300 leading-relaxed mb-4 whitespace-pre-line">{section.content}</p>
                               {section.listItems && (
-                                 <ul className="space-y-3 mt-4 pl-4 border-l-2 border-white/10">
+                                 <ul className={`space-y-3 mt-4 ${lang === 'ar' ? 'pr-4 border-r-2' : 'pl-4 border-l-2'} border-white/10`}>
                                     {section.listItems.map((item, i) => (
                                        <li key={i} className="text-sm text-gray-400 flex items-start gap-2">
-                                          <ChevronRight size={14} className="mt-1 shrink-0 text-lake" />
+                                          <ChevronRight size={14} className={`mt-1 shrink-0 text-lake ${lang === 'ar' ? 'rotate-180' : ''}`} />
                                           {item}
                                        </li>
                                     ))}
@@ -160,7 +165,7 @@ const SectionPigeonPea: React.FC = () => {
         {/* BUYER DIRECTORY START */}
         <div className="space-y-8">
            <div className="flex items-center justify-between">
-              <h3 className="text-2xl md:text-3xl font-serif font-bold">Thailand Buyer Directory (20 Potential Leads)</h3>
+              <h3 className={`text-2xl md:text-3xl font-bold ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>{t(lang, 'pigeon', 'directory_title')}</h3>
               <div className="hidden md:flex items-center gap-2 text-sm text-gray-300 bg-white/10 px-4 py-2 rounded-full">
                  <MapPin size={16} /> Based in Bangkok/Central Thailand
               </div>

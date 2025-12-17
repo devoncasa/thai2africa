@@ -1,12 +1,15 @@
 import { LucideIcon } from "lucide-react";
 
+export type Language = 'en' | 'fr' | 'sw' | 'ar' | 'pt';
+
 export enum SectionType {
   HOME = 'HOME',
   SUMMARY = 'SUMMARY',
   MATRIX = 'MATRIX',
   PIGEON_PEA = 'PIGEON_PEA',
   STRATEGY = 'STRATEGY',
-  SOURCES = 'SOURCES'
+  LOGISTICS = 'LOGISTICS',
+  DIRECTORY = 'DIRECTORY'
 }
 
 export interface NavItem {
@@ -26,8 +29,8 @@ export interface BuyerProfile {
   type: string;
   country?: string;
   website?: string;
-  focus?: string;        // For Thai Buyers Directory
-  products?: string[];   // For Product Matrix Buyers
+  focus?: string;        
+  products?: string[];   
   contactPerson?: string;
   email?: string;
   phone?: string;
@@ -63,8 +66,8 @@ export interface TradeStat {
   value: number;
   label: string;
   subtext: string;
-  insight?: string; // Expanded explanation
-  trend?: 'up' | 'down' | 'stable'; // Visual trend indicator
+  insight?: string; 
+  trend?: 'up' | 'down' | 'stable'; 
 }
 
 export interface StrategyDetail {
@@ -80,14 +83,13 @@ export interface StrategyProduct {
   images?: ImageRef[];
 }
 
-// NEW: Interface for the Landed Cost Calculator
 export interface CostingRow {
   id: number;
   productName: string;
-  fobPrice: number;    // USD
-  freightCost: number; // USD per unit (averaged)
-  dutyRate: number;    // Percentage (0-100)
-  markup: number;      // Percentage (0-100)
+  fobPrice: number;    
+  freightCost: number; 
+  dutyRate: number;    
+  markup: number;      
 }
 
 export interface IntelSection {
@@ -101,4 +103,30 @@ export interface IntelTab {
   label: string;
   icon: LucideIcon;
   sections: IntelSection[];
+}
+
+// NEW TYPES FOR LOGISTICS & DIRECTORY
+export interface LogisticRoute {
+  id: string;
+  name: string;
+  transitTime: string;
+  carriers: string[];
+  keyInsight: string;
+  painPoints: string[];
+  costEstimate: string;
+}
+
+export interface Regulation {
+  country: string;
+  name: string;
+  description: string;
+  criticalAction: string;
+}
+
+export interface DirectoryCompany {
+  name: string;
+  category: string;
+  location: string;
+  description: string;
+  contact?: string;
 }

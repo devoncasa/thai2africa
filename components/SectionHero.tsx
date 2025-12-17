@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import AfricanPattern from './AfricanPattern';
+import { Language } from '../types';
+import { t } from '../localization';
 
-const SectionHero: React.FC<{ onStart: () => void }> = ({ onStart }) => {
+const SectionHero: React.FC<{ onStart: () => void; lang: Language }> = ({ onStart, lang }) => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-neutralGrey text-charcoal">
       
@@ -28,15 +30,13 @@ const SectionHero: React.FC<{ onStart: () => void }> = ({ onStart }) => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h2 className="text-lake font-bold tracking-widest uppercase mb-4 text-sm md:text-base">
-            Trade Intelligence Report 2024-2025
+            {t(lang, 'hero', 'subtitle')}
           </h2>
-          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight text-charcoal">
-            Discover <span className="text-warmGold drop-shadow-sm">Malawi</span> <br />
-            The Warm Heart of Africa
+          <h1 className={`text-4xl md:text-6xl font-bold mb-6 leading-tight text-charcoal ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>
+            {t(lang, 'hero', 'title')}
           </h1>
           <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-             A strategic analysis of trade opportunities between Thailand, South Africa, and Malawi.
-             Unlocking potential in Agriculture, Automotive, and Processed Goods.
+             {t(lang, 'hero', 'desc')}
           </p>
 
           <motion.button
@@ -45,24 +45,30 @@ const SectionHero: React.FC<{ onStart: () => void }> = ({ onStart }) => {
             onClick={onStart}
             className="bg-warmGold text-white font-bold py-4 px-10 rounded-full shadow-xl hover:bg-lake transition-colors duration-300 mb-12 border border-white/20"
           >
-            Explore Analysis
+            {t(lang, 'hero', 'cta')}
           </motion.button>
 
-          {/* Presentation / Signature Block */}
+          {/* Service Highlights */}
           <div className="mt-8 pt-8 border-t border-charcoal/10 flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
               <div className="text-center">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-lake uppercase mb-2 opacity-80">Presented By</p>
-                  <h3 className="font-serif text-xl text-charcoal">Kris Laohasiri</h3>
-                  <p className="text-xs text-gray-500 mt-1">Thailand Trade Representative</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-lake uppercase mb-2 opacity-80">{t(lang, 'hero', 'sourcing')}</p>
+                  <h3 className={`text-lg text-charcoal ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>{t(lang, 'hero', 'sourcing_desc')}</h3>
               </div>
               
               <div className="hidden md:block w-px h-12 bg-gradient-to-b from-transparent via-charcoal/20 to-transparent"></div>
               <div className="md:hidden w-12 h-px bg-gradient-to-r from-transparent via-charcoal/20 to-transparent"></div>
 
               <div className="text-center">
-                  <p className="text-[10px] font-bold tracking-[0.2em] text-lake uppercase mb-2 opacity-80">Prepared For</p>
-                  <h3 className="font-serif text-xl text-charcoal">Mr. Lakmal</h3>
-                  <p className="text-xs text-gray-500 mt-1">Malawi Trade Strategy</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-lake uppercase mb-2 opacity-80">{t(lang, 'hero', 'logistics')}</p>
+                  <h3 className={`text-lg text-charcoal ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>{t(lang, 'hero', 'logistics_desc')}</h3>
+              </div>
+
+               <div className="hidden md:block w-px h-12 bg-gradient-to-b from-transparent via-charcoal/20 to-transparent"></div>
+              <div className="md:hidden w-12 h-px bg-gradient-to-r from-transparent via-charcoal/20 to-transparent"></div>
+
+              <div className="text-center">
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-lake uppercase mb-2 opacity-80">{t(lang, 'hero', 'compliance')}</p>
+                  <h3 className={`text-lg text-charcoal ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>{t(lang, 'hero', 'compliance_desc')}</h3>
               </div>
           </div>
 

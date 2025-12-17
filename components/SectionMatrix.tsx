@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PRODUCT_CATEGORIES } from '../constants';
 import { CheckCircle, XCircle, ChevronRight, Building2, TrendingUp, Info, MessageCircle, Lightbulb, Globe, Phone, Mail, MapPin, ExternalLink, Calendar, ShieldAlert } from 'lucide-react';
+import { Language } from '../types';
+import { t } from '../localization';
 
-const SectionMatrix: React.FC = () => {
+const SectionMatrix: React.FC<{ lang: Language }> = ({ lang }) => {
   const [activeCategory, setActiveCategory] = useState(PRODUCT_CATEGORIES[0].id);
   const [activeTab, setActiveTab] = useState<'overview' | 'buyers'>('overview');
 
@@ -17,21 +19,20 @@ const SectionMatrix: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-charcoal mb-6">Trade Intelligence Matrix</h2>
+          <h2 className={`text-3xl md:text-5xl font-bold text-charcoal mb-6 ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>{t(lang, 'matrix', 'title')}</h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg mb-4">
-            Detailed analysis of high-impact categories, matching Thai supply with specific African demand dynamics.
+            {t(lang, 'matrix', 'subtitle')}
           </p>
           <div className="max-w-3xl mx-auto bg-lake/5 border border-lake/10 rounded-xl p-4 text-sm text-lake/90 leading-relaxed font-medium">
              <Info className="inline-block w-4 h-4 mr-2 mb-0.5" />
-             This matrix highlights <strong>Thai-origin products</strong> that are export-ready and highly competitive for the Southern African market. 
-             Use the tabs below to explore market fit and connect with verified importers in <strong>South Africa</strong> and <strong>Malawi</strong>.
+             {t(lang, 'matrix', 'info_box')}
           </div>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar Menu */}
           <div className="lg:w-1/4 flex flex-col gap-2">
-            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 pl-4">Categories</h3>
+            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 pl-4">{t(lang, 'matrix', 'categories')}</h3>
             <div className="flex flex-col gap-2 overflow-y-auto pr-2 max-h-[600px] scrollbar-thin">
               {PRODUCT_CATEGORIES.map((cat) => {
                 const Icon = cat.icon || ChevronRight;
@@ -75,10 +76,10 @@ const SectionMatrix: React.FC = () => {
                         {activeData.icon && <activeData.icon className="text-lake w-8 h-8" />}
                       </div>
                       <div>
-                        <h3 className="text-3xl font-serif font-bold text-charcoal">{activeData.title}</h3>
+                        <h3 className={`text-3xl font-bold text-charcoal ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>{activeData.title}</h3>
                         <div className="flex gap-2 mt-2">
-                          <span className="text-xs font-bold bg-warmGold/10 text-warmGold px-3 py-1 rounded-full">High Potential</span>
-                          <span className="text-xs font-bold bg-deepGreen/10 text-deepGreen px-3 py-1 rounded-full">Export Ready</span>
+                          <span className="text-xs font-bold bg-warmGold/10 text-warmGold px-3 py-1 rounded-full">{t(lang, 'matrix', 'high_potential')}</span>
+                          <span className="text-xs font-bold bg-deepGreen/10 text-deepGreen px-3 py-1 rounded-full">{t(lang, 'matrix', 'export_ready')}</span>
                         </div>
                       </div>
                    </div>
@@ -90,13 +91,13 @@ const SectionMatrix: React.FC = () => {
                     onClick={() => setActiveTab('overview')}
                     className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'overview' ? 'bg-white text-lake shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
                   >
-                    Market Overview
+                    {t(lang, 'matrix', 'tab_overview')}
                   </button>
                   <button 
                     onClick={() => setActiveTab('buyers')}
                     className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'buyers' ? 'bg-white text-lake shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
                   >
-                    Buyer Intel & Leads
+                    {t(lang, 'matrix', 'tab_buyers')}
                   </button>
                 </div>
 
@@ -151,7 +152,7 @@ const SectionMatrix: React.FC = () => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                               <h5 className="flex items-center gap-2 text-deepGreen font-bold mb-4 border-b border-gray-100 pb-2">
-                                <CheckCircle size={18} /> Competitive Advantages
+                                <CheckCircle size={18} /> {t(lang, 'matrix', 'comp_adv')}
                               </h5>
                               <ul className="space-y-3">
                                 {item.pros.map((pro, i) => (
@@ -164,7 +165,7 @@ const SectionMatrix: React.FC = () => {
                             </div>
                             <div>
                               <h5 className="flex items-center gap-2 text-maroon font-bold mb-4 border-b border-gray-100 pb-2">
-                                <XCircle size={18} /> Risks & Barriers
+                                <XCircle size={18} /> {t(lang, 'matrix', 'risks')}
                               </h5>
                               <ul className="space-y-3">
                                 {item.cons.map((con, i) => (
@@ -188,14 +189,14 @@ const SectionMatrix: React.FC = () => {
                           <div className="bg-charcoal text-white p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                             <div>
                               <h4 className="text-lg font-bold mb-2 flex items-center gap-2">
-                                <Building2 className="text-warmGold" /> Active Buyer Leads
+                                <Building2 className="text-warmGold" /> {t(lang, 'matrix', 'active_leads')}
                               </h4>
                               <p className="text-gray-300 text-sm">
                                 Curated list of verified importers and distributors for {activeData.title}.
                               </p>
                             </div>
                             <div className="bg-white/10 px-4 py-2 rounded-lg text-xs font-mono text-gray-300 border border-white/20">
-                               {item.targetBuyers.length} Leads Found
+                               {item.targetBuyers.length} {t(lang, 'matrix', 'leads_found')}
                             </div>
                           </div>
 
@@ -230,8 +231,8 @@ const SectionMatrix: React.FC = () => {
                                               )}
                                            </div>
                                            
-                                           <div className="md:w-1/3 border-t md:border-t-0 md:border-l border-lake/10 pt-4 md:pt-0 md:pl-6 flex flex-col gap-3 text-sm">
-                                              <div className="font-bold text-lake text-xs uppercase mb-1">Contact Intel</div>
+                                           <div className={`md:w-1/3 border-t md:border-t-0 pt-4 md:pt-0 flex flex-col gap-3 text-sm ${lang === 'ar' ? 'md:border-r md:pr-6 border-lake/10' : 'md:border-l md:pl-6 border-lake/10'}`}>
+                                              <div className="font-bold text-lake text-xs uppercase mb-1">{t(lang, 'matrix', 'contact_intel')}</div>
                                               {buyer.contactPerson && <div className="flex gap-2 text-gray-600"><Building2 size={14} className="shrink-0 mt-0.5"/> {buyer.contactPerson}</div>}
                                               {buyer.email && <div className="flex gap-2 text-gray-600"><Mail size={14} className="shrink-0 mt-0.5"/> {buyer.email}</div>}
                                               {buyer.phone && <div className="flex gap-2 text-gray-600"><Phone size={14} className="shrink-0 mt-0.5"/> {buyer.phone}</div>}
