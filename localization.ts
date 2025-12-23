@@ -8,19 +8,20 @@ interface TranslationStructure {
     pigeon: string;
     strategy: string;
     logistics: string;
-    directory: string;
+    vetting: string;
+    faq: string;
   };
   hero: {
     subtitle: string;
     title: string;
     desc: string;
     cta: string;
-    sourcing: string;
-    sourcing_desc: string;
-    logistics: string;
-    logistics_desc: string;
-    compliance: string;
-    compliance_desc: string;
+    process_1: string;
+    process_1_desc: string;
+    process_2: string;
+    process_2_desc: string;
+    process_3: string;
+    process_3_desc: string;
   };
   summary: {
     title: string;
@@ -37,7 +38,7 @@ interface TranslationStructure {
     info_box: string;
     categories: string;
     tab_overview: string;
-    tab_buyers: string;
+    tab_archetypes: string;
     high_potential: string;
     export_ready: string;
     comp_adv: string;
@@ -50,6 +51,7 @@ interface TranslationStructure {
     tag: string;
     title: string;
     subtitle: string;
+    intro_summary: string;
     intro_quote: string;
     supply_title: string;
     price_title: string;
@@ -79,12 +81,16 @@ interface TranslationStructure {
     transit: string;
     critical_action: string;
   };
-  directory: {
+  vetting: {
     title: string;
     subtitle: string;
-    sec_exporters: string;
-    sec_logistics: string;
-    sec_buyers: string;
+    sec_audit: string;
+    sec_matching: string;
+    sec_confidential: string;
+  };
+  faq: {
+    title: string;
+    subtitle: string;
   }
 }
 
@@ -92,436 +98,466 @@ export const translations: Record<Language, TranslationStructure> = {
   en: {
     nav: {
       home: "Home",
-      summary: "Market Intel",
-      matrix: "Product Matrix",
-      pigeon: "Commodity Spotlight",
-      strategy: "Strategy Tools",
-      logistics: "Logistics & Regs",
-      directory: "Directory",
+      summary: "Corridor Intel",
+      matrix: "Supply Matrix",
+      pigeon: "Sourcing Focus",
+      strategy: "Process Framework",
+      logistics: "Corridor Management",
+      vetting: "Vetting Portfolio",
+      faq: "Trade FAQ",
     },
     hero: {
-      subtitle: "Strategic Trade Synergy: 2025-2030",
-      title: "The Thailand-Africa Trade Corridor",
-      desc: "A comprehensive operational blueprint for trade intermediaries. Connecting the 'Kitchen of the World' and the 'Detroit of Asia' with the high-growth markets of the Global South.",
-      cta: "Access Intelligence Report",
-      sourcing: "Sourcing",
-      sourcing_desc: "Industrial Surplus",
-      logistics: "Logistics",
-      logistics_desc: "Route Optimization",
-      compliance: "Compliance",
-      compliance_desc: "Regulatory Intel"
+      subtitle: "B2B Trade Facilitation & Documentation Governance",
+      title: "How to Source from Thailand for Africa | B2B Sourcing",
+      desc: "AfricanThaiTrade Nexus is an institutional intermediary specializing in Thailand Africa trade, business matching, and import documentation. We simplify sourcing from Thailand for African importers through rigorous vetting and supply chain corridor management.",
+      cta: "Initiate Matching Request",
+      process_1: "1. Vetting",
+      process_1_desc: "Manufacturer Audit",
+      process_2: "2. Matching",
+      process_2_desc: "Institutional Linking",
+      process_3: "3. Execution",
+      process_3_desc: "Document Governance"
     },
     summary: {
-      title: "Macro-Economic Intelligence",
-      intro_title: "The Pivot to the Global South",
-      intro_desc: "Thailand's economic engine is at an inflection point. With 2024-2025 growth projected at a modest 1.8-2.5%, manufacturers are actively seeking 'secondary markets'.",
-      chart_title: "Bilateral Trade Data",
-      chart_subtitle: "2024/2025 Estimates",
-      pillars_title: "Core Strategic Pillars",
-      future_title: "Future Outlook: 2025 Trends"
+      title: "Strategic Corridor Intelligence: Thailand-Africa",
+      intro_title: "2025 Trade Framework",
+      intro_desc: "Our nexus orchestrates high-value Africa Asia trade corridors by identifying verified supply-demand clusters privately. We prioritize supply-chain resilience and AfCFTA trade facilitation, supporting regional hubs like Durban, Mombasa, and Lagos.",
+      chart_title: "Thailand-Africa Trade Flow",
+      chart_subtitle: "Q1-Q2 2025 Performance Data",
+      pillars_title: "B2B Governance Pillars",
+      future_title: "Global South Trade Outlook"
     },
     matrix: {
-      title: "Trade Intelligence Matrix",
-      subtitle: "Detailed analysis of high-impact categories, matching Thai supply with specific African demand dynamics.",
-      info_box: "This matrix highlights Thai-origin products that are export-ready and highly competitive for the Southern African market.",
-      categories: "Categories",
-      tab_overview: "Market Overview",
-      tab_buyers: "Buyer Intel & Leads",
-      high_potential: "High Potential",
-      export_ready: "Export Ready",
-      comp_adv: "Competitive Advantages",
-      risks: "Risks & Barriers",
-      active_leads: "Active Buyer Leads",
-      leads_found: "Leads Found",
-      contact_intel: "Contact Intel"
+      title: "Thai-African Supply Matrix",
+      subtitle: "Technical analysis of high-demand Thai products for African importers, cooperatives, and government procurement. Optimizing B2B trade facilitation for food, tech, and industrial polymers.",
+      info_box: "Explore sectors where we provide private vetting and regulatory coordination for institutional partners.",
+      categories: "Sector Portfolios",
+      tab_overview: "Market Logic",
+      tab_archetypes: "Buyer Archetypes",
+      high_potential: "Strategic Sourcing",
+      export_ready: "Compliance Verified",
+      comp_adv: "Supply Edge",
+      risks: "Corridor Barriers",
+      active_leads: "Open Requisitions",
+      leads_found: "Vetted Archetypes",
+      contact_intel: "Partnership Desk"
     },
     pigeon: {
-      tag: "Special Commodity Report",
-      title: "Pigeon Peas",
-      subtitle: "Global Origin Analysis",
-      intro_quote: "This report dissects the granular import dynamics, revealing a path for 'Origin Sourcing' that bypasses traditional middlemen.",
-      supply_title: "Supply Chain Dynamics",
-      price_title: "Price Structure",
-      deep_dive: "Deep Dive: Thailand Import Analysis",
-      directory_title: "Thailand Buyer Directory"
+      tag: "Commodity Arbitrage Analysis",
+      title: "Legume Sourcing Optimization",
+      subtitle: "Thailand-Africa Bidirectional Logic",
+      intro_summary: "Thailand’s pigeon pea landscape is transitioning from experimental niche to strategic alternative. Current relevance is driven by the search for sustainable, non-GMO protein sources for the country’s advanced food processing and animal feed sectors. While domestic production remains limited, high-level opportunities exist in counter-cyclical sourcing from East Africa to stabilize Thai processing capacity, though constraints include complex phytosanitary protocols and traditional supply chain rigidity.",
+      intro_quote: "Maximizing value by identifying counter-cyclical sourcing windows between East African production and Thai processing capacity.",
+      supply_title: "Resilience Strategy",
+      price_title: "Cost Modeling",
+      deep_dive: "Trade Intelligence Architecture",
+      directory_title: "Institutional Partners"
     },
     strategy: {
-      title: "Execution Strategy",
-      subtitle: "The 'Middle Person' is not a broker; they are a risk manager. This section provides the tools to bridge the gap with data and costing precision.",
-      roadmap_title: "Operational Roadmap",
-      hidden_gems_title: "High Margin / Low Competition",
-      calculator_title: "Landed Cost Calculator",
-      calculator_desc: "Estimating landed cost into Durban/Apapa including Freight, Duty, and Margin.",
-      download_btn: "Download Full Blueprint",
-      generating: "Generating PDF...",
-      support_title: "Trade Desk Support",
-      support_desc: "Contact our team for personalized market entry strategies and B2B matchmaking."
+      title: "Execution Process: Thailand to Africa",
+      subtitle: "Bridging cross-border trade gaps through rigorous deal structuring, documentation governance, and risk mitigation.",
+      roadmap_title: "Facilitation Lifecycle",
+      hidden_gems_title: "Strategic Niche Sectors",
+      calculator_title: "Landed Cost Modeling",
+      calculator_desc: "Estimate industrial landing costs including facilitation and compliance fees for African ports.",
+      download_btn: "Download Service Portfolio",
+      generating: "Compiling Portfolio...",
+      support_title: "Institutional Trade Desk",
+      support_desc: "Engage our corridor experts for bespoke deal structuring."
     },
     logistics: {
-      title: "Logistics & Regulatory Intelligence",
-      subtitle: "Mastering the route to market and compliance landscape is the difference between profit and seizure.",
-      tab_routes: "Shipping Routes",
-      tab_regs: "Regulatory Cheat Sheet",
-      insight: "Insight",
-      pain_points: "Pain Points",
-      est_cost: "Est. Cost (20ft)",
-      transit: "Transit",
-      critical_action: "Critical Action"
+      title: "Corridor Management & African Compliance",
+      subtitle: "Coordinating multimodal logistics (Durban, Mombasa, Lagos) and documentation to navigate global shipping disruptions.",
+      tab_routes: "Strategic Routes",
+      tab_regs: "Documentation Governance",
+      insight: "Matching Logic",
+      pain_points: "Risk Factors",
+      est_cost: "Value Benchmarks",
+      transit: "Lead Time",
+      critical_action: "Compliance Action"
     },
-    directory: {
-      title: "Business Directory & Network",
-      subtitle: "A curated network of verified entities driving the Thailand-Africa trade corridor.",
-      sec_exporters: "Verified Thai Exporters",
-      sec_logistics: "Logistics & Inspection Partners",
-      sec_buyers: "Thai Buyers (Reverse Trade)"
+    vetting: {
+      title: "Bespoke Vetting Framework",
+      subtitle: "Private, multi-tier auditing system for manufacturers in the Thailand-Africa corridor.",
+      sec_audit: "Manufacturer Auditing",
+      sec_matching: "Institutional Matching",
+      sec_confidential: "Confidential Deal Flow"
+    },
+    faq: {
+      title: "Trade FAQ & Answer Engine",
+      subtitle: "Expert answers to the most common questions about importing from Thailand to Africa."
     }
   },
   fr: {
     nav: {
       home: "Accueil",
-      summary: "Info Marché",
-      matrix: "Matrice Produits",
-      pigeon: "Focus Matières",
-      strategy: "Outils Stratégiques",
-      logistics: "Logistique & Lois",
-      directory: "Annuaire",
+      summary: "Infos Corridor",
+      matrix: "Matrice d'Offre",
+      pigeon: "Sourcing Focus",
+      strategy: "Processus",
+      logistics: "Gestion de Corridor",
+      vetting: "Vérification",
+      faq: "FAQ Commerce",
     },
     hero: {
-      subtitle: "Synergie Commerciale Stratégique : 2025-2030",
-      title: "Le Corridor Commercial Thaïlande-Afrique",
-      desc: "Un plan opérationnel complet pour les intermédiaires commerciaux. Relier la 'Cuisine du Monde' et le 'Détroit de l'Asie' aux marchés à forte croissance du Sud Global.",
-      cta: "Accéder au Rapport",
-      sourcing: "Approvisionnement",
-      sourcing_desc: "Surplus Industriel",
-      logistics: "Logistique",
-      logistics_desc: "Optimisation des Routes",
-      compliance: "Conformité",
-      compliance_desc: "Veille Réglementaire"
+      subtitle: "Facilitation B2B et Gouvernance Documentaire",
+      title: "Importation depuis la Thaïlande vers l'Afrique | Sourcing B2B",
+      desc: "AfricanThaiTrade Nexus est un intermédiaire commercial Afrique Asie spécialisé dans le sourcing en Thaïlande et la facilitation du commerce international. Nous simplifions les échanges pour les importateurs africains via un audit rigoureux et une conformité douanière optimale.",
+      cta: "Demander un Matching",
+      process_1: "1. Audit",
+      process_1_desc: "Audit Fabricant",
+      process_2: "2. Matching",
+      process_2_desc: "Lien Institutionnel",
+      process_3: "3. Exécution",
+      process_3_desc: "Gouvernance Documentaire"
     },
     summary: {
-      title: "Intelligence Macro-Économique",
-      intro_title: "Le Pivot vers le Sud Global",
-      intro_desc: "Le moteur économique thaïlandais est à un tournant. Avec une croissance 2024-2025 projetée à 1,8-2,5%, les fabricants recherchent activement des 'marchés secondaires'.",
-      chart_title: "Données Commerciales Bilatérales",
-      chart_subtitle: "Estimations 2024/2025",
-      pillars_title: "Piliers Stratégiques",
-      future_title: "Perspectives 2025"
+      title: "Intelligence de Corridor: Thaïlande-Afrique",
+      intro_title: "Cadre Commercial 2025",
+      intro_desc: "Nous orchestrons des flux commerciaux à haute valeur sur le corridor commercial Afrique Asie. Nous soutenons la ZLECAF (AfCFTA) et les hubs régionaux comme Abidjan, Dakar et Douala via une chaîne logistique optimisée.",
+      chart_title: "Flux Commerciaux Thaïlande-Afrique",
+      chart_subtitle: "Données de Performance 2025",
+      pillars_title: "Piliers de Gouvernance",
+      future_title: "Perspectives Sud-Sud"
     },
     matrix: {
-      title: "Matrice d'Intelligence Commerciale",
-      subtitle: "Analyse détaillée des catégories à fort impact, alignant l'offre thaïlandaise avec la demande africaine.",
-      info_box: "Cette matrice met en évidence les produits d'origine thaïlandaise prêts à l'exportation et compétitifs pour le marché sud-africain.",
-      categories: "Catégories",
-      tab_overview: "Aperçu du Marché",
-      tab_buyers: "Pistes d'Acheteurs",
-      high_potential: "Fort Potentiel",
-      export_ready: "Prêt à l'Export",
-      comp_adv: "Avantages Compétitifs",
-      risks: "Risques et Barrières",
-      active_leads: "Pistes Acheteurs Actifs",
-      leads_found: "Pistes Trouvées",
-      contact_intel: "Info Contact"
+      title: "Matrice d'Offre Thaïlande-Afrique",
+      subtitle: "Analyse technique des exportations thaïlandaises pour les importateurs africains et les achats institutionnels. Optimisation de la facilitation des échanges pour l'agro-industrie et le secteur industriel.",
+      info_box: "Découvrez les secteurs où nous assurons la coordination réglementaire.",
+      categories: "Portefeuilles Sectoriels",
+      tab_overview: "Logique Marché",
+      tab_archetypes: "Archétypes d'Acheteurs",
+      high_potential: "Sourcing Stratégique",
+      export_ready: "Conformité Vérifiée",
+      comp_adv: "Avantage Offre",
+      risks: "Barrières Corridor",
+      active_leads: "Requêtes Ouvertes",
+      leads_found: "Archétypes Vérifiés",
+      contact_intel: "Bureau Partenariat"
     },
     pigeon: {
-      tag: "Rapport Spécial : Matières Premières",
-      title: "Pois d'Angole",
-      subtitle: "Analyse d'Origine Mondiale",
-      intro_quote: "Ce rapport analyse la dynamique des importations, révélant une voie pour un 'Sourcing à l'Origine' contournant les intermédiaires traditionnels.",
-      supply_title: "Dynamique de la Supply Chain",
-      price_title: "Structure des Prix",
-      deep_dive: "Analyse Approfondie : Importation Thaïlande",
-      directory_title: "Répertoire des Acheteurs Thaïlandais"
+      tag: "Arbitrage des Matières Premières",
+      title: "Optimisation du Sourcing de Protéines",
+      subtitle: "Thaïlande-Afrique",
+      intro_summary: "Le paysage thaïlandais des pois d'Angole passe d'une niche expérimentale à une alternative stratégique. La pertinence actuelle est portée par la recherche de sources de protéines durables et sans OGM pour les secteurs de la transformation alimentaire et de l'alimentation animale. Bien que la production locale reste limitée, des opportunités existent dans l'approvisionnement contre-cyclique en Afrique de l'Est.",
+      intro_quote: "Maximiser la valeur en identifiant des fenêtres de sourcing contre-cycliques.",
+      supply_title: "Stratégie de Résilience",
+      price_title: "Modélisation des Coûts",
+      deep_dive: "Architecture de l'Intelligence Commerciale",
+      directory_title: "Partenaires Institutionnels"
     },
     strategy: {
-      title: "Stratégie d'Exécution",
-      subtitle: "L'intermédiaire n'est pas un courtier, c'est un gestionnaire de risques. Cette section fournit les outils pour combler le fossé avec précision.",
-      roadmap_title: "Feuille de Route Opérationnelle",
-      hidden_gems_title: "Marge Élevée / Faible Concurrence",
-      calculator_title: "Calculateur de Coût Rendu",
-      calculator_desc: "Estimation du coût rendu à Durban/Apapa incluant Fret, Droits et Marge.",
-      download_btn: "Télécharger le Plan Complet",
-      generating: "Génération PDF...",
-      support_title: "Support Commercial",
-      support_desc: "Contactez notre équipe pour des stratégies d'entrée sur le marché personnalisées."
+      title: "Processus d'Exécution: Thaïlande vers Afrique",
+      subtitle: "Combler les lacunes par une structuration rigoureuse et une gouvernance documentaire.",
+      roadmap_title: "Cycle de Facilitation",
+      hidden_gems_title: "Niches Stratégiques",
+      calculator_title: "Modélisation Coût Rendu",
+      calculator_desc: "Estimer les coûts industriels incluant les frais de conformité pour les ports africains.",
+      download_btn: "Télécharger Portfolio",
+      generating: "Compilation...",
+      support_title: "Bureau de Trading",
+      support_desc: "Contactez nos experts pour la structuration de deals."
     },
     logistics: {
-      title: "Logistique & Intelligence Réglementaire",
-      subtitle: "Maîtriser la route vers le marché et la conformité est la différence entre profit et saisie douanière.",
-      tab_routes: "Routes Maritimes",
-      tab_regs: "Fiche Réglementaire",
-      insight: "Aperçu",
-      pain_points: "Points Critiques",
-      est_cost: "Coût Est. (20pd)",
-      transit: "Transit",
-      critical_action: "Action Critique"
+      title: "Gestion de Corridor et Conformité Africaine",
+      subtitle: "Coordination logistique multimodale et documentation face aux perturbations mondiales.",
+      tab_routes: "Routes Stratégiques",
+      tab_regs: "Gouvernance Documentaire",
+      insight: "Logique de Matching",
+      pain_points: "Facteurs de Risque",
+      est_cost: "Benchmarks Valeur",
+      transit: "Délai de Transit",
+      critical_action: "Action de Conformité"
     },
-    directory: {
-      title: "Annuaire & Réseau d'Affaires",
-      subtitle: "Un réseau curaté d'entités vérifiées pilotant le corridor commercial Thaïlande-Afrique.",
-      sec_exporters: "Exportateurs Thaïlandais Vérifiés",
-      sec_logistics: "Partenaires Logistiques & Inspection",
-      sec_buyers: "Acheteurs Thaïlandais (Commerce Inversé)"
+    vetting: {
+      title: "Cadre de Vérification Sur Mesure",
+      subtitle: "Système d'audit privé pour les fabricants du corridor Thaïlande-Afrique.",
+      sec_audit: "Audit Fabricant",
+      sec_matching: "Matching Institutionnel",
+      sec_confidential: "Flux Confidentiel"
+    },
+    faq: {
+      title: "FAQ Commerce et Réponses AI",
+      subtitle: "Réponses expertes aux questions courantes sur l'importation de Thaïlande vers l'Afrique."
     }
   },
   sw: {
     nav: {
       home: "Nyumbani",
-      summary: "Taarifa za Soko",
-      matrix: "Muundo wa Bidhaa",
-      pigeon: "Anga la Bidhaa",
-      strategy: "Zana za Mikakati",
-      logistics: "Usafirishaji & Sheria",
-      directory: "Orodha ya Biashara",
+      summary: "Taarifa za Ukorido",
+      matrix: "Jedwali la Bidhaa",
+      pigeon: "Utafutaji Maalum",
+      strategy: "Mfumo wa Utekelezaji",
+      logistics: "Usimamizi wa Ukorido",
+      vetting: "Orodha ya Uhakiki",
+      faq: "Maswali ya Biashara",
     },
     hero: {
-      subtitle: "Ushirikiano wa Kimkakati wa Biashara: 2025-2030",
-      title: "Ukorido wa Biashara wa Thailand-Afrika",
-      desc: "Mpango kamili wa uendeshaji kwa waunganishaji wa biashara. Kuunganisha 'Jiko la Dunia' na 'Detroit ya Asia' na masoko yanayokua kwa kasi ya Kusini mwa Dunia.",
-      cta: "Pata Ripoti ya Kijasusi",
-      sourcing: "Utafutaji Bidhaa",
-      sourcing_desc: "Ziada ya Viwanda",
-      logistics: "Usafirishaji",
-      logistics_desc: "Uboreshaji wa Njia",
-      compliance: "Uzingatiaji",
-      compliance_desc: "Taarifa za Sheria"
+      subtitle: "Uwezeshaji wa Biashara na Nyaraka",
+      title: "Jinsi ya Kuagiza kutoka Thailand kwenda Afrika | Biashara B2B",
+      desc: "AfricanThaiTrade Nexus ni mpatanishi wa biashara Afrika anayesimamia uoanishaji wa biashara na nyaraka za uagizaji kati ya Thailand na Afrika. Tunarahisisha biashara ya kimataifa kupitia uhakiki na usimamizi wa mnyororo wa ugavi.",
+      cta: "Omba Uoanishaji",
+      process_1: "1. Uhakiki",
+      process_1_desc: "Ukaguzi wa Mtengenezaji",
+      process_2: "2. Uoanishaji",
+      process_2_desc: "Uunganishaji wa Kitaasisi",
+      process_3: "3. Utekelezaji",
+      process_3_desc: "Usimamizi wa Nyaraka"
     },
     summary: {
-      title: "Ujasusi wa Uchumi Mkuu",
-      intro_title: "Mwelekeo kwa Kusini ya Dunia",
-      intro_desc: "Uchumi wa Thailand uko katika hatua ya mabadiliko. Pamoja na ukuaji wa 2024-2025 kukadiriwa kuwa 1.8-2.5%, watengenezaji wanatafuta 'masoko ya pili'.",
-      chart_title: "Data ya Biashara ya Pande Mbili",
-      chart_subtitle: "Makadirio ya 2024/2025",
-      pillars_title: "Nguzo Kuu za Kimkakati",
-      future_title: "Mtazamo wa Baadaye: 2025"
+      title: "Ujasusi wa Kimkakati: Thailand-Afrika",
+      intro_title: "Mfumo wa Biashara 2025",
+      intro_desc: "Tunaratibu mikondo ya biashara Afrika Asia kwa kutambua maeneo yaliyohakikiwa. Tunasaidia ununuzi wa serikali Afrika na bandari za Mombasa, Dar es Salaam na Durban.",
+      chart_title: "Mtiririko wa Biashara Thailand-Afrika",
+      chart_subtitle: "Matokeo ya Performance 2025",
+      pillars_title: "Nguzo za Usimamizi",
+      future_title: "Mtazamo wa Kusini mwa Dunia"
     },
     matrix: {
-      title: "Tumia Ujasusi wa Biashara",
-      subtitle: "Uchambuzi wa kina wa bidhaa zenye athari kubwa, ukilinganisha usambazaji wa Thailand na mahitaji maalum ya Afrika.",
-      info_box: "Jedwali hili linaangazia bidhaa zenye asili ya Thailand ambazo ziko tayari kusafirishwa na zenye ushindani mkubwa kwa soko la Kusini mwa Afrika.",
-      categories: "Aina",
-      tab_overview: "Tathmini ya Soko",
-      tab_buyers: "Taarifa za Wanunuzi",
-      high_potential: "Uwezo wa Juu",
-      export_ready: "Tayari Kusafirishwa",
-      comp_adv: "Faida za Ushindani",
-      risks: "Hatari na Vizuizi",
-      active_leads: "Wanunuzi Hai",
-      leads_found: "Matokeo",
-      contact_intel: "Mawasiliano"
+      title: "Jedwali la Bidhaa Thailand-Afrika",
+      subtitle: "Uchambuzi wa bidhaa za Thailand kwa wasambazaji Afrika na waagizaji. Urahisishaji wa biashara kwa bidhaa za chakula, teknolojia na pembejeo za kilimo.",
+      info_box: "Gundua sekta tunazoratibu kwa ajili ya washirika wa kitaasisi.",
+      categories: "Sekta Maalum",
+      tab_overview: "Mantiki ya Soko",
+      tab_archetypes: "Aina za Wanunuzi",
+      high_potential: "Utafutaji wa Kimkakati",
+      export_ready: "Tayari kwa Sheria",
+      comp_adv: "Faida ya Thailand",
+      risks: "Vizuizi vya Ukorido",
+      active_leads: "Maombi ya Uoanishaji",
+      leads_found: "Aina Zilizohakikiwa",
+      contact_intel: "Dawati la Ushirikiano"
     },
     pigeon: {
-      tag: "Ripoti Maalum ya Bidhaa",
-      title: "Mbaazi",
-      subtitle: "Uchambuzi wa Asili ya Dunia",
-      intro_quote: "Ripoti hii inachambua mienendo ya uagizaji, ikifunua njia ya 'Utafutaji wa Asili' ambayo inapita wa kati wa jadi.",
-      supply_title: "Mienendo ya Ugavi",
-      price_title: "Muundo wa Bei",
-      deep_dive: "Uchambuzi wa Kina: Uagizaji Thailand",
-      directory_title: "Orodha ya Wanunuzi Thailand"
+      tag: "Uchambuzi wa Bei za Bidhaa",
+      title: "Utafutaji wa Protini",
+      subtitle: "Mantiki ya Thailand-Afrika",
+      intro_summary: "Mazingira ya mbaazi nchini Thailand yanabadilika kutoka kwa majaribio hadi njia mbadala ya kimkakati. Umuhimu wa sasa unachochewa na utafutaji wa vyanzo vya protini endelevu na visivyo vya GMO kwa sekta za kisasa za usindikaji wa chakula na mifugo.",
+      intro_quote: "Kuongeza thamani kwa kutumia fursa za utafutaji kati ya Afrika na Thailand.",
+      supply_title: "Mkakati wa Uhimilivu",
+      price_title: "Makadirio ya Gharama",
+      deep_dive: "Usanifu wa Ujasusi wa Biashara",
+      directory_title: "Washirika wa Kitaasisi"
     },
     strategy: {
-      title: "Mkakati wa Utekelezaji",
-      subtitle: "Mtu wa Kati si dalali; ni meneja wa hatari. Sehemu hii inatoa zana za kuziba pengo kwa kutumia data na usahihi wa gharama.",
-      roadmap_title: "Ramani ya Uendeshaji",
-      hidden_gems_title: "Faida Kubwa / Ushindani Mdogo",
-      calculator_title: "Kikokotoo cha Gharama",
-      calculator_desc: "Kukadiria gharama ya kufika Durban/Apapa ikijumuisha Usafirishaji, Ushuru na Faida.",
-      download_btn: "Pakua Mpango Kamili",
-      generating: "Inatengeneza PDF...",
-      support_title: "Msaada wa Biashara",
-      support_desc: "Wasiliana na timu yetu kwa mikakati maalum ya kuingia sokoni."
+      title: "Mchakato wa Utekelezaji: Thailand kwenda Afrika",
+      subtitle: "Kuziba mapengo ya biashara kupitia uundaji mikataba makini na usimamizi wa nyaraka.",
+      roadmap_title: "Mzunguko wa Uwezeshaji",
+      hidden_gems_title: "Sekta Maalum za Kimkakati",
+      calculator_title: "Gharama za Kufika",
+      calculator_desc: "Kadiri gharama za viwanda kwa bandari za Afrika.",
+      download_btn: "Pakua Maelezo ya Huduma",
+      generating: "Inatayarisha...",
+      support_title: "Dawati la Biashara",
+      support_desc: "Wasiliana na wataalamu wetu wa ukorido."
     },
     logistics: {
-      title: "Ujasusi wa Usafirishaji na Sheria",
-      subtitle: "Kumudu njia ya soko na uzingatiaji wa sheria ndio tofauti kati ya faida na kupoteza mizigo.",
-      tab_routes: "Njia za Meli",
-      tab_regs: "Muongozo wa Sheria",
-      insight: "Ufahamu",
-      pain_points: "Changamoto",
-      est_cost: "Gharama (20ft)",
-      transit: "Muda wa Kusafiri",
-      critical_action: "Hatua Muhimu"
+      title: "Usimamizi wa Ukorido na Sheria za Afrika",
+      subtitle: "Kuratibu usafirishaji na nyaraka katika bandari za Mombasa na Durban.",
+      tab_routes: "Njia za Kimkakati",
+      tab_regs: "Usimamizi wa Nyaraka",
+      insight: "Mantiki ya Uoanishaji",
+      pain_points: "Vigezo vya Hatari",
+      est_cost: "Viwango vya Thamani",
+      transit: "Muda wa Safari",
+      critical_action: "Hatua za Kisheria"
     },
-    directory: {
-      title: "Orodha ya Biashara & Mtandao",
-      subtitle: "Mtandao uliothibitishwa wa mashirika yanayoendesha ukorido wa biashara wa Thailand-Afrika.",
-      sec_exporters: "Wauzaji wa Thailand Waliothibitishwa",
-      sec_logistics: "Wadau wa Usafirishaji & Ukaguzi",
-      sec_buyers: "Wanunuzi wa Thailand"
-    }
-  },
-  pt: {
-    nav: {
-      home: "Início",
-      summary: "Info Mercado",
-      matrix: "Matriz de Produtos",
-      pigeon: "Destaque Commodities",
-      strategy: "Estratégia",
-      logistics: "Logística e Regulação",
-      directory: "Diretório",
+    vetting: {
+      title: "Mfumo Wetu wa Uhakiki",
+      subtitle: "Mfumo binafsi wa ukaguzi kwa watengenezaji wa Thailand.",
+      sec_audit: "Ukaguzi wa Mtengenezaji",
+      sec_matching: "Uoanishaji wa Kitaasisi",
+      sec_confidential: "Mzunguko wa Siri"
     },
-    hero: {
-      subtitle: "Sinergia Comercial Estratégica: 2025-2030",
-      title: "O Corredor Comercial Tailândia-África",
-      desc: "Um plano operacional abrangente para intermediários comerciais. Conectando a 'Cozinha do Mundo' e a 'Detroit da Ásia' aos mercados de alto crescimento do Sul Global.",
-      cta: "Acessar Relatório",
-      sourcing: "Abastecimento",
-      sourcing_desc: "Excedente Industrial",
-      logistics: "Logística",
-      logistics_desc: "Otimização de Rotas",
-      compliance: "Conformidade",
-      compliance_desc: "Inteligência Regulatória"
-    },
-    summary: {
-      title: "Inteligência Macroeconômica",
-      intro_title: "O Pivô para o Sul Global",
-      intro_desc: "O motor econômico da Tailândia está em um ponto de inflexão. Com o crescimento de 2024-2025 projetado em modestos 1,8-2,5%, os fabricantes buscam ativamente 'mercados secundários'.",
-      chart_title: "Dados Comerciais Bilaterais",
-      chart_subtitle: "Estimativas 2024/2025",
-      pillars_title: "Pilares Estratégicos",
-      future_title: "Perspectivas Futuras: 2025"
-    },
-    matrix: {
-      title: "Matriz de Inteligência Comercial",
-      subtitle: "Análise detalhada de categorias de alto impacto, alinhando a oferta tailandesa com a demanda africana específica.",
-      info_box: "Esta matriz destaca produtos de origem tailandesa prontos para exportação e altamente competitivos para o mercado da África Austral.",
-      categories: "Categorias",
-      tab_overview: "Visão Geral",
-      tab_buyers: "Dados de Compradores",
-      high_potential: "Alto Potencial",
-      export_ready: "Pronto p/ Exportar",
-      comp_adv: "Vantagens Competitivas",
-      risks: "Riscos e Barreiras",
-      active_leads: "Leads Ativos",
-      leads_found: "Leads Encontrados",
-      contact_intel: "Contato"
-    },
-    pigeon: {
-      tag: "Relatório Especial de Commodities",
-      title: "Feijão Guandu",
-      subtitle: "Análise de Origem Global",
-      intro_quote: "Este relatório disseca a dinâmica de importação, revelando um caminho para 'Sourcing na Origem' que ignora os intermediários tradicionais.",
-      supply_title: "Dinâmica da Cadeia de Suprimentos",
-      price_title: "Estrutura de Preços",
-      deep_dive: "Análise Profunda: Importação Tailândia",
-      directory_title: "Diretório de Compradores"
-    },
-    strategy: {
-      title: "Estratégia de Execução",
-      subtitle: "O intermediário não é um corretor; é um gestor de riscos. Esta seção fornece as ferramentas para preencher a lacuna com dados e precisão de custos.",
-      roadmap_title: "Roteiro Operacional",
-      hidden_gems_title: "Margem Alta / Baixa Concorrência",
-      calculator_title: "Calculadora de Custo",
-      calculator_desc: "Estimativa de custo posto em Durban/Apapa incluindo Frete, Impostos e Margem.",
-      download_btn: "Baixar Plano Completo",
-      generating: "Gerando PDF...",
-      support_title: "Suporte Comercial",
-      support_desc: "Entre em contato com nossa equipe para estratégias personalizadas de entrada no mercado."
-    },
-    logistics: {
-      title: "Logística e Inteligência Regulatória",
-      subtitle: "Dominar a rota para o mercado e o cenário de conformidade é a diferença entre lucro e apreensão.",
-      tab_routes: "Rotas de Navegação",
-      tab_regs: "Guia Regulatório",
-      insight: "Insight",
-      pain_points: "Pontos Críticos",
-      est_cost: "Custo Est. (20 pés)",
-      transit: "Trânsito",
-      critical_action: "Ação Crítica"
-    },
-    directory: {
-      title: "Diretório de Negócios e Rede",
-      subtitle: "Uma rede curada de entidades verificadas que impulsionam o corredor comercial Tailândia-África.",
-      sec_exporters: "Exportadores Tailandeses",
-      sec_logistics: "Parceiros Logísticos",
-      sec_buyers: "Compradores Tailandeses"
+    faq: {
+      title: "Maswali ya Biashara na Majibu ya AI",
+      subtitle: "Majibu ya kitaalamu kwa maswali ya kawaida kuhusu kununua kutoka Thailand kwenda Afrika."
     }
   },
   ar: {
     nav: {
       home: "الرئيسية",
-      summary: "معلومات السوق",
-      matrix: "مصفوفة المنتجات",
-      pigeon: "تسليط الضوء على السلع",
-      strategy: "أدوات الاستراتيجية",
-      logistics: "اللوجستيات والأنظمة",
-      directory: "الدليل التجاري",
+      summary: "معلومات الممر",
+      matrix: "مصفوفة التوريد",
+      pigeon: "تركيز التوفير",
+      strategy: "إطار العملية",
+      logistics: "إدارة الممر",
+      vetting: "محفظة الفحص",
+      faq: "الأسئلة الشائعة",
     },
     hero: {
-      subtitle: "التآزر التجاري الاستراتيجي: 2025-2030",
-      title: "الممر التجاري بين تايلاند وأفريقيا",
-      desc: "مخطط تشغيلي شامل للوسطاء التجاريين. ربط 'مطبخ العالم' و'ديترويت آسيا' بالأسواق عالية النمو في الجنوب العالمي.",
-      cta: "الوصول إلى تقرير الاستخبارات",
-      sourcing: "توفير المصادر",
-      sourcing_desc: "الفائض الصناعي",
-      logistics: "اللوجستيات",
-      logistics_desc: "تحسين المسار",
-      compliance: "الامتثال",
-      compliance_desc: "المعلومات التنظيمية"
+      subtitle: "تسهيل التجارة بين الشركات وحوكمة الوثائق",
+      title: "الاستيراد من تايلاند إلى أفريقيا | التجارة بين تايلاند وأفريقيا",
+      desc: "AfricanThaiTrade Nexus هو وسيط تجاري أفريقي متخصص في تسهيل التجارة الدولية ومطابقة الأعمال بين الشركات. نحن نبسط الاستيراد من تايلاند للمشترين المؤسسيين عبر التدقيق الصارم والامتثال الجمركي.",
+      cta: "بدء طلب مطابقة",
+      process_1: "1. الفحص",
+      process_1_desc: "تدقيق المصنع",
+      process_2: "2. المطابقة",
+      process_2_desc: "الربط المؤسسي",
+      process_3: "3. التنفيذ",
+      process_3_desc: "حوكمة الوثائق"
     },
     summary: {
-      title: "استخبارات الاقتصاد الكلي",
-      intro_title: "التحول إلى الجنوب العالمي",
-      intro_desc: "محرك الاقتصاد التايلاندي في نقطة تحول. مع توقع نمو متواضع بنسبة 1.8-2.5٪ لعام 2024-2025، يبحث المصنعون بنشاط عن 'أسواق ثانوية'.",
-      chart_title: "بيانات التجارة الثنائية",
-      chart_subtitle: "تقديرات 2024/2025",
-      pillars_title: "الركائز الاستراتيجية الأساسية",
-      future_title: "توقعات المستقبل: 2025"
+      title: "استخبارات الممر: تايلاند-أفريقيا",
+      intro_title: "إطار التجارة 2025",
+      intro_desc: "ننظم ممرات التجارة الدولية بين آسيا وأفريقيا من خلال تحديد مجموعات موثقة. ندعم المشتريات الحكومية وأفريقيا واتفاقية التجارة الحرة الأفريقية عبر موانئ الإسكندرية ولاغوس وديربان.",
+      chart_title: "تدفق التجارة بين تايلاند وأفريقيا",
+      chart_subtitle: "بيانات الأداء لعام 2025",
+      pillars_title: "ركائز الحوكمة",
+      future_title: "توقعات تجارة الجنوب العالمي"
     },
     matrix: {
-      title: "مصفوفة الاستخبارات التجارية",
-      subtitle: "تحليل مفصل للفئات عالية التأثير، ومطابقة العرض التايلاندي مع ديناميكيات الطلب الأفريقي المحددة.",
-      info_box: "تسلط هذه المصفوفة الضوء على المنتجات ذات الأصل التايلاندي الجاهزة للتصدير والتي تتمتع بقدرة تنافسية عالية لأسواق جنوب إفريقيا.",
-      categories: "الفئات",
-      tab_overview: "نظرة عامة على السوق",
-      tab_buyers: "معلومات المشترين",
-      high_potential: "إمكانات عالية",
-      export_ready: "جاهز للتصدير",
-      comp_adv: "المزايا التنافسية",
-      risks: "المخاطر والعوائق",
-      active_leads: "العملاء المحتملون",
-      leads_found: "تم العثور عليهم",
-      contact_intel: "معلومات الاتصال"
+      title: "مصفوفة التوريد التايلاندية الأفريقية",
+      subtitle: "تحليل تقني للمنتجات التايلاندية والمصدرين التايلانديين للمستوردين الأفارقة. تحسين تسهيل التجارة B2B للمواد الغذائية والمنتجات الصناعية.",
+      info_box: "اكتشف القطاعات التي نقدم فيها التنسيق التنظيمي للشركاء المؤسسيين.",
+      categories: "محافظ القطاعات",
+      tab_overview: "منطق السوق",
+      tab_archetypes: "نماذج المشترين",
+      high_potential: "التوفير الاستراتيجي",
+      export_ready: "موثق الامتثال",
+      comp_adv: "ميزة التوريد",
+      risks: "عوائق الممر",
+      active_leads: "طلبات مفتوحة",
+      leads_found: "النماذج الموثقة",
+      contact_intel: "مكتب الشراكات"
     },
     pigeon: {
-      tag: "تقرير خاص بالسلع",
-      title: "البازلاء الحمامة",
-      subtitle: "تحليل المنشأ العالمي",
-      intro_quote: "يفصل هذا التقرير ديناميكيات الاستيراد الدقيقة، ويكشف عن مسار لـ 'توفير المصادر من المنشأ' يتجاوز الوسطاء التقليديين.",
-      supply_title: "ديناميكيات سلسلة التوريد",
-      price_title: "هيكل الأسعار",
-      deep_dive: "تحليل عميق: استيراد تايلاند",
-      directory_title: "دليل المشترين في تايلاند"
+      tag: "تحليل مراجحة السلع",
+      title: "تحسين توفير البروتين",
+      subtitle: "تايلاند وأفريقيا",
+      intro_summary: "تنتقل زراعة البازلاء في تايلاند من كونها قطاعاً تجريبياً إلى بديل استراتيجي. واليوم، يتزايد الاهتمام بهذا المحصول مدفوعاً بالبحث عن مصادر بروتين مستدامة وغير معدلة وراثياً لقطاعي الصناعات الغذائية المتقدمة والأعلاف الحيوانية.",
+      intro_quote: "تعظيم القيمة من خلال تحديد نوافذ توفير المصادر بين الإنتاج الأفريقي والمعالجة التايلاندية.",
+      supply_title: "استراتيجية المرونة",
+      price_title: "نمذجة التكلفة",
+      deep_dive: "هيكل الاستخبارات التجارية",
+      directory_title: "الشركاء المؤسسيون"
     },
     strategy: {
-      title: "استراتيجية التنفيذ",
-      subtitle: "الشخص الوسيط ليس سمسارًا؛ بل هو مدير مخاطر. يوفر هذا القسم الأدوات لسد الفجوة بالبيانات ودقة التكلفة.",
-      roadmap_title: "خارطة الطريق التشغيلية",
-      hidden_gems_title: "هامش ربح مرتفع / منافسة منخفضة",
-      calculator_title: "حاسبة التكلفة الإجمالية",
-      calculator_desc: "تقدير التكلفة الإجمالية إلى ديربان/أبابا بما في ذلك الشحن والرسوم والهامش.",
-      download_btn: "تنزيل المخطط الكامل",
-      generating: "جاري إنشاء PDF...",
-      support_title: "دعم المكتب التجاري",
-      support_desc: "اتصل بفريقنا للحصول على استراتيجيات دخول السوق المخصصة."
+      title: "عملية التنفيذ: من تايلاند إلى أفريقيا",
+      subtitle: "سد الفجوات التجارية من خلال هيكلة الصفقات وحوكمة الوثائق.",
+      roadmap_title: "دورة التسهيل",
+      hidden_gems_title: "القطاعات المتخصصة الاستراتيجية",
+      calculator_title: "نمذجة تكلفة الوصول",
+      calculator_desc: "تقدير التكاليف الصناعية للموانئ الأفريقية بما في ذلك رسوم التسهيل.",
+      download_btn: "تنزيل محفظة الخدمة",
+      generating: "جاري التجميع...",
+      support_title: "مكتب التجارة المؤسسي",
+      support_desc: "اتصل بخبراء الممر لدينا لهيكلة الصفقات."
     },
     logistics: {
-      title: "الاستخبارات اللوجستية والتنظيمية",
-      subtitle: "إتقان الطريق إلى السوق ومشهد الامتثال هو الفرق بين الربح والمصادرة.",
-      tab_routes: "طرق الشحن",
-      tab_regs: "ورقة الغش التنظيمية",
-      insight: "رؤية",
-      pain_points: "نقاط الألم",
-      est_cost: "التكلفة التقديرية (20 قدم)",
-      transit: "العبور",
-      critical_action: "إجراء حاسم"
+      title: "إدارة الممر والامتثال في أفريقيا",
+      subtitle: "تنسيق اللوجستيات والوثائق في موانئ ديربان ومومباسا ولاغوس.",
+      tab_routes: "المسارات الاستراتيجية",
+      tab_regs: "حوكمة الوثائق",
+      insight: "منطق المطابقة",
+      pain_points: "عوامل الخطر",
+      est_cost: "معايير القيمة",
+      transit: "وقت العبور",
+      critical_action: "إجراء الامتثال"
     },
-    directory: {
-      title: "دليل الأعمال والشبكة",
-      subtitle: "شبكة من الكيانات الموثقة التي تقود الممر التجاري بين تايلاند وأفريقيا.",
-      sec_exporters: "المصدرون التايلانديون الموثقون",
-      sec_logistics: "شركاء اللوجستيات والتفتيش",
-      sec_buyers: "المشترون التايلانديون (التجارة العكسية)"
+    vetting: {
+      title: "إطار فحص مخصص",
+      subtitle: "نظام تدقيق خاص للمصنعين في ممر تايلاند وأفريقيا.",
+      sec_audit: "تدقيق المصنع",
+      sec_matching: "المطابقة المؤسسية",
+      sec_confidential: "تدفق الصفقات السري"
+    },
+    faq: {
+      title: "الأسئلة الشائعة ومحرك الإجابات",
+      subtitle: "إجابات الخبراء على الأسئلة الأكثر شيوعًا حول الاستيراد من تايلاند إلى أفريقيا."
+    }
+  },
+  pt: {
+    nav: {
+      home: "Início",
+      summary: "Info Corridor",
+      matrix: "Matriz de Oferta",
+      pigeon: "Sourcing Especializado",
+      strategy: "Processo",
+      logistics: "Gestão Corridor",
+      vetting: "Portfolio de Vetting",
+      faq: "FAQ Comércio",
+    },
+    hero: {
+      subtitle: "Facilitação B2B e Governança Documental",
+      title: "Como Importar da Tailândia para a África | Comércio B2B",
+      desc: "AfricanThaiTrade Nexus é um intermediário comercial África Tailândia especializado na facilitação de comércio internacional e matchmaking de negócios. Simplificamos a importação da Tailândia para compradores institucionais através de auditoria e conformidade alfandegária.",
+      cta: "Solicitar Matchmaking",
+      process_1: "1. Vetting",
+      process_1_desc: "Auditoria Fabricante",
+      process_2: "2. Matching",
+      process_2_desc: "Ligação Institucional",
+      process_3: "3. Execução",
+      process_3_desc: "Governança Documental"
+    },
+    summary: {
+      title: "Inteligência de Corredor: Tailândia-África",
+      intro_title: "Estrutura Comercial 2025",
+      intro_desc: "Orquestramos corredores de comércio estratégico África e cadeia de suprimentos global. Apoiamos a AfCFTA e hubs regionais como Luanda, Maputo e Durban através de logística internacional robusta.",
+      chart_title: "Fluxo Comercial Tailândia-África",
+      chart_subtitle: "Dados de Performance 2025",
+      pillars_title: "Pilares de Governança",
+      future_title: "Perspectiva Sud-Sud"
+    },
+    matrix: {
+      title: "Matriz de Oferta Tailândia-África",
+      subtitle: "Análise técnica de produtos tailandeses para importadores africanos e distribuidores. Otimização da facilitação comercial B2B para alimentos, têxteis e bens de consumo.",
+      info_box: "Descubra setores onde coordenamos a regulação para parceiros institucionais.",
+      categories: "Portfólios Setoriais",
+      tab_overview: "Lógica de Mercado",
+      tab_archetypes: "Arquétipos de Comprador",
+      high_potential: "Sourcing Estratégico",
+      export_ready: "Conformidade Verificada",
+      comp_adv: "Vantagem de Oferta",
+      risks: "Barreiras Corredor",
+      active_leads: "Requisições Abertas",
+      leads_found: "Arquétipos Verificados",
+      contact_intel: "Secretaria de Parceria"
+    },
+    pigeon: {
+      tag: "Análise de Arbitragem",
+      title: "Sourcing de Proteína",
+      subtitle: "Tailândia-África",
+      intro_summary: "O cenário do feijão-guandu na Tailândia está a transitar de um nicho experimental para uma alternativa estratégica. A relevância atual é impulsionada pela busca de fontes de proteína sustentáveis e não OGM para os setores avançados de processamento de alimentos e ração animal.",
+      intro_quote: "Maximizando valor através de janelas de sourcing contra-cíclicas.",
+      supply_title: "Estratégia de Resiliência",
+      price_title: "Modelação de Custos",
+      deep_dive: "Arquitetura de Inteligência Comercial",
+      directory_title: "Parceiros Institucionais"
+    },
+    strategy: {
+      title: "Processo de Execução: Tailândia para África",
+      subtitle: "Unindo parceiros através de estruturação rigorosa e governança documental.",
+      roadmap_title: "Ciclo de Facilitação",
+      hidden_gems_title: "Nichos Estratégicos",
+      calculator_title: "Modelação Custo Rendido",
+      calculator_desc: "Estimar custos industriais para portos africanos incluindo taxas de facilitação.",
+      download_btn: "Baixar Portfolio",
+      generating: "Compilando...",
+      support_title: "Balcão Comercial",
+      support_desc: "Fale com nossos especialistas para estruturação de negócios."
+    },
+    logistics: {
+      title: "Gestão de Corredor e Conformidade Africana",
+      subtitle: "Coordenação logística e documental nos portos de Luanda, Durban e Mombasa.",
+      tab_routes: "Rotas Estratégicas",
+      tab_regs: "Governança Documental",
+      insight: "Lógica Matchmaking",
+      pain_points: "Fatores de Risco",
+      est_cost: "Benchmarks Valor",
+      transit: "Tempo de Trânsito",
+      critical_action: "Ação de Conformidade"
+    },
+    vetting: {
+      title: "Framework de Vetting Sob Medida",
+      subtitle: "Sistema de auditoria privada para fabricantes no corredor Tailândia-África.",
+      sec_audit: "Auditoria Fabricante",
+      sec_matching: "Matchmaking Institucional",
+      sec_confidential: "Fluxo Confidencial"
+    },
+    faq: {
+      title: "FAQ Comércio e Respostas AI",
+      subtitle: "Respostas de especialistas às perguntas comuns sobre importar da Tailândia para a África."
     }
   }
 };

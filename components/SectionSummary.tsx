@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { TRADE_STATS_DATA, SUMMARY_IMAGES } from '../constants';
-import { TrendingUp, Anchor, Truck, ArrowUpRight, Globe, BarChart3, Factory, Sprout, MapPin } from 'lucide-react';
+import { TrendingUp, Anchor, Truck, ArrowUpRight, Globe, BarChart3, Factory, ShieldCheck, MapPin, Layers } from 'lucide-react';
 import { Language } from '../types';
 import { t } from '../localization';
 
@@ -27,7 +27,37 @@ const SectionSummary: React.FC<{ lang: Language }> = ({ lang }) => {
         </motion.div>
       </div>
 
-      {/* 2. Key Market Volumes Chart */}
+      {/* 2. Visual Hub: Corridor Mapping Placeholder */}
+      <div className="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 className="text-2xl font-bold text-charcoal mb-4 flex items-center gap-2">
+            <Globe className="text-lake" /> Strategic Trade Corridor Mapping
+          </h3>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            Effective trade between Thailand and Africa is not merely about shipping; it is about navigating the "Infrastructure Gaps" of the Global South. Our corridor mapping identifies port efficiency, rail-connectivity, and bonded warehouse locations in 2024-2025.
+          </p>
+          <ul className="space-y-4">
+            <li className="flex items-start gap-3 text-sm text-gray-700">
+               <MapPin className="text-warmGold mt-1 shrink-0" size={18} />
+               <div>
+                  <span className="font-bold">Hub-and-Spoke Distribution:</span> Utilizing Durban and Mombasa as primary nodes for multi-country inland reach.
+               </div>
+            </li>
+            <li className="flex items-start gap-3 text-sm text-gray-700">
+               <Layers className="text-lake mt-1 shrink-0" size={18} />
+               <div>
+                  <span className="font-bold">Customs Corridors:</span> Pre-cleared documentation flow via T1/T2 transit protocols for landlocked SADC and EAC nations.
+               </div>
+            </li>
+          </ul>
+        </div>
+        <div className="bg-neutralGrey rounded-3xl p-4 border border-gray-200 shadow-inner flex flex-col items-center justify-center aspect-video group">
+           <img src={SUMMARY_IMAGES[0].url} alt={SUMMARY_IMAGES[0].alt} className="rounded-2xl w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+           <p className="text-[10px] font-bold text-gray-400 mt-4 uppercase tracking-widest">[Image Placeholder: Strategic Trade Corridor Map - 16:9]</p>
+        </div>
+      </div>
+
+      {/* 3. Performance Data Visual */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
@@ -65,6 +95,9 @@ const SectionSummary: React.FC<{ lang: Language }> = ({ lang }) => {
               </BarChart>
             </ResponsiveContainer>
           </div>
+          <div className="mt-4 p-4 bg-lake/5 rounded-xl text-[11px] text-lake/80 font-medium">
+             [Infographic Note: Data reflects facilitated B2B match value across institutional grain, polymer, and automotive sectors.]
+          </div>
         </motion.div>
 
         <div className="lg:col-span-6 space-y-6">
@@ -87,138 +120,108 @@ const SectionSummary: React.FC<{ lang: Language }> = ({ lang }) => {
                     <div className={`text-2xl font-bold ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`} style={{ color: COLORS[idx % COLORS.length] }}>
                       {stat.label}
                     </div>
-                    {stat.trend === 'up' && <span className="text-xs font-bold text-green-600 flex items-center justify-end gap-1"><TrendingUp size={12}/> Growing</span>}
-                    {stat.trend === 'stable' && <span className="text-xs font-bold text-blue-600 flex items-center justify-end gap-1"><Anchor size={12}/> Stable</span>}
                   </div>
                </div>
-               <div className="mt-4 pt-4 border-t border-gray-200/50">
-                 <p className="text-sm text-gray-600 leading-relaxed">
-                   <span className="font-bold text-charcoal">Insight: </span> 
-                   {stat.insight}
-                 </p>
+               <div className="mt-4 pt-4 border-t border-gray-200/50 text-sm text-gray-600 leading-relaxed">
+                 {stat.insight}
                </div>
              </motion.div>
           ))}
         </div>
       </div>
 
-      {/* 3. Country-Specific Insights */}
+      {/* 4. Core Governance Pillars */}
       <div className="mb-20">
-         <h3 className={`text-2xl md:text-3xl font-bold text-charcoal mb-10 text-center ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>{t(lang, 'summary', 'intro_title')} (Country Breakdown)</h3>
-         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                country: "South Africa",
-                role: "The Industrial Gateway",
-                insight: "Mature, regulated market. Buyers (Shoprite, Motus) value compliance (SABS) over rock-bottom price. Hub for SADC transshipment."
-              },
-              {
-                country: "Nigeria",
-                role: "The Hungry Giant",
-                insight: "High-friction, low-trust. Severe food inflation driving duty waivers. Focus on 'Brown Rice' for millers and 'Tokunbo' auto parts."
-              },
-              {
-                country: "Kenya",
-                role: "Construction Hub",
-                insight: "Driven by infrastructure boom. Thai ceramics/gypsum prized over Chinese. High duties (25%) + Railway Levy (2%)."
-              },
-              {
-                country: "Malawi",
-                role: "Sourcing Frontier",
-                insight: "The 'Reverse Trade' asset. Exporting pigeon peas to Thailand generates forex to fund import of Thai construction materials."
-              }
-            ].map((mkt, idx) => (
-               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                  <div className="flex items-center gap-2 mb-3">
-                     <MapPin className="text-lake" size={18} />
-                     <h4 className="font-bold text-charcoal">{mkt.country}</h4>
-                  </div>
-                  <div className="text-xs font-bold text-warmGold uppercase tracking-wider mb-2">{mkt.role}</div>
-                  <p className="text-sm text-gray-600 leading-relaxed">{mkt.insight}</p>
-               </div>
-            ))}
+         <div className="text-center mb-12">
+            <h3 className={`text-2xl md:text-3xl font-bold text-charcoal mb-4 ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>{t(lang, 'summary', 'pillars_title')}</h3>
+            <p className="text-gray-500 max-w-2xl mx-auto">Institutional-grade trade matching requires more than a directory. We rely on three proprietary governance layers.</p>
          </div>
-      </div>
-
-      {/* 4. Strategic Trade Pillars */}
-      <div className="mb-20">
-         <h3 className={`text-2xl md:text-3xl font-bold text-charcoal mb-10 text-center ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>{t(lang, 'summary', 'pillars_title')}</h3>
          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: "Industrial Surplus",
-                icon: Factory,
+                title: "Vetting Governance",
+                icon: ShieldCheck,
                 color: "bg-lake",
-                desc: "Thailand holds inventory in automotive parts and polymers. Manufacturers are willing to negotiate FOB prices to clear this stock."
+                desc: "Every manufacturer in our portfolio undergoes a 5-tier audit of financial solvency, production scalability, and technical certifications. We eliminate vendor risk before matching."
               },
               {
-                title: "Agro-Processing",
-                icon: Sprout,
+                title: "Corridor Resilience",
+                icon: MapPin,
                 color: "bg-deepGreen",
-                desc: "Moving beyond raw commodities. Canned tuna, parboiled rice, and processed rubber offer shelf stability crucial for African supply chains."
+                desc: "Mapping multimodal logistics routes that utilize rail-bridges and strategic bonded warehouses to circumvent port-side bottlenecks in high-volume hubs like Lagos and Durban."
               },
               {
-                title: "Tech Appropriateness",
+                title: "Document Integrity",
                 icon: Truck,
                 color: "bg-warmGold",
-                desc: "Thai machinery (Kubota) and pickups (Hilux) are 'Tropicalized'—designed for rugged, hot environments, unlike fragile European tech."
+                desc: "Managing the complex document lifecycle from Thai factory release to African port clearance, ensuring 100% compliance with SONCAP, PVOC, and AfCFTA CoO requirements."
               }
             ].map((pillar, idx) => (
               <motion.div 
                 key={idx}
                 whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 relative overflow-hidden"
+                className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 relative overflow-hidden h-full flex flex-col"
               >
                 <div className={`w-14 h-14 ${pillar.color} rounded-2xl flex items-center justify-center text-white mb-6 shadow-md`}>
                    <pillar.icon size={28} />
                 </div>
                 <h4 className="text-xl font-bold text-charcoal mb-3">{pillar.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{pillar.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed flex-grow">{pillar.desc}</p>
               </motion.div>
             ))}
          </div>
       </div>
 
-      {/* 5. Future Outlook */}
-      <div className="bg-charcoal text-white rounded-3xl p-8 md:p-12 relative overflow-hidden mb-16">
-          <div className="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-             <div className="md:w-2/3">
+      {/* 5. Strategic Outlook: Deep Analysis Placeholder */}
+      <div className="bg-charcoal text-white rounded-3xl p-8 md:p-12 relative overflow-hidden mb-16 border-b-8 border-warmGold">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+             <div className="md:w-3/5">
                 <h3 className={`text-2xl font-bold text-warmGold mb-4 flex items-center gap-3 ${lang === 'ar' ? 'font-arabic' : 'font-serif'}`}>
                    <ArrowUpRight /> {t(lang, 'summary', 'future_title')}
                 </h3>
-                <ul className="text-gray-300 leading-relaxed space-y-4">
-                   <li><strong>1. 'Thai-Spec' Auto Dominance:</strong> As Japanese used cars get pricier, maintaining existing fleets with Thai OEM parts becomes critical ({'>'}6% CAGR).</li>
-                   <li><strong>2. Food Policy Shifts:</strong> African nations moving to 'Brown Rice' imports for local milling to capture value.</li>
-                   <li><strong>3. The Beauty Boom:</strong> Thai herbal/whitening cosmetics finding massive traction in Nigeria (Projected €20Bn market by 2030).</li>
-                </ul>
+                <div className="space-y-6 text-gray-300">
+                   <div>
+                     <h4 className="text-white font-bold mb-1">AfCFTA Value-Add Strategy (2025)</h4>
+                     <p className="text-sm border-l-2 border-lake pl-4">
+                       We are identifying strategic hubs for semi-knocked-down (SKD) assembly in Nigeria and South Africa. This allows Thai manufacturers to export components at lower tariffs while creating local value-add and jobs within Africa.
+                     </p>
+                   </div>
+                   <div>
+                     <h4 className="text-white font-bold mb-1">Digitized Vetting Portfolio</h4>
+                     <p className="text-sm border-l-2 border-lake pl-4">
+                       Our private matching desk is now data-driven, allowing institutional buyers to view neutral feasibility reports on Thai producers within 48 hours, significantly reducing requisition lead times.
+                     </p>
+                   </div>
+                   <div>
+                     <h4 className="text-white font-bold mb-1">Logistics Decoupling</h4>
+                     <p className="text-sm border-l-2 border-lake pl-4">
+                       In response to global shipping volatility, we are prioritizing secondary ports (e.g., Beira, Walvis Bay) to offer resilient alternatives for landlocked African economies.
+                     </p>
+                   </div>
+                </div>
              </div>
-             <div className="md:w-1/3 flex justify-center">
-                <Globe size={120} className="text-white/10" />
+             <div className="md:w-2/5 flex flex-col items-center justify-center bg-white/5 p-8 rounded-3xl border border-white/10 aspect-square">
+                <img src={SUMMARY_IMAGES[1].url} alt={SUMMARY_IMAGES[1].alt} className="w-full h-auto mb-4 opacity-50 grayscale" />
+                <p className="text-[10px] font-bold text-warmGold uppercase tracking-widest text-center">
+                   [Image Placeholder: Process Flow Diagram - 1:1]
+                </p>
+                <p className="text-[10px] text-gray-500 mt-2 text-center">Visualizing the flow from Thai Factory to African Regional Distribution Hub.</p>
              </div>
+          </div>
+          <div className="absolute top-0 right-0 p-8 opacity-5">
+             <Globe size={300} />
           </div>
       </div>
 
-      {/* 6. Visual Gallery */}
+      {/* 6. Visual Portfolio */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {SUMMARY_IMAGES.map((img, idx) => (
-          <motion.div 
-             key={idx}
-             initial={{ opacity: 0, scale: 0.9 }}
-             whileInView={{ opacity: 1, scale: 1 }}
-             viewport={{ once: true }}
-             className="group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3]"
-          >
-             <img 
-               src={img.url} 
-               alt={img.alt} 
-               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-               loading="lazy"
-             />
+          <div key={idx} className="relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3] group bg-neutralGrey flex flex-col">
+             <img src={img.url} alt={img.alt} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                <p className="text-[10px] text-gray-300 font-mono uppercase tracking-wider">{img.credit}</p>
              </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

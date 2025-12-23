@@ -9,7 +9,8 @@ export enum SectionType {
   PIGEON_PEA = 'PIGEON_PEA',
   STRATEGY = 'STRATEGY',
   LOGISTICS = 'LOGISTICS',
-  DIRECTORY = 'DIRECTORY'
+  VETTING_PORTFOLIO = 'VETTING_PORTFOLIO',
+  FAQ = 'FAQ'
 }
 
 export interface NavItem {
@@ -18,39 +19,32 @@ export interface NavItem {
   icon: LucideIcon;
 }
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface ImageRef {
   url: string;
   credit: string;
   alt: string;
 }
 
-export interface BuyerProfile {
-  name: string;
-  type: string;
-  country?: string;
-  website?: string;
-  focus?: string;        
-  products?: string[];   
-  contactPerson?: string;
-  email?: string;
-  phone?: string;
-  address?: string;
-  note?: string;
-  approach?: string;
-  isPriority?: boolean;
-  lastVerified?: string;
-  sources?: string[];
+export interface BuyerArchetype {
+  title: string;
+  description: string;
+  requirements: string[];
+  volumeTarget: string;
 }
 
 export interface ProductItem {
   name: string;
-  desc?: string;
+  hsCode?: string;
   context?: string;
-  statHighlight?: string; 
-  priceSignal?: string;   
+  marketLogic2025?: string;
   pros: string[];
   cons: string[];
-  targetBuyers: BuyerProfile[]; 
+  archetypes: BuyerArchetype[];
   images?: ImageRef[];
 }
 
@@ -89,6 +83,7 @@ export interface CostingRow {
   fobPrice: number;    
   freightCost: number; 
   dutyRate: number;    
+  facilitationFee: number;
   markup: number;      
 }
 
@@ -105,7 +100,6 @@ export interface IntelTab {
   sections: IntelSection[];
 }
 
-// NEW TYPES FOR LOGISTICS & DIRECTORY
 export interface LogisticRoute {
   id: string;
   name: string;
@@ -121,12 +115,4 @@ export interface Regulation {
   name: string;
   description: string;
   criticalAction: string;
-}
-
-export interface DirectoryCompany {
-  name: string;
-  category: string;
-  location: string;
-  description: string;
-  contact?: string;
 }

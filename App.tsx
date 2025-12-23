@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NAV_ITEMS } from './constants';
 import { SectionType, Language } from './types';
 import { t } from './localization';
-import { Menu, X, Globe, ChevronDown } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, ShieldCheck, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Components
@@ -13,6 +13,7 @@ import SectionPigeonPea from './components/SectionPigeonPea';
 import SectionStrategy from './components/SectionStrategy';
 import SectionLogistics from './components/SectionLogistics';
 import SectionDirectory from './components/SectionDirectory';
+import SectionFAQ from './components/SectionFAQ';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<SectionType>(SectionType.HOME);
@@ -20,22 +21,19 @@ const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [language, setLanguage] = useState<Language>('en');
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const [showDevBanner, setShowDevBanner] = useState(true);
 
-  // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle RTL for Arabic
   useEffect(() => {
     if (language === 'ar') {
       document.documentElement.dir = 'rtl';
-      document.body.classList.add('font-arabic');
     } else {
       document.documentElement.dir = 'ltr';
-      document.body.classList.remove('font-arabic');
     }
   }, [language]);
 
@@ -61,8 +59,10 @@ const App: React.FC = () => {
         return <SectionStrategy lang={language} />;
       case SectionType.LOGISTICS:
         return <SectionLogistics lang={language} />;
-      case SectionType.DIRECTORY:
+      case SectionType.VETTING_PORTFOLIO:
         return <SectionDirectory lang={language} />;
+      case SectionType.FAQ:
+        return <SectionFAQ lang={language} />;
       default:
         return <SectionHero onStart={() => setActiveSection(SectionType.SUMMARY)} lang={language} />;
     }
@@ -76,7 +76,8 @@ const App: React.FC = () => {
       case SectionType.PIGEON_PEA: return t(language, 'nav', 'pigeon');
       case SectionType.STRATEGY: return t(language, 'nav', 'strategy');
       case SectionType.LOGISTICS: return t(language, 'nav', 'logistics');
-      case SectionType.DIRECTORY: return t(language, 'nav', 'directory');
+      case SectionType.VETTING_PORTFOLIO: return t(language, 'nav', 'vetting');
+      case SectionType.FAQ: return t(language, 'nav', 'faq');
       default: return '';
     }
   };
@@ -84,6 +85,39 @@ const App: React.FC = () => {
   return (
     <div className={`min-h-screen bg-[#F2F2F2] text-[#1A1A1A] selection:bg-warmGold selection:text-white ${language === 'ar' ? 'font-arabic' : 'font-sans'}`}>
       
+      {/* Development Banner Pop-up */}
+      <AnimatePresence>
+        {showDevBanner && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-charcoal/40 backdrop-blur-sm"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border border-gray-100 text-center relative"
+            >
+              <div className="w-16 h-16 bg-warmGold/10 text-warmGold rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <AlertCircle size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-charcoal mb-4 font-serif">Platform Under Development</h3>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Welcome to the AfricanThaiTrade Nexus. Please note that this platform is currently undergoing major technical development. Some features and data points are being updated for 2025 accuracy. Thank you for your patience.
+              </p>
+              <button 
+                onClick={() => setShowDevBanner(false)}
+                className="w-full py-4 bg-lake text-white font-bold rounded-xl hover:bg-charcoal transition-colors shadow-lg"
+              >
+                I Understand
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Navigation Bar */}
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -98,11 +132,11 @@ const App: React.FC = () => {
             className="flex items-center gap-2 cursor-pointer group"
             onClick={() => setActiveSection(SectionType.HOME)}
           >
-            <div className={`p-2 rounded-lg transition-colors bg-lake text-white`}>
-              <Globe size={24} />
+            <div className={`p-2 rounded-lg transition-colors bg-lake text-white shadow-sm`}>
+              <ShieldCheck size={24} />
             </div>
             <span className={`font-serif font-bold text-lg tracking-wide text-charcoal ${language === 'ar' ? 'font-arabic' : ''}`}>
-              Siam<span className="text-warmGold">Africa</span>
+              AfricanThai<span className="text-warmGold">Trade</span>
             </span>
           </div>
 
@@ -204,7 +238,6 @@ const App: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Main Content */}
       <main className="pt-0">
         <AnimatePresence mode='wait'>
            <motion.div
@@ -219,17 +252,16 @@ const App: React.FC = () => {
         </AnimatePresence>
       </main>
 
-      {/* Footer */}
       {activeSection !== SectionType.HOME && (
         <footer className="bg-charcoal text-gray-400 py-12 px-6 border-t-4 border-lake">
            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="text-center md:text-left">
-                <h4 className={`text-white text-xl font-bold mb-2 ${language === 'ar' ? 'font-arabic' : 'font-serif'}`}>SiamAfrica Nexus</h4>
-                <p className="text-sm max-w-md">{t(language, 'hero', 'desc').split('.')[0]}.</p>
+                <h4 className={`text-white text-xl font-bold mb-2 ${language === 'ar' ? 'font-arabic' : 'font-serif'}`}>AfricanThaiTrade Nexus</h4>
+                <p className="text-sm max-w-md">Neutral middle-party corridor governance and institutional sourcing between Thailand and Africa.</p>
               </div>
               <div className="flex flex-col md:flex-row gap-2 md:gap-6 text-sm text-center md:text-right">
-                <span>© 2025 Thai-Africa Trade Nexus.</span>
-                <span className="hover:text-warmGold cursor-pointer">{t(language, 'matrix', 'contact_intel')}</span>
+                <span>© 2025 AfricanThaiTrade Nexus. All Rights Reserved.</span>
+                <span className="hover:text-warmGold cursor-pointer">Compliance Policy</span>
               </div>
            </div>
         </footer>
